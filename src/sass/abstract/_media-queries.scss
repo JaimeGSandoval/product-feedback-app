@@ -1,0 +1,91 @@
+@mixin mobileSm {
+  @media (min-width: 375px) {
+    @content;
+  }
+}
+
+@mixin mobileLg {
+  @media (min-width: 414px) {
+    @content;
+  }
+}
+
+@mixin mobileXL {
+  @media (min-width: 428px) {
+    @content;
+  }
+}
+
+@mixin tabletSm {
+  @media (min-width: 600px) {
+    @content;
+  }
+}
+
+@mixin tabletMd {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (min-width: 900px) {
+    @content;
+  }
+}
+
+@mixin laptopLg {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin desktopMd {
+  @media (min-width: 1382px) {
+    @content;
+  }
+}
+
+@mixin desktopLg {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin desktopXL {
+  @media (min-width: 1920px) {
+    @content;
+  }
+}
+
+// custom media queries for popular mobile phones
+@mixin mobileI12Pro {
+  @media (min-width: 390px) and (min-height: 844px) and (max-height: 844px) {
+    @content;
+  }
+}
+
+@mixin mobileIX {
+  @media (min-width: 375px) and (min-height: 812px) and (max-height: 812px) {
+    @content;
+  }
+}
+
+// orientation: landscape media queries
+@mixin mobileLandscapeSm {
+  @media (min-width: 568px) and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin mobileLandscapeLg {
+  @media (min-width: 650px) and (orientation: landscape) {
+    @content;
+  }
+}
