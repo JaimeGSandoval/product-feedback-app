@@ -1,0 +1,49 @@
+@import '../../sass/abstract/vars';
+@import '../../sass/abstract/media-queries';
+
+.modalContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: $opacityBlack;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal {
+  width: 80%;
+  height: 100%;
+  background-color: $lightGrey;
+}
+
+.buttonsContainer {
+  background-color: $white;
+  width: 70%;
+  margin: auto;
+  margin-top: 35%;
+  padding: 1.6rem 1rem;
+  border-radius: 15px;
+}
+
+// .buttonRow {
+//   padding:
+// }
+
+.buttons {
+  font-family: $robotoBold;
+  background-color: $offWhite;
+  color: $blue;
+  font-size: 1rem;
+  padding: 0.7rem 1.3rem;
+  border-radius: 1rem;
+  border: none;
+  outline: none;
+  margin: 0.4rem 0.2rem;
+}
+
+.topButtons {
+  padding: 0.8rem 1.2rem;
+  margin: 0.5em 0.4rem;
+}
