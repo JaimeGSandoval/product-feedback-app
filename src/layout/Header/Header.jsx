@@ -10,14 +10,10 @@ import hamburger from '../../assets/icons/hamburger.svg';
 import close from '../../assets/icons/close.svg';
 import { MobileModal } from '../MobileModal/MobileModal';
 
-// create modal with portal
-// pass IsMenuOpen down to modal
-// control flow to check state of isMenuOpen: if false, don't show, else show modal
-
 export const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const setMenu = () => setIsMenuOpen(!isMenuOpen);
+  const handleSetModal = () => setIsModalOpen(!isModalOpen);
 
   return (
     <>
@@ -47,15 +43,15 @@ export const Header = () => {
           </div>
           <div className={styles.hamburgerContainer}>
             <img
-              onClick={setMenu}
-              src={isMenuOpen ? close : hamburger}
+              onClick={handleSetModal}
+              src={isModalOpen ? close : hamburger}
               className={styles.hamburger}
               alt="mobile nav menu"
             />
           </div>
         </div>
       </header>
-      <MobileModal isMenuOpen={isMenuOpen} setMenu={setMenu} />
+      <MobileModal isModalOpen={isModalOpen} />
     </>
   );
 };

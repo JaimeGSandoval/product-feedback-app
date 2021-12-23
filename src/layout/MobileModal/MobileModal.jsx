@@ -1,36 +1,52 @@
+import { useState } from 'react';
 import { createPortal } from 'react-dom';
+import { Button } from './Button';
+import RoadMapData from './RoadMapData';
 import styles from './_mobileModal.module.scss';
 
-export const MobileModal = ({ isMenuOpen, setMenu }) => {
-  if (!isMenuOpen) return null;
+export const MobileModal = ({ isModalOpen }) => {
+  const [active, setActive] = useState(0);
 
-  //  onClick={setMenu}
+  if (!isModalOpen) return null;
+
+  const handleClick = (index) => {
+    setActive(index);
+  };
+
+  const BUTTON_TITLES = ['All', 'UI', 'UX', 'Enhancement', 'Bug', 'Feature'];
+
+  const roadMapData = [
+    { category: 'planned', tasks: 2 },
+    { category: 'in-progress', tasks: 6 },
+    { category: 'live', tasks: 4 },
+  ];
 
   return createPortal(
     <div className={styles.modalContainer}>
       <div className={styles.modal}>
         <nav>
           <div className={styles.buttonsContainer}>
-            <div className={styles.buttonsRow}>
-              <button className={`${styles.buttons} ${styles.topButtons}`}>
-                All
-              </button>
-              <button className={`${styles.buttons} ${styles.topButtons}`}>
-                UI
-              </button>
-              <button className={`${styles.buttons} ${styles.topButtons}`}>
-                UX
-              </button>
-            </div>
+            {BUTTON_TITLES.map((title, index) => {
+              return (
+                <Button
+                  title={title}
+                  index={index}
+                  handleClick={handleClick}
+                  key={title}
+                  activeButton={active}
+                />
+              );
+            })}
+          </div>
 
-            <div className={styles.buttonsRow}>
-              <button className={styles.buttons}>Enhancement</button>
-              <button className={styles.buttons}>Bug</button>
+          <div className={styles.roadMapContainer}>
+            <div className={styles.titleContainer}>
+              <span className={styles.roadMapTitle}>roadmap</span>
+              <span className={styles.viewLink}>view</span>
             </div>
-
-            <div className={styles.buttonsRow}>
-              <button className={styles.buttons}>Feature</button>
-            </div>
+            {roadMapData.map((data) => {
+              return <RoadMapData data={data} key={data.category} />;
+            })}
           </div>
         </nav>
       </div>
