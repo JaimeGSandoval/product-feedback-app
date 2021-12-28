@@ -11,7 +11,6 @@ body {
   height: 100%;
   width: 100vw;
   max-width: 100%;
-  background-color: #000;
 }
 
 #root {
@@ -24,15 +23,6 @@ body {
   height: 100%;
 }
 
-.one {
-  color: white;
-  font-family: 'Roboto';
-  // font-weight: 700;
-  font-size: 2rem;
-}
-
-.two {
-  color: white;
-  font-family: 'Roboto Bold';
-  font-size: 2rem;
+main {
+  height: 100%;
 }

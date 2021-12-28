@@ -1,0 +1,149 @@
+@import '../../sass/abstract/vars';
+@import '../../sass/abstract/media-queries';
+
+.modalContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: $opacityBlack;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal {
+  z-index: 1;
+  width: 80%;
+  height: 100%;
+  background-color: $lightGrey;
+}
+
+.buttonsContainer {
+  background-color: $white;
+  width: 70%;
+  margin: auto;
+  margin-top: 35%;
+  padding: 1.6rem 1.5rem;
+  border-radius: 15px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.buttons {
+  font-family: $robotoBold;
+  background-color: $offWhite;
+  color: $blue;
+  font-size: 1rem;
+  border-radius: 0.7rem;
+  border: none;
+  outline: none;
+  padding: 0.5rem 1rem;
+
+  &:nth-of-type(1),
+  &:nth-of-type(2),
+  &:nth-of-type(3) {
+    margin-right: 0.8rem;
+    width: 25%;
+    padding: 0.5rem 0;
+    border-radius: 0.7rem;
+  }
+
+  &:nth-of-type(4),
+  &:nth-of-type(5) {
+    margin: 1rem 0;
+  }
+
+  &:nth-of-type(5) {
+    margin-left: 0.5rem;
+  }
+
+  &:nth-of-type(6) {
+    width: 51%;
+  }
+}
+
+.activeButton {
+  background: $blue;
+  color: $white;
+}
+
+.roadMapContainer {
+  background-color: $white;
+  width: 70%;
+  margin: auto;
+  margin-top: 10%;
+  padding: 1.6rem 1.5rem;
+  border-radius: 15px;
+
+  div:nth-of-type(2) span:first-child {
+    background-color: $peach;
+  }
+
+  div:nth-of-type(3) span:first-child {
+    background-color: $purple;
+  }
+
+  div:nth-of-type(4) span:first-child {
+    background-color: $blue;
+  }
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1.8rem;
+}
+
+.roadMapTitle {
+  text-transform: capitalize;
+  color: $darkNavy;
+  font-size: 1.3rem;
+  font-family: $robotoBold;
+}
+
+.viewLink {
+  display: inline-block;
+  text-transform: capitalize;
+  color: $blue;
+  font-family: $robotoBold;
+  font-size: 0.9rem;
+  border-bottom: 2px solid $grey;
+}
+
+.roadMapRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.colorCircle {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.roadMapCategoryBox {
+  display: flex;
+  align-items: center;
+}
+
+.category {
+  margin-left: 1rem;
+  text-transform: capitalize;
+  font-family: $roboto;
+  color: $lightNavy;
+  font-size: 1.1rem;
+}
+
+.taskAmount {
+  font-family: $robotoBold;
+  color: $darkNavy;
+  font-size: 1.1rem;
+}
+
+.roadMapContainer div:nth-of-type(3) {
+  padding: 1.3rem 0;
+}
