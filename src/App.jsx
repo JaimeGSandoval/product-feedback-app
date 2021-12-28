@@ -1,10 +1,10 @@
 import './index.scss';
-import { Layout } from './layout/Layout';
+import { SuggestionsPage } from './pages/SuggestionsPage/SuggestionsPage';
 
 function App() {
   return (
     <div className="App">
-      <Layout />
+      <SuggestionsPage />
     </div>
   );
 }
