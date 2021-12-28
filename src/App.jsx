@@ -6,10 +6,12 @@ import './index.scss';
 function App() {
   return (
     <div className="App">
-      <Routes>
-        <Route path="/" element={<SuggestionsPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route path="/" element={<SuggestionsPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </main>
     </div>
   );
 }

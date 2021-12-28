@@ -61,25 +61,6 @@
   }
 }
 
-button {
-  text-transform: capitalize;
-  background-color: $purple;
-  color: $white;
-  outline: none;
-  border: none;
-  padding: 0.8rem;
-  border-radius: 10px;
-  font-size: 0.8rem;
-
-  @include mobileSm {
-    font-size: 0.9rem;
-  }
-
-  @include mobileLg {
-    font-size: 1rem;
-  }
-}
-
 .arrow {
   font-size: 0.7rem;
   position: absolute;
@@ -99,6 +80,24 @@ button {
 
 .showDropDown {
   display: block;
+}
+
+.feedBackBtn_header {
+  text-transform: capitalize;
+  background-color: $purple;
+  color: $white;
+  outline: none;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 10px;
+
+  @include mobileSm {
+    font-size: 0.9rem;
+  }
+
+  @include mobileLg {
+    font-size: 1rem;
+  }
 }
 
 .plusSign {

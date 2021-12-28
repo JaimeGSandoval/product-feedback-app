@@ -2,7 +2,6 @@
 @import './sass/abstract/vars';
 @import './sass/abstract/media-queries';
 @import './sass/base/typography';
-// @import './pages/SuggestionsPage/components/Header/';
 
 html {
   height: 100%;
@@ -24,15 +23,6 @@ body {
   height: 100%;
 }
 
-.one {
-  color: white;
-  font-family: 'Roboto';
-  // font-weight: 700;
-  font-size: 2rem;
-}
-
-.two {
-  color: white;
-  font-family: 'Roboto Bold';
-  font-size: 2rem;
+main {
+  height: 100%;
 }

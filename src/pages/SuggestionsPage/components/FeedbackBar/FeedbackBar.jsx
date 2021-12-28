@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { SelectOption } from './SelectOption';
+import { FeedBackButton } from '../../../../components/FeedBackButton/FeedBackButton';
 import styles from './_feedbackBar.module.scss';
 
 const SELECT_OPTIONS = [
@@ -60,7 +61,7 @@ export const FeedbackBar = () => {
             })}
           </div>
         </div>
-        <button>
+        <button className={styles.feedBackBtn_header}>
           <span className={styles.plusSign}>&#43;</span> add feedback
         </button>
       </div>
