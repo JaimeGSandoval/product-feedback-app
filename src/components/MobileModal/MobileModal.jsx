@@ -1,8 +1,16 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Button } from './Button';
-import RoadMapData from './RoadMapData';
+import RoadMap from './RoadMap';
 import styles from './_mobileModal.module.scss';
+
+const BUTTON_TITLES = ['All', 'UI', 'UX', 'Enhancement', 'Bug', 'Feature'];
+
+const roadMapData = [
+  { category: 'planned', tasks: 2 },
+  { category: 'in-progress', tasks: 6 },
+  { category: 'live', tasks: 4 },
+];
 
 export const MobileModal = ({ isModalOpen }) => {
   const [active, setActive] = useState(0);
@@ -12,14 +20,6 @@ export const MobileModal = ({ isModalOpen }) => {
   const handleClick = (index) => {
     setActive(index);
   };
-
-  const BUTTON_TITLES = ['All', 'UI', 'UX', 'Enhancement', 'Bug', 'Feature'];
-
-  const roadMapData = [
-    { category: 'planned', tasks: 2 },
-    { category: 'in-progress', tasks: 6 },
-    { category: 'live', tasks: 4 },
-  ];
 
   return createPortal(
     <div className={styles.modalContainer}>
@@ -45,7 +45,7 @@ export const MobileModal = ({ isModalOpen }) => {
               <span className={styles.viewLink}>view</span>
             </div>
             {roadMapData.map((data) => {
-              return <RoadMapData data={data} key={data.category} />;
+              return <RoadMap data={data} key={data.category} />;
             })}
           </div>
         </nav>

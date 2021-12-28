@@ -1,0 +1,111 @@
+@import '../../../../sass/abstract/vars';
+@import '../../../../sass/abstract/media-queries';
+
+.container {
+  width: 100%;
+  background-color: $darkNavy;
+}
+
+.contentBox {
+  display: flex;
+  width: 90%;
+  margin: auto;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 0;
+}
+
+.selectContainer {
+  position: relative;
+  min-width: 190px;
+}
+
+.selectOptions {
+  background-color: $white;
+  color: $darkNavy;
+  font-family: $roboto;
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  right: -2.8rem;
+  top: 2.5rem;
+  width: 12rem;
+  box-shadow: 3px 3px 13px #bdbdbd;
+}
+
+.option {
+  text-align: left;
+  text-transform: capitalize;
+  padding: 1rem 0 1rem 1rem;
+  border-bottom: 1px solid #d3d1d1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sortTabContainer {
+  display: inline-block;
+}
+
+.sortText,
+.sortTitle {
+  color: $white;
+  font-family: $roboto;
+  text-transform: capitalize;
+  font-size: 0.9rem;
+  position: relative;
+  top: 1px;
+  width: 100%;
+
+  @include mobileSm {
+    top: 0;
+  }
+}
+
+button {
+  text-transform: capitalize;
+  background-color: $purple;
+  color: $white;
+  outline: none;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 10px;
+  font-size: 0.8rem;
+
+  @include mobileSm {
+    font-size: 0.9rem;
+  }
+
+  @include mobileLg {
+    font-size: 1rem;
+  }
+}
+
+.arrow {
+  font-size: 0.7rem;
+  position: absolute;
+  left: 7.4rem;
+  bottom: 3px;
+
+  @include mobileSm {
+    left: 7.6rem;
+  }
+}
+
+.checkMark {
+  color: $purple;
+  font-weight: bold;
+  margin-right: 0.8rem;
+}
+
+.showDropDown {
+  display: block;
+}
+
+.plusSign {
+  position: relative;
+  right: 3px;
+
+  @include mobileLg {
+    bottom: 1px;
+  }
+}

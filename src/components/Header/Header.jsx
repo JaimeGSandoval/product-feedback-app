@@ -8,7 +8,7 @@ import desktopBgWebp from '../../assets/images/desktop/bg_header_lg.webp';
 import desktopBgPng from '../../assets/images/desktop/bg_header_lg.png';
 import hamburger from '../../assets/icons/hamburger.svg';
 import close from '../../assets/icons/close.svg';
-import { MobileModal } from '../MobileModal/MobileModal';
+import { MobileModal } from '../MobileModal';
 
 export const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
