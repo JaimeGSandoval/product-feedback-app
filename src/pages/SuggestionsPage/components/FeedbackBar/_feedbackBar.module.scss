@@ -65,7 +65,7 @@
   font-size: 0.7rem;
   position: absolute;
   left: 7.4rem;
-  bottom: 3px;
+  bottom: 5px;
 
   @include mobileSm {
     left: 7.6rem;
@@ -73,16 +73,15 @@
 }
 
 .checkMark {
-  color: $purple;
-  font-weight: bold;
   margin-right: 0.8rem;
+  display: inline-block;
 }
 
 .showDropDown {
   display: block;
 }
 
-.feedBackBtn_header {
+.feedBackBtn {
   text-transform: capitalize;
   background-color: $purple;
   color: $white;
@@ -99,7 +98,6 @@
     font-size: 1rem;
   }
 }
-
 .plusSign {
   position: relative;
   right: 3px;

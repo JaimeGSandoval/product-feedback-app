@@ -1,6 +1,6 @@
 import { Header } from '../../components/Header';
 import { FeedbackBar } from './components/FeedbackBar';
-import { EmptySuggestion } from './components/EmpySuggestion/EmptySuggestion';
+import { EmptySuggestion } from './components/EmptySuggestion';
 
 export const SuggestionsPage = () => {
   return (
