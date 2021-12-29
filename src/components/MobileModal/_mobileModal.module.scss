@@ -2,20 +2,25 @@
 @import '../../sass/abstract/media-queries';
 
 .modalContainer {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   background: $opacityBlack;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   justify-content: flex-end;
+  z-index: 3;
+  touch-action: none;
+  overflow: hidden;
+  /* Other browsers */
+  overscroll-behavior: none;
 }
 
 .modal {
   z-index: 1;
   width: 80%;
-  height: 100%;
+  height: 100vh;
   background-color: $lightGrey;
 }
 
@@ -34,11 +39,15 @@
   font-family: $robotoBold;
   background-color: $offWhite;
   color: $blue;
-  font-size: 1rem;
   border-radius: 0.7rem;
   border: none;
   outline: none;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.8rem;
+
+  @include mobileXSm {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
 
   &:nth-of-type(1),
   &:nth-of-type(2),

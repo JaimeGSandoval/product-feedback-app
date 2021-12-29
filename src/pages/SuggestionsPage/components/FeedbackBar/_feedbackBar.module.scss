@@ -4,6 +4,33 @@
 .container {
   width: 100%;
   background-color: $darkNavy;
+  position: fixed;
+  top: 3.8rem;
+  z-index: 2;
+
+  @include mobileXSm {
+    top: 4.3rem;
+  }
+
+  @include mobileSm {
+    top: 4.5rem;
+  }
+
+  @include mobileLg {
+    top: 4.9rem;
+  }
+
+  @include mobileIX {
+    top: 4.5rem;
+  }
+
+  @include mobileI12Pro {
+    top: 4.7rem;
+  }
+
+  @include mobileXL {
+    top: 5.1rem;
+  }
 }
 
 .contentBox {
@@ -64,8 +91,12 @@
 .arrow {
   font-size: 0.7rem;
   position: absolute;
-  left: 7.4rem;
+  left: 7.2rem;
   bottom: 5px;
+
+  @include mobileXSm {
+    left: 7rem;
+  }
 
   @include mobileSm {
     left: 7.6rem;
@@ -87,8 +118,14 @@
   color: $white;
   outline: none;
   border: none;
-  padding: 0.8rem;
+  padding: 0.5rem;
   border-radius: 10px;
+  font-size: 0.7rem;
+
+  @include mobileXSm {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
 
   @include mobileSm {
     font-size: 0.9rem;

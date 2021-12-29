@@ -13,11 +13,13 @@ import { MobileModal } from '../MobileModal';
 export const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleSetModal = () => setIsModalOpen(!isModalOpen);
+  const handleSetModal = (e) => {
+    setIsModalOpen(!isModalOpen);
+  };
 
   return (
     <>
-      <header className={styles.header}>
+      <header className={`${styles.header} ${isModalOpen ? styles.fixed : ''}`}>
         <picture>
           <source
             srcSet={`${desktopBgWebp}, 1024w, ${desktopBgPng} 1024w`}
@@ -51,7 +53,7 @@ export const Header = () => {
           </div>
         </div>
       </header>
-      <MobileModal isModalOpen={isModalOpen} />
+      <MobileModal isModalOpen={isModalOpen} handleSetModal={handleSetModal} />
     </>
   );
 };

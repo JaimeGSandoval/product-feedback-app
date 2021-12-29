@@ -1,0 +1,17 @@
+@import '../../../../sass/abstract/media-queries';
+
+.container {
+  width: 88%;
+  margin: 2rem auto;
+  padding-bottom: 2rem;
+  position: relative;
+  top: 7rem;
+
+  @include mobileXSm {
+    top: 8rem;
+  }
+
+  @include mobileLg {
+    top: 9rem;
+  }
+}
