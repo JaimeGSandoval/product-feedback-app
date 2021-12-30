@@ -12,17 +12,27 @@ const roadMapData = [
   { category: 'live', tasks: 4 },
 ];
 
-export const MobileModal = ({ isModalOpen }) => {
+export const MobileModal = ({ isModalOpen, handleSetModal }) => {
   const [active, setActive] = useState(0);
 
   if (!isModalOpen) return null;
+
+  const handleModalClick = (e) => {
+    if (e.target.matches('[data-modal]')) {
+      handleSetModal(!isModalOpen);
+    }
+  };
 
   const handleClick = (index) => {
     setActive(index);
   };
 
   return createPortal(
-    <div className={styles.modalContainer}>
+    <div
+      className={styles.modalContainer}
+      onClick={handleModalClick}
+      data-modal
+    >
       <div className={styles.modal}>
         <nav>
           <div className={styles.buttonsContainer}>
