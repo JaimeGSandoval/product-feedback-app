@@ -3,17 +3,19 @@
 
 .header {
   width: 100%;
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 3;
+  z-index: 10;
+  position: fixed;
+  top: 0;
 }
 
 .headerBgImg {
   width: 100vw;
   height: 100%;
   max-width: 100%;
+  display: initial;
 }
 
 .contentBox {
@@ -51,4 +53,8 @@
 .hamburger {
   display: inline-block;
   width: 100%;
+}
+
+.fixed {
+  position: fixed;
 }

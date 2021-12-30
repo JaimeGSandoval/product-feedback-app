@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { SelectOption } from './SelectOption';
-import { FeedBackButton } from '../../../../components/FeedBackButton/FeedBackButton';
+import { AddFeedBackBtn } from '../../../../components/AddFeedBackBtn';
+import arrowUp from '../../../../assets/icons/arrow-up-white.svg';
+import arrowDown from '../../../../assets/icons/arrow-down-white.svg';
 import styles from './_feedbackBar.module.scss';
 
 const SELECT_OPTIONS = [
@@ -13,7 +15,7 @@ const SELECT_OPTIONS = [
 export const FeedbackBar = () => {
   const [activeOptionText, setActiveOptionText] = useState(SELECT_OPTIONS[0]);
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
-  const [checkMark, setCheckMark] = useState();
+  const [checkMark, setCheckMark] = useState(0);
 
   const SORTING_DATA = {
     isDropDownOpen,
@@ -23,7 +25,7 @@ export const FeedbackBar = () => {
     setIsDropDownOpen,
   };
 
-  const arrow = isDropDownOpen ? '▲' : '▼';
+  const arrow = isDropDownOpen ? arrowUp : arrowDown;
 
   const handleSort = (e) => {
     if (e.target.classList.contains(styles.sortText)) return;
@@ -41,7 +43,7 @@ export const FeedbackBar = () => {
             <span className={styles.sortText}>sort by : </span>
             <span className={styles.sortTitle}>
               {activeOptionText}
-              <span className={styles.arrow}>{arrow}</span>
+              <img className={styles.arrow} src={arrow} alt="" />
             </span>
           </div>
           <div
@@ -61,9 +63,7 @@ export const FeedbackBar = () => {
             })}
           </div>
         </div>
-        <button className={styles.feedBackBtn_header}>
-          <span className={styles.plusSign}>&#43;</span> add feedback
-        </button>
+        <AddFeedBackBtn styles={styles} />
       </div>
     </div>
   );

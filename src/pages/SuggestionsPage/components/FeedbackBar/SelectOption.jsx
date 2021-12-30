@@ -1,4 +1,5 @@
 import styles from './_feedbackBar.module.scss';
+import checkMark from '../../../../assets/icons/check.svg';
 
 export const SelectOption = ({ sortingData, option, index }) => {
   return (
@@ -11,9 +12,9 @@ export const SelectOption = ({ sortingData, option, index }) => {
       }}
     >
       {option}
-      <span className={styles.checkMark}>
-        {sortingData.checkMark === index ? '✔' : ''}
-      </span>
+      {sortingData.checkMark === index && (
+        <img className={styles.checkMark} src={checkMark} alt="check mark" />
+      )}
     </div>
   );
 };

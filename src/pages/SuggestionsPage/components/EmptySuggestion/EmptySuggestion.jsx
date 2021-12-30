@@ -1,3 +1,4 @@
+import { AddFeedBackBtn } from '../../../../components/AddFeedBackBtn';
 import faceIcon from '../../../../assets/icons/empty.svg';
 import styles from './_emptySuggestion.module.scss';
 
@@ -20,9 +21,7 @@ export const EmptySuggestion = () => {
             hearing about new ideas to improve our app.
           </p>
         </div>
-        <button className={styles.feedBackBtn_empty}>
-          <span className={styles.plusSign}>&#43;</span> add feedback
-        </button>
+        <AddFeedBackBtn styles={styles} />
       </section>
     </>
   );
