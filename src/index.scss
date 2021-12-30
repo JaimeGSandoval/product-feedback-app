@@ -11,6 +11,7 @@ body {
   height: 100%;
   width: 100vw;
   max-width: 100%;
+  background-color: $lightGrey;
 }
 
 #root {
@@ -20,9 +21,5 @@ body {
 }
 
 .App {
-  height: 100%;
-}
-
-main {
   height: 100%;
 }
