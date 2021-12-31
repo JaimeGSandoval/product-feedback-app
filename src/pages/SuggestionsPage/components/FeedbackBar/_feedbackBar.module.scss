@@ -115,7 +115,6 @@
 .feedBackBtn {
   text-transform: capitalize;
   background-color: $purple;
-  color: $white;
   outline: none;
   border: none;
   padding: 0.5rem;
@@ -135,9 +134,15 @@
     font-size: 1rem;
   }
 }
+
+.feedBackText {
+  color: $white;
+}
+
 .plusSign {
   position: relative;
   right: 3px;
+  color: $white;
 
   @include mobileLg {
     bottom: 1px;

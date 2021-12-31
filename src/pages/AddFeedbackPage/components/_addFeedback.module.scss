@@ -1,0 +1,25 @@
+@import '../../../sass/abstract/vars';
+@import '../../../sass/abstract/media-queries';
+
+.container {
+  width: 88%;
+  border: 1px solid red;
+  margin: auto;
+  height: 50vh;
+  margin-top: 1.5rem;
+}
+
+.goBackBtnBox {
+  display: flex;
+  text-transform: capitalize;
+  color: $grey;
+  font-family: $robotoBold;
+  font-size: 1.2rem;
+  width: 6.25rem;
+  justify-content: space-between;
+  padding: 0.8rem 0.8rem 0.8rem 0;
+}
+
+.arrowLeft {
+  width: 0.6rem;
+}
