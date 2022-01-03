@@ -1,4 +1,4 @@
-import { AddFeedback } from './components/AddFeedback';
+import { AddFeedback } from './components/AddFeedback/AddFeedback';
 
 export const AddFeedbackPage = () => {
   return <AddFeedback />;

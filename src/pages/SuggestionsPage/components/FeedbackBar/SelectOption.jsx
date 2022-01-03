@@ -10,6 +10,11 @@ export const SelectOption = ({ sortingData, option, index }) => {
         sortingData.setCheckMark(index);
         sortingData.setIsDropDownOpen(!sortingData.isDropDownOpen);
       }}
+      onKeyPress={(e) => {
+        sortingData.setCheckMark(index);
+        sortingData.handleKeyPress(e);
+      }}
+      tabIndex="0"
     >
       {option}
       {sortingData.checkMark === index && (
