@@ -1,0 +1,64 @@
+@import '../../../../sass/abstract/vars';
+@import '../../../../sass/abstract/media-queries';
+
+.container {
+  width: 88%;
+  margin: auto;
+  margin-top: 1.5rem;
+}
+
+.goBackBtn {
+  display: flex;
+  align-items: center;
+  width: 6.25rem;
+  padding: 0.5rem 0;
+  outline: none;
+  border: none;
+  text-transform: capitalize;
+  font-family: $robotoBold;
+  font-size: 1rem;
+  // font-size: 1.2rem;
+  color: $grey;
+}
+
+.goBackText {
+  position: relative;
+  // right: 5px;
+  left: 0.7rem;
+}
+
+.arrowLeft {
+  width: 0.6rem;
+}
+
+.buttonBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.editButton {
+  text-transform: capitalize;
+  background-color: $blue;
+  color: $white;
+  outline: none;
+  border: none;
+  padding: 0.7rem 0.9rem;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  position: relative;
+  top: 2px;
+
+  @include mobileXSm {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  @include mobileSm {
+    font-size: 0.9rem;
+  }
+
+  @include mobileLg {
+    font-size: 1rem;
+  }
+}

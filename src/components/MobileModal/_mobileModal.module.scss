@@ -38,6 +38,8 @@
 .buttons {
   font-family: $robotoBold;
   background-color: $offWhite;
+  background-color: $lightGrey;
+
   color: $blue;
   border-radius: 0.7rem;
   border: none;
@@ -118,7 +120,8 @@
   color: $blue;
   font-family: $robotoBold;
   font-size: 0.9rem;
-  border-bottom: 2px solid $grey;
+  position: relative;
+  top: 2px;
 }
 
 .roadMapRow {
