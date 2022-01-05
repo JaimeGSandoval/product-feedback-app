@@ -1,4 +1,6 @@
-export const InputDescription = ({ label, description, id, styles }) => {
+import styles from './_addFeedback.module.scss';
+
+export const InputDescription = ({ label, description, id }) => {
   return (
     <>
       <label className={styles.title} htmlFor={id}>
