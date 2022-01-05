@@ -52,7 +52,6 @@
   color: $darkNavy;
   font-family: $roboto;
   cursor: pointer;
-  display: none;
   position: absolute;
   right: -2.8rem;
   top: 2.5rem;
@@ -67,6 +66,10 @@
   border-bottom: 1px solid #d3d1d1;
   display: flex;
   justify-content: space-between;
+
+  &:focus {
+    box-shadow: 0 0 0.3rem 0.1rem $blue;
+  }
 }
 
 .sortTabContainer {
@@ -82,6 +85,10 @@
   position: relative;
   top: 1px;
   width: 100%;
+
+  &:focus {
+    box-shadow: 0 0 0.3rem 0.1rem $blue;
+  }
 
   @include mobileSm {
     top: 0;
@@ -115,7 +122,6 @@
 .feedBackBtn {
   text-transform: capitalize;
   background-color: $purple;
-  color: $white;
   outline: none;
   border: none;
   padding: 0.5rem;
@@ -135,9 +141,15 @@
     font-size: 1rem;
   }
 }
+
+.feedBackText {
+  color: $white;
+}
+
 .plusSign {
   position: relative;
   right: 3px;
+  color: $white;
 
   @include mobileLg {
     bottom: 1px;
