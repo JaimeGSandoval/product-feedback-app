@@ -12,7 +12,6 @@
   align-items: center;
   width: 6.25rem;
   padding: 0.5rem 0;
-  outline: none;
   border: none;
   text-transform: capitalize;
   font-family: $robotoBold;
@@ -41,7 +40,6 @@
   text-transform: capitalize;
   background-color: $blue;
   color: $white;
-  outline: none;
   border: none;
   padding: 0.7rem 0.9rem;
   border-radius: 10px;
@@ -67,4 +65,15 @@
   margin-top: 2rem;
   background-color: $white;
   border-radius: 10px;
+}
+
+.commentsInnerContainer {
+  margin: 2rem auto 0;
+  padding: 1.8rem 0;
+  width: 84%;
+}
+
+.commentsTotal {
+  font-family: $robotoBold;
+  color: $darkNavy;
 }

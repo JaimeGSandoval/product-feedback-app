@@ -16,7 +16,7 @@ export const Suggestion = ({ request }) => {
             </div>
 
             <div className={styles.likesBox}>
-              <span className={styles.likesTotal}>
+              <span className={styles.likesTotal} tabIndex="0">
                 <img
                   className={styles.likeArrow}
                   src={arrowUp}

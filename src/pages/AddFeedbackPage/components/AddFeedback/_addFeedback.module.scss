@@ -13,7 +13,6 @@
   align-items: center;
   width: 6.25rem;
   padding: 0.5rem 0;
-  outline: none;
   border: none;
   text-transform: capitalize;
   font-family: $robotoBold;
@@ -92,10 +91,6 @@
   color: $darkNavy;
   font-family: $roboto;
   border-radius: 5px;
-
-  &:focus {
-    box-shadow: 0 0 0.3rem 0.1rem transparent;
-  }
 }
 
 .inputBox {
@@ -126,30 +121,21 @@ textarea {
 .textArea {
   width: 100%;
   background-color: $lightGrey;
-
+  padding: 0.5rem;
   border: none;
   resize: none;
-  height: 9rem;
   outline-color: $blue;
   border-radius: 5px;
   font-size: 1rem;
-
-  &:focus {
-    box-shadow: 0 0 0.3rem 0.1rem transparent;
-  }
 }
 
 .dropDownContainer {
   position: relative;
   min-width: 190px;
   background-color: $lightGrey;
-
   z-index: 5;
   border-radius: 5px;
-
-  &:focus {
-    box-shadow: 0 0 0.3rem 0.1rem $blue;
-  }
+  outline-color: $blue;
 }
 
 .activeOptionContainer {
@@ -214,10 +200,7 @@ textarea {
   justify-content: space-between;
   margin: 0;
   background-color: $lightGrey;
-
-  &:focus {
-    box-shadow: 0 0 0.3rem 0.1rem $blue;
-  }
+  outline-color: $blue;
 }
 
 .selectOptions div:nth-of-type(2) {
@@ -238,7 +221,6 @@ textarea {
   padding: 0.7rem 0;
   border: none;
   border-radius: 10px;
-  outline-color: $blue;
 }
 
 .submitButton {

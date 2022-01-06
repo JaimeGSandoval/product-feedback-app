@@ -15,7 +15,8 @@ export const DetailInput = ({ handleInputData, formData }) => {
         onChange={handleInputData}
         value={formData.detail}
         name="detail"
-      ></textarea>
+        rows="8"
+      />
     </div>
   );
 };

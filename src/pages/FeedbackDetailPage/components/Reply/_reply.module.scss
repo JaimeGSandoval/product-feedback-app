@@ -1,15 +1,17 @@
 @import '../../../../sass/abstract/vars';
 @import '../../../../sass/abstract/media-queries';
 
-.commentContainer {
+.replyContainer {
   margin-top: 2rem;
   border-bottom: 1px solid $lightGrey;
+  width: 92%;
+  margin-left: auto;
 }
 
-// .commentsTotal {
-//   font-family: $robotoBold;
-//   color: $darkNavy;
-// }
+.commentsTotal {
+  font-family: $robotoBold;
+  color: $darkNavy;
+}
 
 .userInfoContainer {
   display: flex;
@@ -56,7 +58,7 @@
   font-size: 0.9rem;
 }
 
-.commentText {
+.replyText {
   margin-top: 2rem;
   font-family: $roboto;
   color: $lightNavy;
@@ -67,8 +69,6 @@
 
 .replyForm {
   margin-bottom: 2rem;
-  outline-color: $blue;
-
   @include tabletMd {
     display: flex;
     align-items: center;
@@ -109,4 +109,9 @@
 
 .hide {
   display: none;
+}
+
+.commentAuthor {
+  color: $purple;
+  font-family: $robotoBold;
 }

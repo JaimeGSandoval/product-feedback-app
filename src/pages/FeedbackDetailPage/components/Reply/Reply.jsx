@@ -1,21 +1,12 @@
-import { useState, useEffect } from 'react';
-import { Reply } from '../Reply/Reply';
-import styles from './_comment.module.scss';
+import { useState } from 'react';
+import styles from './_reply.module.scss';
 
-export const Comment = ({ comment, commentsLength, setRepliesLength }) => {
+export const Reply = ({ reply, commentAuthor }) => {
   const [activeForm, setActiveForm] = useState(false);
-  const firstName = comment.user.name.split(' ')[0].toLowerCase();
+  const firstName = reply.user.name.split(' ')[0].toLowerCase();
   const userImgName = firstName;
 
-  useEffect(() => {
-    if (comment.replies) {
-      setRepliesLength(comment.replies.length);
-    }
-  }, [comment.replies, setRepliesLength]);
-
-  const handleReplyFormToggle = (e) => {
-    setActiveForm(!activeForm);
-  };
+  const handleReplyFormToggle = () => setActiveForm(!activeForm);
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
@@ -25,7 +16,7 @@ export const Comment = ({ comment, commentsLength, setRepliesLength }) => {
 
   return (
     <>
-      <div className={styles.commentContainer}>
+      <div className={styles.replyContainer}>
         <div className={styles.userInfoContainer}>
           <div className={styles.userInfoBox}>
             <div className={styles.imgBox}>
@@ -37,7 +28,6 @@ export const Comment = ({ comment, commentsLength, setRepliesLength }) => {
                   }
                   type="image/webp"
                 />
-
                 <img
                   className={styles.userImg}
                   src={
@@ -50,10 +40,8 @@ export const Comment = ({ comment, commentsLength, setRepliesLength }) => {
             </div>
 
             <div className={styles.userNameBox}>
-              <span className={styles.userName}>{comment.user.name}</span>
-              <span
-                className={styles.userHandle}
-              >{`@${comment.user.username}`}</span>
+              <span className={styles.userName}>{reply.user.name}</span>
+              <span className={styles.userHandle}>{reply.user.username}</span>
             </div>
           </div>
 
@@ -67,27 +55,20 @@ export const Comment = ({ comment, commentsLength, setRepliesLength }) => {
           </span>
         </div>
 
-        <p className={styles.commentText}>{comment.content}</p>
+        <p className={styles.replyText}>
+          <span className={styles.commentAuthor}>{`@${commentAuthor} `} </span>
+          {reply.content}
+        </p>
 
         <form
           method="POST"
           className={`${styles.replyForm} ${!activeForm && styles.hide}`}
         >
           <textarea className={styles.textArea} rows="8" tabIndex="0" />
-          <button className={styles.submitButton} type="submit">
+          <button className={styles.submitButton} type="submit" tabIndex="0">
             post reply
           </button>
         </form>
-        {comment.replies &&
-          comment.replies.map((reply, index) => {
-            return (
-              <Reply
-                reply={reply}
-                commentAuthor={comment.user.username}
-                key={index}
-              />
-            );
-          })}
       </div>
     </>
   );

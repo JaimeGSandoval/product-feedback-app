@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import data from '../../../../data/data.json';
 import { GoBackBtn } from '../../../../components/GoBackBtn';
 import { Suggestion } from '../Suggestion/Suggestion';
@@ -5,22 +6,18 @@ import { Comment } from '../Comment/Comment';
 import styles from './_feedbackDetail.module.scss';
 
 const { productRequests } = data; // simulate retrieving params id from url w/ useParams()
-// console.log(productRequests[1].comments);
-
-productRequests[1].comments.forEach((comment) => {
-  if (comment.replies) {
-    console.log(comment.replies);
-  } else {
-    console.log('bankai');
-  }
-});
 
 export const FeedbackDetail = () => {
+  const [repliesLength, setRepliesLength] = useState(0);
+  const commentsLength = productRequests[1].comments.length;
+
   return (
     <div className={styles.container}>
       <div className={styles.buttonBox}>
         <GoBackBtn styles={styles} />
-        <button className={styles.editButton}>edit feedback</button>
+        <button className={styles.editButton} tabIndex="0">
+          edit feedback
+        </button>
       </div>
 
       <section className={styles.outerContainer}>
@@ -28,7 +25,19 @@ export const FeedbackDetail = () => {
           <Suggestion productRequest={productRequests[1]} />
         </div>
         <section className={styles.commentsContainer}>
-          <Comment />
+          <div className={styles.commentsInnerContainer}>
+            <h1 className={styles.commentsTotal}>
+              {commentsLength + repliesLength} Comments
+            </h1>
+            {productRequests[1].comments.map((comment) => (
+              <Comment
+                comment={comment}
+                commentsLength={commentsLength}
+                setRepliesLength={setRepliesLength}
+                key={comment.id}
+              />
+            ))}
+          </div>
         </section>
       </section>
     </div>

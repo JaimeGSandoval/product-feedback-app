@@ -37,13 +37,10 @@
 
 .buttons {
   font-family: $robotoBold;
-  background-color: $offWhite;
   background-color: $lightGrey;
-
   color: $blue;
   border-radius: 0.7rem;
   border: none;
-  outline: none;
   padding: 0.5rem 0.8rem;
 
   @include mobileXSm {
