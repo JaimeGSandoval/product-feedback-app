@@ -1,6 +1,7 @@
 import data from '../../../../data/data.json';
 import { GoBackBtn } from '../../../../components/GoBackBtn';
 import { Suggestion } from '../Suggestion/Suggestion';
+import { Comment } from '../Comment/Comment';
 import styles from './_feedbackDetail.module.scss';
 
 const { productRequests } = data; // simulate retrieving params id from url w/ useParams()
@@ -26,6 +27,9 @@ export const FeedbackDetail = () => {
         <div className={styles.innerContainer}>
           <Suggestion productRequest={productRequests[1]} />
         </div>
+        <section className={styles.commentsContainer}>
+          <Comment />
+        </section>
       </section>
     </div>
   );

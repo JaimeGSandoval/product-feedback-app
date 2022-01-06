@@ -1,0 +1,72 @@
+@import '../../../../sass/abstract/vars';
+@import '../../../../sass/abstract/media-queries';
+
+.commentsInnerContainer {
+  margin: 2rem auto 0;
+  padding: 1.8rem 0;
+  width: 84%;
+}
+
+.commentContainer {
+  margin-top: 2rem;
+  border-bottom: 1px solid $lightGrey;
+}
+
+.commentsTotal {
+  font-family: $robotoBold;
+  color: $darkNavy;
+}
+
+.userInfoContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.userInfoBox {
+  display: flex;
+  align-items: center;
+}
+
+.imgBox {
+  width: 1.9rem;
+}
+
+.userImg {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.userNameBox {
+  margin-left: 0.4rem;
+}
+
+.userName {
+  display: block;
+  color: $darkNavy;
+  font-family: $robotoBold;
+  text-transform: capitalize;
+  font-size: 0.9rem;
+}
+
+.userHandle {
+  color: $grey;
+  font-family: $roboto;
+  font-size: 0.7rem;
+}
+
+.replyText {
+  color: $blue;
+  font-family: $robotoBold;
+  font-size: 0.9rem;
+}
+
+.commentText {
+  margin-top: 2rem;
+  font-family: $roboto;
+  color: $lightNavy;
+  line-height: 1.7rem;
+  padding-bottom: 2rem;
+  // font-size: 0.9rem;
+}

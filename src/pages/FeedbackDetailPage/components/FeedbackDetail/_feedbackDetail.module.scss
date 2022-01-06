@@ -19,11 +19,11 @@
   font-size: 1rem;
   // font-size: 1.2rem;
   color: $grey;
+  background-color: $lightGrey;
 }
 
 .goBackText {
   position: relative;
-  // right: 5px;
   left: 0.7rem;
 }
 
@@ -61,4 +61,10 @@
   @include mobileLg {
     font-size: 1rem;
   }
+}
+
+.commentsContainer {
+  margin-top: 2rem;
+  background-color: $white;
+  border-radius: 10px;
 }
