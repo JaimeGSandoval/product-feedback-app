@@ -115,3 +115,19 @@
   color: $purple;
   font-family: $robotoBold;
 }
+
+.visibilityHidden {
+  visibility: hidden;
+}
+
+.errorText {
+  color: $red;
+  visibility: visible;
+  position: relative;
+  bottom: 0.4rem;
+  font-family: $roboto;
+  font-size: 0.8rem;
+}
+.errorOutline {
+  outline: 1px solid $red;
+}

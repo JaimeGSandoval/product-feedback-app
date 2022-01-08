@@ -34,7 +34,7 @@ export const FeedbackDetail = () => {
                 comment={comment}
                 commentsLength={commentsLength}
                 setRepliesLength={setRepliesLength}
-                key={comment.id}
+                key={comment.commentID}
               />
             ))}
           </div>

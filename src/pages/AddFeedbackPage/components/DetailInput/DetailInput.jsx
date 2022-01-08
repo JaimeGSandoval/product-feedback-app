@@ -1,7 +1,7 @@
-import { InputDescription } from './InputDescription';
-import styles from './_addFeedback.module.scss';
+import { InputDescription } from '../InputDescription';
+import styles from './_detailInput.module.scss';
 
-export const DetailInput = ({ handleInputData, formData }) => {
+export const DetailInput = ({ handleInputData, formData, detailError }) => {
   return (
     <div className={styles.inputBox}>
       <InputDescription
@@ -11,12 +11,17 @@ export const DetailInput = ({ handleInputData, formData }) => {
       />
       <textarea
         id="detailTextArea"
-        className={styles.textArea}
+        className={`${styles.textArea} ${detailError && styles.errorOutline}`}
         onChange={handleInputData}
         value={formData.detail}
         name="detail"
         rows="8"
       />
+      <span
+        className={detailError ? styles.errorText : styles.visibilityHidden}
+      >
+        Can't be empty
+      </span>
     </div>
   );
 };

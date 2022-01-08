@@ -4,6 +4,8 @@ import styles from './_comment.module.scss';
 
 export const Comment = ({ comment, commentsLength, setRepliesLength }) => {
   const [activeForm, setActiveForm] = useState(false);
+  const [commentError, setCommentError] = useState(false);
+  const [detailInput, setDetailInput] = useState('');
   const firstName = comment.user.name.split(' ')[0].toLowerCase();
   const userImgName = firstName;
 
@@ -14,6 +16,7 @@ export const Comment = ({ comment, commentsLength, setRepliesLength }) => {
   }, [comment.replies, setRepliesLength]);
 
   const handleReplyFormToggle = (e) => {
+    setCommentError(false);
     setActiveForm(!activeForm);
   };
 
@@ -21,6 +24,24 @@ export const Comment = ({ comment, commentsLength, setRepliesLength }) => {
     if (e.key === 'Enter') {
       handleReplyFormToggle(!activeForm);
     }
+  };
+
+  const handleChange = (e) => {
+    setDetailInput(e.target.value);
+    setCommentError(false);
+  };
+
+  const handleSubmit = (e) => {
+    if (!detailInput) {
+      e.preventDefault();
+      setCommentError(!commentError);
+    } else {
+      e.preventDefault(); // temporary
+      setCommentError(false);
+      console.log('submitted');
+    }
+
+    return null;
   };
 
   return (
@@ -72,8 +93,24 @@ export const Comment = ({ comment, commentsLength, setRepliesLength }) => {
         <form
           method="POST"
           className={`${styles.replyForm} ${!activeForm && styles.hide}`}
+          onSubmit={handleSubmit}
         >
-          <textarea className={styles.textArea} rows="8" tabIndex="0" />
+          <span
+            className={
+              commentError ? styles.errorText : styles.visibilityHidden
+            }
+          >
+            Can't be empty
+          </span>
+          <textarea
+            className={`${styles.textArea} ${
+              commentError && styles.errorOutline
+            }`}
+            onChange={handleChange}
+            value={detailInput}
+            rows="8"
+            tabIndex="0"
+          />
           <button className={styles.submitButton} type="submit">
             post reply
           </button>

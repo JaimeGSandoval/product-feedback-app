@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
-import { InputDescription } from './InputDescription';
+import { InputDescription } from '../InputDescription';
 import { Dropdown } from './Dropdown';
 import arrowUp from '../../../../assets/icons/arrow-up.svg';
 import arrowDown from '../../../../assets/icons/arrow-down.svg';
-import styles from './_addFeedback.module.scss';
+import styles from './_featureType.module.scss';
 
 export const FeatureType = ({ setFormData }) => {
   const SELECT_OPTIONS = ['bug', 'UI', 'UX', 'enhancement', 'feature'];

@@ -1,5 +1,5 @@
 import checkMarkSvg from '../../../../assets/icons/check.svg';
-import styles from './_addFeedback.module.scss';
+import styles from './_featureType.module.scss';
 
 // const SELECT_OPTIONS = ['bug', 'UI', 'UX', 'enhancement', 'feature'];
 

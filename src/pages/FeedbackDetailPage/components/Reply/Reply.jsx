@@ -3,6 +3,8 @@ import styles from './_reply.module.scss';
 
 export const Reply = ({ reply, commentAuthor }) => {
   const [activeForm, setActiveForm] = useState(false);
+  const [replyError, setReplyError] = useState(false);
+  const [replyInput, setReplyInput] = useState('');
   const firstName = reply.user.name.split(' ')[0].toLowerCase();
   const userImgName = firstName;
 
@@ -12,6 +14,24 @@ export const Reply = ({ reply, commentAuthor }) => {
     if (e.key === 'Enter') {
       handleReplyFormToggle(!activeForm);
     }
+  };
+
+  const handleChange = (e) => {
+    setReplyInput(e.target.value);
+    setReplyError(false);
+  };
+
+  const handleSubmit = (e) => {
+    if (!replyInput) {
+      e.preventDefault();
+      setReplyError(!replyError);
+    } else {
+      e.preventDefault(); // temporary
+      setReplyError(false);
+      console.log('submitted');
+    }
+
+    return null;
   };
 
   return (
@@ -63,8 +83,22 @@ export const Reply = ({ reply, commentAuthor }) => {
         <form
           method="POST"
           className={`${styles.replyForm} ${!activeForm && styles.hide}`}
+          onSubmit={handleSubmit}
         >
-          <textarea className={styles.textArea} rows="8" tabIndex="0" />
+          <span
+            className={replyError ? styles.errorText : styles.visibilityHidden}
+          >
+            Can't be empty
+          </span>
+          <textarea
+            className={`${styles.textArea} ${
+              replyError && styles.errorOutline
+            }`}
+            onChange={handleChange}
+            value={replyInput}
+            rows="8"
+            tabIndex="0"
+          />
           <button className={styles.submitButton} type="submit" tabIndex="0">
             post reply
           </button>
