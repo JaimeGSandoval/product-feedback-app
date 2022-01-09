@@ -17,6 +17,12 @@ export const Header = () => {
     setIsModalOpen(!isModalOpen);
   };
 
+  const handleKeyPressModal = (e) => {
+    if (e.key === 'Enter') {
+      setIsModalOpen(!isModalOpen);
+    }
+  };
+
   return (
     <>
       <header className={`${styles.header} ${isModalOpen ? styles.fixed : ''}`}>
@@ -43,11 +49,15 @@ export const Header = () => {
             <span className={styles.headerText}>frontend mentor</span>
             <span className={styles.secondaryHeaderText}>feedback board</span>
           </div>
-          <div className={styles.hamburgerContainer}>
+          <div
+            className={styles.hamburgerContainer}
+            onClick={handleSetModal}
+            onKeyPress={handleKeyPressModal}
+            tabIndex="0"
+          >
             <img
-              onClick={handleSetModal}
-              src={isModalOpen ? close : hamburger}
               className={styles.hamburger}
+              src={isModalOpen ? close : hamburger}
               alt="mobile nav menu"
             />
           </div>

@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GoBackBtn } from '../../../../components/GoBackBtn';
-import { FeatureType } from './FeatureType';
-import { TitleInput } from './TitleInput';
-import { DetailInput } from './DetailInput';
+import { FeatureType } from '../FeatureType';
+import { TitleInput } from '../TitleInput';
+import { DetailInput } from '../DetailInput';
 import plusSign from '../../../../assets/icons/new-feedback.svg';
 import styles from './_addFeedback.module.scss';
 
@@ -13,6 +13,8 @@ export const AddFeedback = () => {
     category: '',
     detail: '',
   });
+  const [titleError, setTitleError] = useState(false);
+  const [detailError, setDetailError] = useState(false);
 
   const navigate = useNavigate();
 
@@ -21,10 +23,28 @@ export const AddFeedback = () => {
       ...prevData,
       [e.target.name]: e.target.value,
     }));
+    setDetailError(false);
+    setTitleError(false);
   };
 
-  const handleSubmit = () => {
-    navigate('/', { replace: true });
+  const handleSubmit = (e) => {
+    if (!formData.title) {
+      e.preventDefault();
+      setTitleError(!titleError);
+      return;
+    } else {
+      setTitleError(false);
+    }
+
+    if (!formData.detail) {
+      e.preventDefault();
+      setDetailError(!detailError);
+      return;
+    } else {
+      setDetailError(false);
+    }
+    e.preventDefault(); // temporary
+    // navigate('/', { replace: true });
     return null;
   };
 
@@ -50,11 +70,13 @@ export const AddFeedback = () => {
               <TitleInput
                 handleInputData={handleInputData}
                 formData={formData}
+                titleError={titleError}
               />
               <FeatureType setFormData={setFormData} />
               <DetailInput
                 handleInputData={handleInputData}
                 formData={formData}
+                detailError={detailError}
               />
             </form>
             <div className={styles.buttonBox}>

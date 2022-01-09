@@ -9,21 +9,21 @@
 
 .goBackBtn {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   width: 6.25rem;
   padding: 0.5rem 0;
-  outline: none;
   border: none;
   text-transform: capitalize;
   font-family: $robotoBold;
-  font-size: 1.2rem;
+  font-size: 1rem;
+  // font-size: 1.2rem;
   color: $grey;
+  background-color: $lightGrey;
 }
 
 .goBackText {
   position: relative;
-  right: 5px;
+  left: 0.7rem;
 }
 
 .arrowLeft {
@@ -80,26 +80,6 @@
   display: block;
 }
 
-.inputText {
-  width: 100%;
-  height: 2.5rem;
-  background-color: $offWhite;
-  border: none;
-  outline-color: $blue;
-  font-size: 1rem;
-  color: $darkNavy;
-  font-family: $roboto;
-  border-radius: 5px;
-
-  &:focus {
-    box-shadow: 0 0 0.3rem 0.1rem transparent;
-  }
-}
-
-.inputBox {
-  width: 100%;
-}
-
 .form div:nth-of-type(2) {
   margin: 2rem 0;
 }
@@ -109,67 +89,6 @@
   line-height: 1.5rem;
 }
 
-input[type='text'] {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-textarea {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.textArea {
-  width: 100%;
-  background-color: $offWhite;
-  border: none;
-  resize: none;
-  height: 9rem;
-  outline-color: $blue;
-  border-radius: 5px;
-  font-size: 1rem;
-
-  &:focus {
-    box-shadow: 0 0 0.3rem 0.1rem transparent;
-  }
-}
-
-.dropDownContainer {
-  position: relative;
-  min-width: 190px;
-  background-color: $offWhite;
-  z-index: 5;
-  border-radius: 5px;
-
-  &:focus {
-    box-shadow: 0 0 0.3rem 0.1rem $blue;
-  }
-}
-
-.activeOptionContainer {
-  width: 100%;
-  padding: 0.6rem 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  span {
-    margin-left: 1rem;
-  }
-
-  img {
-    margin-right: 1rem;
-  }
-  outline-color: $blue;
-
-  &:focus {
-    box-shadow: 0 0 0.3rem 0.1rem transparent;
-  }
-}
-
-.activeOptionText,
 .sortTitle {
   color: $white;
   font-family: $roboto;
@@ -179,41 +98,6 @@ textarea {
   @include mobileSm {
     top: 0;
   }
-}
-
-.arrow {
-  font-size: 0.7rem;
-  position: absolute;
-  right: 0;
-}
-
-.selectOptions {
-  background-color: $white;
-  color: $darkNavy;
-  font-family: $roboto;
-  cursor: pointer;
-  position: absolute;
-  box-shadow: 3px 3px 13px #bdbdbd;
-  width: 15rem;
-  top: 0.9rem;
-}
-
-.option {
-  text-align: left;
-  text-transform: capitalize;
-  padding: 1rem 0 1rem 1rem;
-  border-bottom: 1px solid #d3d1d1;
-  display: flex;
-  justify-content: space-between;
-  margin: 0;
-
-  &:focus {
-    box-shadow: 0 0 0.3rem 0.1rem $blue;
-  }
-}
-
-.selectOptions div:nth-of-type(2) {
-  margin: 0;
 }
 
 .buttonBox {
@@ -230,7 +114,6 @@ textarea {
   padding: 0.7rem 0;
   border: none;
   border-radius: 10px;
-  outline-color: $blue;
 }
 
 .submitButton {
@@ -244,4 +127,12 @@ textarea {
 
 main {
   padding-bottom: 3rem;
+}
+
+.hide {
+  display: none;
+}
+
+form div:nth-of-type(3) span:nth-of-type(2) {
+  top: 0;
 }

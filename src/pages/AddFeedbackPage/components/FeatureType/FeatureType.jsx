@@ -1,13 +1,16 @@
 import { useState, useEffect, useRef } from 'react';
-import { InputDescription } from './InputDescription';
+import { InputDescription } from '../InputDescription';
 import { Dropdown } from './Dropdown';
 import arrowUp from '../../../../assets/icons/arrow-up.svg';
 import arrowDown from '../../../../assets/icons/arrow-down.svg';
-import styles from './_addFeedback.module.scss';
+import styles from './_featureType.module.scss';
 
 export const FeatureType = ({ setFormData }) => {
+  const SELECT_OPTIONS = ['bug', 'UI', 'UX', 'enhancement', 'feature'];
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
-  const [activeOptionText, setActiveOptionText] = useState('bug');
+  const [activeOptionText, setActiveOptionText] = useState(SELECT_OPTIONS[0]);
+  const [checkMark, setCheckMark] = useState(0);
+
   const arrow = isDropDownOpen ? arrowUp : arrowDown;
   const containerRef = useRef(null);
 
@@ -48,6 +51,9 @@ export const FeatureType = ({ setFormData }) => {
     setActiveOptionText,
     handleKeyPress,
     setFormData,
+    SELECT_OPTIONS,
+    checkMark,
+    setCheckMark,
   };
 
   return (
