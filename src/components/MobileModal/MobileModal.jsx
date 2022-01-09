@@ -44,6 +44,7 @@ export const MobileModal = ({ isModalOpen, handleSetModal }) => {
                   handleClick={handleClick}
                   key={title}
                   activeButton={active}
+                  isModalOpen={isModalOpen}
                 />
               );
             })}
@@ -52,7 +53,9 @@ export const MobileModal = ({ isModalOpen, handleSetModal }) => {
           <div className={styles.roadMapContainer}>
             <div className={styles.titleContainer}>
               <span className={styles.roadMapTitle}>roadmap</span>
-              <span className={styles.viewLink}>view</span>
+              <span className={styles.viewLink} tabIndex="0">
+                view
+              </span>
             </div>
             {roadMapData.map((data) => {
               return <RoadMap data={data} key={data.category} />;

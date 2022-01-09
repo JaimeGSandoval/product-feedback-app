@@ -1,0 +1,87 @@
+@import '../../../../sass/abstract/vars';
+@import '../../../../sass/abstract/media-queries';
+
+.inputBox {
+  width: 100%;
+}
+
+.dropDownContainer {
+  position: relative;
+  min-width: 190px;
+  background-color: $lightGrey;
+  z-index: 5;
+  border-radius: 5px;
+  outline-color: $blue;
+}
+
+.activeOptionContainer {
+  width: 100%;
+  padding: 0.6rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $lightGrey;
+  border-radius: 10px;
+
+  span {
+    margin-left: 1rem;
+  }
+
+  img {
+    margin-right: 1rem;
+  }
+  outline-color: $blue;
+
+  &:focus {
+    box-shadow: 0 0 0.3rem 0.1rem transparent;
+  }
+}
+
+.activeOptionText {
+  color: $white;
+  font-family: $roboto;
+  text-transform: capitalize;
+  font-size: 1rem;
+  color: $darkNavy;
+  @include mobileSm {
+    top: 0;
+  }
+}
+
+.arrow {
+  font-size: 0.7rem;
+  position: absolute;
+  right: 0;
+}
+
+.selectOptions {
+  background-color: $white;
+  color: $darkNavy;
+  font-family: $roboto;
+  cursor: pointer;
+  position: absolute;
+  box-shadow: 3px 3px 13px #bdbdbd;
+  width: 15rem;
+  top: 0.9rem;
+  border-radius: 20px;
+}
+
+.option {
+  text-align: left;
+  text-transform: capitalize;
+  padding: 1rem 0 1rem 1rem;
+  border-bottom: 1px solid #d3d1d1;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  background-color: $lightGrey;
+  outline-color: $blue;
+}
+
+.selectOptions div:nth-of-type(2) {
+  margin: 0;
+}
+
+.checkMark {
+  margin-right: 1rem;
+}
