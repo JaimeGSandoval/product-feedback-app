@@ -23,3 +23,7 @@ body {
 .App {
   height: 100%;
 }
+
+body:not(.keyboardUser) *:focus {
+  outline: none;
+}
