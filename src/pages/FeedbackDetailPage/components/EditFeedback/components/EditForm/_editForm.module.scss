@@ -1,5 +1,5 @@
-@import '../../../../sass/abstract/vars';
-@import '../../../../sass/abstract/media-queries';
+@import '../../../../../../sass/abstract/vars';
+@import '../../../../../../sass/abstract/media-queries';
 
 .container {
   width: 88%;
@@ -42,9 +42,10 @@
   margin: auto;
 }
 
-.plusSign {
+.penIcon {
   position: relative;
-  bottom: 1.8rem;
+  bottom: 1.4rem;
+  width: 3.3rem;
 }
 
 .formContainer {
@@ -58,26 +59,11 @@
   text-transform: capitalize;
   color: $darkNavy;
   font-size: 1.2rem;
+  line-height: 1.6rem;
 
   @include mobileLg {
     font-size: 1.5rem;
   }
-}
-
-.title {
-  font-family: $robotoBold;
-  color: $darkNavy;
-  text-transform: capitalize;
-  display: block;
-  font-size: 1.1rem;
-  margin-bottom: 0.8rem;
-}
-
-.titleDetail {
-  font-family: $roboto;
-  color: $darkNavy;
-  margin-bottom: 1.5rem;
-  display: block;
 }
 
 .form div:nth-of-type(2) {
@@ -107,7 +93,8 @@
 }
 
 .submitButton,
-.cancelButton {
+.cancelButton,
+.deleteButton {
   font-size: 1rem;
   text-transform: capitalize;
   color: $white;
@@ -123,10 +110,15 @@
 
 .cancelButton {
   background-color: $darkNavy;
+  margin-bottom: 1rem;
+}
+
+.deleteButton {
+  background-color: $red;
 }
 
 main {
-  padding-bottom: 3rem;
+  padding-bottom: 1.5rem;
 }
 
 .hide {

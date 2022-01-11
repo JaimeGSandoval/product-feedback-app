@@ -1,0 +1,134 @@
+@import '../../../../sass/abstract/vars';
+@import '../../../../sass/abstract/media-queries';
+
+.container {
+  width: 88%;
+  margin: auto;
+  margin-top: 1.5rem;
+}
+
+.goBackBtn {
+  display: flex;
+  align-items: center;
+  width: 6.25rem;
+  padding: 0.5rem 0;
+  border: none;
+  text-transform: capitalize;
+  font-family: $robotoBold;
+  font-size: 1rem;
+  // font-size: 1.2rem;
+  color: $grey;
+  background-color: $lightGrey;
+}
+
+.goBackText {
+  position: relative;
+  left: 0.7rem;
+}
+
+.arrowLeft {
+  width: 0.6rem;
+}
+
+.outerContainer {
+  background-color: $white;
+  width: 100%;
+  margin-top: 3.1rem;
+  border-radius: 5px;
+}
+
+.innerContainer {
+  width: 88%;
+  margin: auto;
+}
+
+.plusSign {
+  position: relative;
+  bottom: 1.8rem;
+}
+
+.formContainer {
+  width: 100%;
+  padding-bottom: 3rem;
+}
+
+.formContainer h1 {
+  margin-bottom: 2rem;
+  font-family: $robotoBold;
+  text-transform: capitalize;
+  color: $darkNavy;
+  font-size: 1.2rem;
+
+  @include mobileLg {
+    font-size: 1.5rem;
+  }
+}
+
+.title {
+  font-family: $robotoBold;
+  color: $darkNavy;
+  text-transform: capitalize;
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+}
+
+.titleDetail {
+  font-family: $roboto;
+  color: $darkNavy;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.form div:nth-of-type(2) span,
+.form div:nth-of-type(3) span {
+  line-height: 1.5rem;
+}
+
+.sortTitle {
+  color: $white;
+  font-family: $roboto;
+  text-transform: capitalize;
+  font-size: 1rem;
+  color: $darkNavy;
+  @include mobileSm {
+    top: 0;
+  }
+}
+
+.buttonBox {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.submitButton,
+.cancelButton {
+  font-size: 1rem;
+  text-transform: capitalize;
+  color: $white;
+  padding: 0.7rem 0;
+  border: none;
+  border-radius: 10px;
+}
+
+.submitButton {
+  background-color: $purple;
+  margin-bottom: 1rem;
+}
+
+.cancelButton {
+  background-color: $darkNavy;
+}
+
+main {
+  padding-bottom: 1.5rem;
+}
+
+.hide {
+  display: none;
+}
+
+form div:nth-of-type(3) span:nth-of-type(2) {
+  top: 0;
+}

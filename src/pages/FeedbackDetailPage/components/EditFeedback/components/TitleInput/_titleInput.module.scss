@@ -1,0 +1,57 @@
+@import '../../../../../../sass/abstract/vars';
+@import '../../../../../../sass/abstract/media-queries';
+
+.inputText {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: $lightGrey;
+  border: none;
+  outline-color: $blue;
+  font-size: 1rem;
+  color: $darkNavy;
+  font-family: $roboto;
+  border-radius: 5px;
+}
+
+.inputBox {
+  width: 100%;
+}
+
+input[type='text'] {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.visibilityHidden {
+  visibility: hidden;
+}
+
+.errorText {
+  color: $red;
+  visibility: visible;
+  position: relative;
+  top: 0.3rem;
+  font-family: $roboto;
+  font-size: 0.8rem;
+}
+
+.errorOutline {
+  outline: 1px solid $red;
+}
+
+.title {
+  font-family: $robotoBold;
+  color: $darkNavy;
+  text-transform: capitalize;
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+}
+
+.titleDetail {
+  font-family: $roboto;
+  color: $darkNavy;
+  margin-bottom: 1.5rem;
+  display: block;
+}

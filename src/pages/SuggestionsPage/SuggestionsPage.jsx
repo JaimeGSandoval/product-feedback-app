@@ -6,10 +6,8 @@ export const SuggestionsPage = () => {
   return (
     <>
       <Header />
-      <main>
-        <FeedbackBar />
-        <SuggestionList />
-      </main>
+      <FeedbackBar />
+      <SuggestionList />
     </>
   );
 };

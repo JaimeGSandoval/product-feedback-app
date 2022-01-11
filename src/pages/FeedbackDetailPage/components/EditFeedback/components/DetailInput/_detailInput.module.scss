@@ -1,5 +1,5 @@
-@import '../../../../sass/abstract/vars';
-@import '../../../../sass/abstract/media-queries';
+@import '../../../../../../sass/abstract/vars';
+@import '../../../../../../sass/abstract/media-queries';
 
 textarea {
   -moz-box-sizing: border-box;
@@ -9,7 +9,6 @@ textarea {
 
 .inputBox {
   width: 100%;
-  margin: 3.5rem 0;
 }
 
 .textArea {

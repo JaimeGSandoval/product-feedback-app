@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { GoBackBtn } from '../../../../components/GoBackBtn';
 import { FeatureType } from '../FeatureType';
 import { TitleInput } from '../TitleInput';
 import { DetailInput } from '../DetailInput';
 import plusSign from '../../../../assets/icons/new-feedback.svg';
-import styles from './_addFeedback.module.scss';
+import styles from './_feedbackForm.module.scss';
 
-export const AddFeedback = () => {
+export const FeedbackForm = () => {
   const [formData, setFormData] = useState({
     title: '',
     category: '',
@@ -49,10 +48,8 @@ export const AddFeedback = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <GoBackBtn styles={styles} />
-
-      <section className={styles.outerContainer}>
+    <>
+      <main className={styles.outerContainer}>
         <div className={styles.innerContainer}>
           <div className={styles.plusSignBox}>
             <img className={styles.plusSign} src={plusSign} alt="plus sign" />
@@ -95,7 +92,7 @@ export const AddFeedback = () => {
             </div>
           </div>
         </div>
-      </section>
-    </div>
+      </main>
+    </>
   );
 };
