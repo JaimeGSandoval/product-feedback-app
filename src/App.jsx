@@ -3,6 +3,7 @@ import { SuggestionsPage } from './pages/SuggestionsPage';
 import { AddFeedbackPage } from './pages/AddFeedbackPage';
 import { FeedbackDetailPage } from './pages/FeedbackDetailPage';
 import { EditFeedback } from './pages/FeedbackDetailPage/components/EditFeedback';
+import { keyboardDetectInit } from './utils/keyboardUserDetect';
 import { NotFoundPage } from './pages/NotFoundPage';
 import './index.scss';
 
@@ -21,5 +22,7 @@ function App() {
     </div>
   );
 }
+
+keyboardDetectInit();
 
 export default App;
