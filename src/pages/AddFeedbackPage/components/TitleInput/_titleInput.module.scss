@@ -39,3 +39,19 @@ input[type='text'] {
 .errorOutline {
   outline: 1px solid $red;
 }
+
+.title {
+  font-family: $robotoBold;
+  color: $darkNavy;
+  text-transform: capitalize;
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+}
+
+.titleDetail {
+  font-family: $roboto;
+  color: $darkNavy;
+  margin-bottom: 1.5rem;
+  display: block;
+}

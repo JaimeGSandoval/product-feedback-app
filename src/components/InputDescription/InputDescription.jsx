@@ -1,4 +1,4 @@
-import styles from './FeedbackForm/_feedbackForm.module.scss';
+import styles from './_inputDescription.module.scss';
 
 export const InputDescription = ({ label, description, id }) => {
   return (

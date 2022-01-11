@@ -1,4 +1,4 @@
-import { InputDescription } from '../InputDescription';
+import { InputDescription } from '../../../../components/InputDescription';
 import styles from './_detailInput.module.scss';
 
 export const DetailInput = ({ handleInputData, formData, detailError }) => {

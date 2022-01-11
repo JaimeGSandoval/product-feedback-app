@@ -1,4 +1,4 @@
-import { InputDescription } from '../InputDescription';
+import { InputDescription } from '../../../../components/InputDescription';
 import styles from './_titleInput.module.scss';
 
 export const TitleInput = ({ handleInputData, formData, titleError }) => {
@@ -8,6 +8,7 @@ export const TitleInput = ({ handleInputData, formData, titleError }) => {
         label="feedback title"
         description="Add a short, descriptive headline"
         htmlFor="feedbackTitle"
+        // styles={styles}
       />
       <input
         id="feedbackTitle"

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
-import { InputDescription } from '../InputDescription';
+// import { InputDescription } from '../InputDescription';
+import { InputDescription } from '../../../../components/InputDescription';
 import { Dropdown } from './Dropdown';
 import arrowUp from '../../../../assets/icons/arrow-up.svg';
 import arrowDown from '../../../../assets/icons/arrow-down.svg';
@@ -62,7 +63,7 @@ export const FeatureType = ({ setFormData }) => {
         label="Category"
         description="Choose a category for your feedback"
         htmlFor="featureDropdown"
-        styles={styles}
+        // styles={styles}
       />
 
       <div

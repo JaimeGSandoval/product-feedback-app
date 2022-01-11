@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { FeatureType } from '../FeatureType';
 import { TitleInput } from '../TitleInput';
 import { DetailInput } from '../DetailInput';
@@ -14,8 +13,6 @@ export const FeedbackForm = () => {
   });
   const [titleError, setTitleError] = useState(false);
   const [detailError, setDetailError] = useState(false);
-
-  const navigate = useNavigate();
 
   const handleInputData = (e) => {
     setFormData((prevData) => ({
@@ -43,7 +40,6 @@ export const FeedbackForm = () => {
       setDetailError(false);
     }
     e.preventDefault(); // temporary
-    // navigate('/', { replace: true });
     return null;
   };
 
