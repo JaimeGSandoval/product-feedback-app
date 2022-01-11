@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { SelectOption } from './SelectOption';
 import { AddFeedBackBtn } from '../../../../components/AddFeedBackBtn';
+import { Modal } from '../Modal/Modal';
 import arrowUp from '../../../../assets/icons/arrow-up-white.svg';
 import arrowDown from '../../../../assets/icons/arrow-down-white.svg';
 import styles from './_feedbackBar.module.scss';
@@ -62,41 +63,49 @@ export const FeedbackBar = () => {
   }, [isDropDownOpen]);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.contentBox}>
-        <div
-          className={styles.selectContainer}
-          onClick={handleDropdown}
-          ref={containerRef}
-        >
-          <div className={'sortTabContainer'}>
-            <span className={styles.sortText}>sort by : </span>
-            <span
-              className={styles.sortTitle}
-              onKeyPress={handleKeyPress}
-              tabIndex="0"
-            >
-              {activeOptionText}
-              <img className={styles.arrow} src={arrow} alt="" />
-            </span>
-          </div>
-          {isDropDownOpen && (
-            <div className={styles.selectOptions}>
-              {SELECT_OPTIONS.map((option, index) => {
-                return (
-                  <SelectOption
-                    sortingData={SORTING_DATA}
-                    option={option}
-                    index={index}
-                    key={option}
-                  />
-                );
-              })}
+    <>
+      {isDropDownOpen && (
+        <Modal
+          isDropDownOpen={isDropDownOpen}
+          setIsDropDownOpen={setIsDropDownOpen}
+        />
+      )}
+      <div className={styles.container}>
+        <div className={styles.contentBox}>
+          <div
+            className={styles.selectContainer}
+            onClick={handleDropdown}
+            ref={containerRef}
+          >
+            <div className={'sortTabContainer'}>
+              <span className={styles.sortText}>sort by : </span>
+              <span
+                className={styles.sortTitle}
+                onKeyPress={handleKeyPress}
+                tabIndex="0"
+              >
+                {activeOptionText}
+                <img className={styles.arrow} src={arrow} alt="" />
+              </span>
             </div>
-          )}
+            {isDropDownOpen && (
+              <div className={styles.selectOptions}>
+                {SELECT_OPTIONS.map((option, index) => {
+                  return (
+                    <SelectOption
+                      sortingData={SORTING_DATA}
+                      option={option}
+                      index={index}
+                      key={option}
+                    />
+                  );
+                })}
+              </div>
+            )}
+          </div>
+          <AddFeedBackBtn styles={styles} />
         </div>
-        <AddFeedBackBtn styles={styles} />
       </div>
-    </div>
+    </>
   );
 };
