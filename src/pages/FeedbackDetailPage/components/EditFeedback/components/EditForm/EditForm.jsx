@@ -1,22 +1,20 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { GoBackBtn } from '../../../../components/GoBackBtn';
-import { FeatureType } from '../FeatureType';
 import { TitleInput } from '../TitleInput';
+import { FeatureType } from '../FeatureType';
+import { UpdateStatus } from '../UpdateStatus';
 import { DetailInput } from '../DetailInput';
-import plusSign from '../../../../assets/icons/new-feedback.svg';
-import styles from './_addFeedback.module.scss';
+import penIcon from '../../../../../../assets/icons/edit-feedback.svg';
+import styles from './_editForm.module.scss';
 
-export const AddFeedback = () => {
+export const EditForm = () => {
   const [formData, setFormData] = useState({
     title: '',
     category: '',
+    status: '',
     detail: '',
   });
   const [titleError, setTitleError] = useState(false);
   const [detailError, setDetailError] = useState(false);
-
-  const navigate = useNavigate();
 
   const handleInputData = (e) => {
     setFormData((prevData) => ({
@@ -44,25 +42,22 @@ export const AddFeedback = () => {
       setDetailError(false);
     }
     e.preventDefault(); // temporary
-    // navigate('/', { replace: true });
     return null;
   };
 
   return (
-    <div className={styles.container}>
-      <GoBackBtn styles={styles} />
-
-      <section className={styles.outerContainer}>
+    <>
+      <main className={styles.outerContainer}>
         <div className={styles.innerContainer}>
           <div className={styles.plusSignBox}>
-            <img className={styles.plusSign} src={plusSign} alt="plus sign" />
+            <img className={styles.penIcon} src={penIcon} alt="pen" />
           </div>
 
           <div className={styles.formContainer}>
-            <h1>create new feedback</h1>
+            <h1>editing 'add a dark theme option'</h1>
 
             <form
-              id="addFeedbackForm"
+              id="EditForm"
               action=""
               onSubmit={handleSubmit}
               className={styles.form}
@@ -73,6 +68,7 @@ export const AddFeedback = () => {
                 titleError={titleError}
               />
               <FeatureType setFormData={setFormData} />
+              <UpdateStatus setFormData={setFormData} />
               <DetailInput
                 handleInputData={handleInputData}
                 formData={formData}
@@ -82,7 +78,7 @@ export const AddFeedback = () => {
             <div className={styles.buttonBox}>
               <button
                 type="submit"
-                form="addFeedbackForm"
+                form="EditForm"
                 className={styles.submitButton}
                 onKeyPress={handleSubmit}
                 tabIndex="0"
@@ -92,10 +88,13 @@ export const AddFeedback = () => {
               <button className={styles.cancelButton} tabIndex="0">
                 cancel
               </button>
+              <button className={styles.deleteButton} tabIndex="0">
+                delete
+              </button>
             </div>
           </div>
         </div>
-      </section>
-    </div>
+      </main>
+    </>
   );
 };

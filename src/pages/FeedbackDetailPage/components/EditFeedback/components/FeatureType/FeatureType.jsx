@@ -1,9 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
-// import { InputDescription } from '../InputDescription';
-import { InputDescription } from '../../../../components/InputDescription';
+import { InputDescription } from '../../../../../../components/InputDescription';
 import { Dropdown } from './Dropdown';
-import arrowUp from '../../../../assets/icons/arrow-up.svg';
-import arrowDown from '../../../../assets/icons/arrow-down.svg';
+import arrowUp from '../../../../../../assets/icons/arrow-up.svg';
+import arrowDown from '../../../../../../assets/icons/arrow-down.svg';
 import styles from './_featureType.module.scss';
 
 export const FeatureType = ({ setFormData }) => {

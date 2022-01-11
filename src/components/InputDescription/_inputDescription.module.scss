@@ -1,0 +1,19 @@
+@import '../../sass/abstract/vars';
+@import '../../sass/abstract/media-queries';
+
+.title {
+  font-family: $robotoBold;
+  color: $darkNavy;
+  text-transform: capitalize;
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+}
+
+.titleDetail {
+  font-family: $roboto;
+  color: $darkNavy;
+  margin-bottom: 1.5rem;
+  display: block;
+  line-height: 1.5rem;
+}

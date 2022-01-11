@@ -5,7 +5,7 @@ import data from '../../../../data/data.json';
 
 export const SuggestionList = () => {
   return (
-    <section className={styles.container}>
+    <main className={styles.container}>
       {!data.productRequests ? (
         <EmptySuggestion />
       ) : (
@@ -13,6 +13,6 @@ export const SuggestionList = () => {
           <Suggestion request={request} key={request.title} />
         ))
       )}
-    </section>
+    </main>
   );
 };

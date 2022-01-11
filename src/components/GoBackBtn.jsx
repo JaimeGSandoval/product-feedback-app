@@ -1,10 +1,6 @@
 import arrowLeft from '../assets/icons/arrow-left.svg';
-import { useNavigate } from 'react-router-dom';
 
-export const GoBackBtn = ({ styles }) => {
-  const navigate = useNavigate();
-
-  const goBack = () => navigate(-1);
+export const GoBackBtn = ({ styles, goBack }) => {
   return (
     <>
       <button className={styles.goBackBtn} onClick={goBack} tabIndex="0">

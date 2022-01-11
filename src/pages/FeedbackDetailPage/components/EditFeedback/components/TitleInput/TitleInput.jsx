@@ -1,4 +1,4 @@
-import { InputDescription } from '../../../../components/InputDescription';
+import { InputDescription } from '../../../../../../components/InputDescription';
 import styles from './_titleInput.module.scss';
 
 export const TitleInput = ({ handleInputData, formData, titleError }) => {
