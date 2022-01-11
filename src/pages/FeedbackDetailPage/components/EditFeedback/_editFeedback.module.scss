@@ -1,0 +1,25 @@
+@import '../../../../sass/abstract/vars';
+@import '../../../../sass/abstract/media-queries';
+
+.goBackBtn {
+  display: flex;
+  align-items: center;
+  width: 6.25rem;
+  padding: 0.5rem 0;
+  border: none;
+  text-transform: capitalize;
+  font-family: $robotoBold;
+  font-size: 1rem;
+  // font-size: 1.2rem;
+  color: $grey;
+  background-color: $lightGrey;
+}
+
+.goBackText {
+  position: relative;
+  left: 0.7rem;
+}
+
+.arrowLeft {
+  width: 0.6rem;
+}

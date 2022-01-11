@@ -1,9 +1,12 @@
-import { FeedbackDetail } from './components/FeedbackDetail/FeedbackDetail';
+import { CommentsList } from './components/CommentsList';
+import styles from './components/CommentsList/_commentsList.module.scss';
 
 export const FeedbackDetailPage = () => {
   return (
     <>
-      <FeedbackDetail />
+      <div className={styles.container}>
+        <CommentsList />
+      </div>
     </>
   );
 };

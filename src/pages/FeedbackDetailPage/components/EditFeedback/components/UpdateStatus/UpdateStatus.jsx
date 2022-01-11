@@ -1,13 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
-// import { InputDescription } from '../InputDescription';
-import { InputDescription } from '../../../../components/InputDescription';
+import { InputDescription } from '../../../../../../components/InputDescription';
 import { Dropdown } from './Dropdown';
-import arrowUp from '../../../../assets/icons/arrow-up.svg';
-import arrowDown from '../../../../assets/icons/arrow-down.svg';
-import styles from './_featureType.module.scss';
+import arrowUp from '../../../../../../assets/icons/arrow-up.svg';
+import arrowDown from '../../../../../../assets/icons/arrow-down.svg';
+import styles from './_updateStatus.module.scss';
 
-export const FeatureType = ({ setFormData }) => {
-  const SELECT_OPTIONS = ['bug', 'UI', 'UX', 'enhancement', 'feature'];
+export const UpdateStatus = ({ setFormData }) => {
+  const SELECT_OPTIONS = ['planned', 'in-progress', 'live'];
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const [activeOptionText, setActiveOptionText] = useState(SELECT_OPTIONS[0]);
   const [checkMark, setCheckMark] = useState(0);
@@ -60,14 +59,13 @@ export const FeatureType = ({ setFormData }) => {
   return (
     <div className={styles.inputBox}>
       <InputDescription
-        label="Category"
-        description="Choose a category for your feedback"
-        htmlFor="featureDropdown"
-        // styles={styles}
+        label="Update Status"
+        description="Change feature state"
+        htmlFor="updateStatus"
       />
 
       <div
-        id="featureDropdown"
+        id="updateStatus"
         className={styles.dropDownContainer}
         tabIndex="0"
         onKeyPress={handleKeyPress}

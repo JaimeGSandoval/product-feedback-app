@@ -7,6 +7,23 @@
   margin-top: 1.5rem;
 }
 
+.commentsContainer {
+  margin-top: 2rem;
+  background-color: $white;
+  border-radius: 10px;
+}
+
+.commentsInnerContainer {
+  margin: 2rem auto 0;
+  padding: 1.8rem 0;
+  width: 84%;
+}
+
+.commentsTotal {
+  font-family: $robotoBold;
+  color: $darkNavy;
+}
+
 .goBackBtn {
   display: flex;
   align-items: center;
@@ -45,6 +62,7 @@
   border-radius: 10px;
   font-size: 0.8rem;
   position: relative;
+  font-family: $roboto;
   top: 2px;
 
   @include mobileXSm {
@@ -59,21 +77,4 @@
   @include mobileLg {
     font-size: 1rem;
   }
-}
-
-.commentsContainer {
-  margin-top: 2rem;
-  background-color: $white;
-  border-radius: 10px;
-}
-
-.commentsInnerContainer {
-  margin: 2rem auto 0;
-  padding: 1.8rem 0;
-  width: 84%;
-}
-
-.commentsTotal {
-  font-family: $robotoBold;
-  color: $darkNavy;
 }
