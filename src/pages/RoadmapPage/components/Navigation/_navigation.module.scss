@@ -3,6 +3,7 @@
 
 .nav {
   background-color: $darkNavy;
+  border-bottom: 1px solid $darkerLightGrey2;
 }
 
 .container {
@@ -50,7 +51,7 @@
   outline: none;
   border: none;
   padding: 0.8rem 1rem;
-  border-radius: 15px;
+  border-radius: 16px;
   font-size: 0.8rem;
   position: relative;
   top: 5px;
