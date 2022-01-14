@@ -78,3 +78,88 @@
     font-size: 1rem;
   }
 }
+
+.form {
+  background-color: $white;
+  display: block;
+  margin-top: 2rem;
+  // padding: 1rem 0 1rem 0;
+  border-radius: 10px;
+}
+
+.labelBox,
+.buttonBox {
+  width: 88%;
+  margin: auto;
+}
+
+.labelBox {
+  padding: 2rem 0;
+}
+
+.formLabel {
+  display: block;
+  font-family: $robotoBold;
+  color: $darkNavy;
+  text-transform: capitalize;
+  font-size: 1.3rem;
+}
+
+.textareaBox {
+  width: 88%;
+  margin: auto;
+}
+
+.textarea {
+  width: 100%;
+  background-color: $lightGrey;
+  padding: 0.5rem;
+  border: none;
+  resize: none;
+  outline-color: $blue;
+  border-radius: 5px;
+  font-size: 1rem;
+  display: block;
+  margin: auto;
+}
+
+.characterCountText {
+  display: inline-block;
+}
+
+.buttonBox {
+  padding: 1.5rem 0 2rem 0;
+}
+
+.characterCountText {
+  font-family: $roboto;
+  color: $lightNavy;
+  font-size: 0.8rem;
+}
+
+.submitBtn {
+  background-color: $purple;
+  color: $white;
+  font-family: $roboto;
+  text-transform: capitalize;
+  padding: 0.9rem 0.7rem;
+  border: none;
+  border-radius: 10px;
+}
+
+.visibilityHidden {
+  visibility: hidden;
+}
+
+.errorText {
+  color: $red;
+  visibility: visible;
+  position: relative;
+  bottom: 0.3rem;
+  font-family: $roboto;
+  font-size: 0.8rem;
+}
+
+.errorOutline {
+  outline: 1px solid $red;
+}

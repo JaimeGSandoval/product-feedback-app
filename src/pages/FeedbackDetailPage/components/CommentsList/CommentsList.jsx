@@ -4,6 +4,7 @@ import { GoBackBtn } from '../../../../components/GoBackBtn';
 import { Suggestion } from '../Suggestion';
 import { Comment } from '../Comment';
 import { EditFeedback } from '../EditFeedback';
+import { CommentForm } from './CommentForm';
 import data from '../../../../data/data.json';
 import styles from './_commentsList.module.scss';
 
@@ -62,6 +63,7 @@ export const CommentsList = () => {
                   ))}
                 </div>
               </section>
+              <CommentForm styles={styles} />
             </section>
           </main>
         </>
