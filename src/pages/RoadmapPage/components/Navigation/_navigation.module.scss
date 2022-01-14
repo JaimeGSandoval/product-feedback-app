@@ -1,0 +1,85 @@
+@import '../../../../sass/abstract/vars';
+@import '../../../../sass/abstract/media-queries';
+
+.nav {
+  background-color: $darkNavy;
+  border-bottom: 1px solid $darkerLightGrey2;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+  padding: 0.8rem 0 1.4rem 0;
+}
+
+.goBackBtn {
+  display: flex;
+  align-items: center;
+  width: 6.25rem;
+  padding: 0.5rem 0;
+  border: none;
+  text-transform: capitalize;
+  font-family: $robotoBold;
+  // font-size: 1.2rem;
+  color: $white;
+  background-color: $darkNavy;
+}
+
+.goBackText {
+  position: relative;
+  left: 0.7rem;
+}
+
+.arrowLeft {
+  width: 0.6rem;
+}
+
+.navText {
+  display: block;
+  color: $white;
+  font-family: $robotoBold;
+  margin-top: 0.2rem;
+  font-size: 1rem;
+}
+
+.feedBackBtn {
+  text-transform: capitalize;
+  background-color: $purple;
+  outline: none;
+  border: none;
+  padding: 0.8rem 1rem;
+  border-radius: 16px;
+  font-size: 0.8rem;
+  position: relative;
+  top: 5px;
+
+  @include mobileXSm {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  @include mobileSm {
+    font-size: 0.9rem;
+  }
+
+  @include mobileLg {
+    font-size: 1rem;
+  }
+}
+
+.feedBackText {
+  color: $white;
+}
+
+.plusSign {
+  position: relative;
+  right: 3px;
+  color: $white;
+
+  @include mobileLg {
+    bottom: 1px;
+  }
+}

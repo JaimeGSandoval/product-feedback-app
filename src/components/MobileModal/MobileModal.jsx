@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
+import { Link } from 'react-router-dom';
 import { Button } from './Button';
 import RoadMap from './RoadMap';
 import styles from './_mobileModal.module.scss';
@@ -53,9 +54,9 @@ export const MobileModal = ({ isModalOpen, handleSetModal }) => {
           <div className={styles.roadMapContainer}>
             <div className={styles.titleContainer}>
               <span className={styles.roadMapTitle}>roadmap</span>
-              <span className={styles.viewLink} tabIndex="0">
+              <Link to="/roadmap" className={styles.viewLink} tabIndex="0">
                 view
-              </span>
+              </Link>
             </div>
             {roadMapData.map((data) => {
               return <RoadMap data={data} key={data.category} />;
