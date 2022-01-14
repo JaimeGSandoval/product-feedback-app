@@ -1,0 +1,63 @@
+@import '../../../../sass/abstract/vars';
+@import '../../../../sass/abstract/media-queries';
+
+.container {
+  width: 90%;
+  margin: 2rem auto 0 auto;
+  padding-bottom: 2rem;
+}
+
+.roadmapBtnsContainer {
+  background-color: $lightGrey;
+}
+
+.roadmapBtnsBox {
+  width: 90%;
+  margin: auto;
+  display: flex;
+}
+
+.roadmapBtn {
+  width: 100%;
+  font-size: 0.7rem;
+  padding: 1.4rem 0;
+  border: 0;
+  background-color: $offWhite;
+  font-family: $robotoBold;
+  color: $darkerLightGrey2;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+}
+
+.purpleBottomBorder {
+  border-bottom: 3px solid $purple;
+  color: $darkNavy;
+}
+
+.peachBottomBorder {
+  border-bottom: 3px solid $peach;
+  color: $darkNavy;
+}
+
+.cyanBottomBorder {
+  border-bottom: 3px solid $cyan;
+  color: $darkNavy;
+}
+
+.headerTitle {
+  margin-bottom: 0.8rem;
+  font-family: $robotoBold;
+  color: $darkNavy;
+  font-size: 1.2rem;
+}
+
+.description {
+  font-family: $roboto;
+  color: $lightNavy;
+  font-size: 0.8rem;
+}
+
+.listContainer {
+  width: 100%;
+  margin-top: 1.5rem;
+}

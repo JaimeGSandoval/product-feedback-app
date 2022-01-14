@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { GoBackBtn } from './GoBackBtn';
 
 export const AddFeedBackBtn = ({ styles }) => {
   return (
