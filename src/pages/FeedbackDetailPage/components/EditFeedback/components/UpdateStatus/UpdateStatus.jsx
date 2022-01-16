@@ -6,7 +6,7 @@ import arrowDown from '../../../../../../assets/icons/arrow-down.svg';
 import styles from './_updateStatus.module.scss';
 
 export const UpdateStatus = ({ setFormData }) => {
-  const SELECT_OPTIONS = ['planned', 'in-progress', 'live'];
+  const SELECT_OPTIONS = ['suggestion', 'planned', 'in-progress', 'live'];
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const [activeOptionText, setActiveOptionText] = useState(SELECT_OPTIONS[0]);
   const [checkMark, setCheckMark] = useState(0);
