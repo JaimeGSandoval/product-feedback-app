@@ -151,13 +151,18 @@
   visibility: hidden;
 }
 
-.errorText {
+.errorText,
+.charactersError {
   color: $red;
   visibility: visible;
   position: relative;
   bottom: 0.3rem;
   font-family: $roboto;
   font-size: 0.8rem;
+}
+
+.charactersError {
+  bottom: 0;
 }
 
 .errorOutline {
