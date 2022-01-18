@@ -26,15 +26,33 @@ textarea {
   visibility: hidden;
 }
 
-.errorText {
-  color: $red;
-  visibility: visible;
-  position: relative;
-  top: 0.3rem;
-  font-family: $roboto;
-  font-size: 0.8rem;
+.charactersError {
+  bottom: 0;
 }
 
 .errorOutline {
   outline: 1px solid $red;
+}
+
+.characterCountText {
+  display: inline-block;
+  font-family: $roboto;
+  color: $lightNavy;
+  font-size: 0.8rem;
+  position: relative;
+  top: 3px;
+}
+
+.errorText,
+.charactersError {
+  color: $red;
+  visibility: visible;
+  position: relative;
+  font-family: $roboto;
+  font-size: 0.8rem;
+}
+
+.errorText {
+  position: relative;
+  bottom: 3px;
 }
