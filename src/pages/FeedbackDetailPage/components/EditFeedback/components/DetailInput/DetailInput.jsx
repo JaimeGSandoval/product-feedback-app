@@ -2,12 +2,7 @@ import { useState, useEffect } from 'react';
 import { InputDescription } from '../../../../../../components/InputDescription';
 import styles from './_detailInput.module.scss';
 
-export const DetailInput = ({
-  onInputChange,
-  formData,
-  detailError,
-  detailMaxCharacterError,
-}) => {
+export const DetailInput = ({ onInputChange, formData, detailError }) => {
   const [detailCharactersLeft, setDetailCharactersLeft] = useState(75);
 
   useEffect(() => {
@@ -35,10 +30,7 @@ export const DetailInput = ({
       </span>
       <textarea
         id="detailTextArea"
-        className={`${styles.textArea} ${
-          (detailError && styles.errorOutline) ||
-          (detailMaxCharacterError && styles.errorOutline)
-        }`}
+        className={`${styles.textArea} ${detailError && styles.errorOutline}`}
         onChange={onChange}
         value={formData.detail}
         name="detail"

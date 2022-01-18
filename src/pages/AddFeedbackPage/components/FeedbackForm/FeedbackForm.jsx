@@ -8,8 +8,6 @@ import styles from './_feedbackForm.module.scss';
 export const FeedbackForm = () => {
   const [titleError, setTitleError] = useState(false);
   const [detailError, setDetailError] = useState(false);
-  const [titleMaxCharacterError, setTitleMaxCharacterError] = useState(false);
-  const [detailMaxCharacterError, setDetailMaxCharacterError] = useState(false);
   const [formData, setFormData] = useState({
     title: '',
     category: '',
@@ -32,21 +30,17 @@ export const FeedbackForm = () => {
       return setTitleError(!titleError);
     }
 
-    if (formData.title.length >= 35) {
-      return setTitleMaxCharacterError(true);
-    }
-
     if (!formData.detail) {
       return setDetailError(!detailError);
     }
 
-    if (formData.detail.length >= 75) {
-      return setDetailMaxCharacterError(true);
+    if (formData.detail.length >= 75 || formData.title.length >= 35) {
+      console.log('error');
+      return;
     }
+
     setTitleError(false);
-    setTitleMaxCharacterError(false);
     setDetailError(false);
-    setDetailMaxCharacterError(false);
     console.log('submitted');
 
     return null;
@@ -73,14 +67,12 @@ export const FeedbackForm = () => {
                 onInputChange={onInputChange}
                 formData={formData}
                 titleError={titleError}
-                titleMaxCharacterError={titleMaxCharacterError}
               />
               <FeatureType setFormData={setFormData} />
               <DetailInput
                 onInputChange={onInputChange}
                 formData={formData}
                 detailError={detailError}
-                detailMaxCharacterError={detailMaxCharacterError}
               />
             </form>
             <div className={styles.buttonBox}>
