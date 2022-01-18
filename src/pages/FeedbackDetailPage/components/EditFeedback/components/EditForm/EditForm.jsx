@@ -7,16 +7,18 @@ import penIcon from '../../../../../../assets/icons/edit-feedback.svg';
 import styles from './_editForm.module.scss';
 
 export const EditForm = () => {
+  const [titleError, setTitleError] = useState(false);
+  const [detailError, setDetailError] = useState(false);
+  const [titleMaxCharacterError, setTitleMaxCharacterError] = useState(false);
+  const [detailMaxCharacterError, setDetailMaxCharacterError] = useState(false);
   const [formData, setFormData] = useState({
     title: '',
     category: '',
     status: '',
     detail: '',
   });
-  const [titleError, setTitleError] = useState(false);
-  const [detailError, setDetailError] = useState(false);
 
-  const handleInputData = (e) => {
+  const onInputChange = (e) => {
     setFormData((prevData) => ({
       ...prevData,
       [e.target.name]: e.target.value,
@@ -26,22 +28,29 @@ export const EditForm = () => {
   };
 
   const handleSubmit = (e) => {
+    e.preventDefault(); // temporary
+
     if (!formData.title) {
-      e.preventDefault();
-      setTitleError(!titleError);
-      return;
-    } else {
-      setTitleError(false);
+      return setTitleError(!titleError);
+    }
+
+    if (formData.title.length >= 35) {
+      return setTitleMaxCharacterError(true);
     }
 
     if (!formData.detail) {
-      e.preventDefault();
-      setDetailError(!detailError);
-      return;
-    } else {
-      setDetailError(false);
+      return setDetailError(!detailError);
     }
-    e.preventDefault(); // temporary
+
+    if (formData.detail.length >= 75) {
+      return setDetailMaxCharacterError(true);
+    }
+    setTitleError(false);
+    setTitleMaxCharacterError(false);
+    setDetailError(false);
+    setDetailMaxCharacterError(false);
+    console.log('submitted');
+
     return null;
   };
 
@@ -63,16 +72,18 @@ export const EditForm = () => {
               className={styles.form}
             >
               <TitleInput
-                handleInputData={handleInputData}
+                onInputChange={onInputChange}
                 formData={formData}
                 titleError={titleError}
+                titleMaxCharacterError={titleMaxCharacterError}
               />
               <FeatureType setFormData={setFormData} />
               <UpdateStatus setFormData={setFormData} />
               <DetailInput
-                handleInputData={handleInputData}
+                onInputChange={onInputChange}
                 formData={formData}
                 detailError={detailError}
+                detailMaxCharacterError={detailMaxCharacterError}
               />
             </form>
             <div className={styles.buttonBox}>
