@@ -9,7 +9,6 @@ import styles from './_editForm.module.scss';
 export const EditForm = () => {
   const [titleError, setTitleError] = useState(false);
   const [detailError, setDetailError] = useState(false);
-  const [titleMaxCharacterError, setTitleMaxCharacterError] = useState(false);
   const [detailMaxCharacterError, setDetailMaxCharacterError] = useState(false);
   const [formData, setFormData] = useState({
     title: '',
@@ -34,19 +33,15 @@ export const EditForm = () => {
       return setTitleError(!titleError);
     }
 
-    if (formData.title.length >= 35) {
-      return setTitleMaxCharacterError(true);
-    }
-
     if (!formData.detail) {
       return setDetailError(!detailError);
     }
 
-    if (formData.detail.length >= 75) {
-      return setDetailMaxCharacterError(true);
+    if (formData.detail.length >= 75 || formData.title.length >= 35) {
+      console.log('error');
+      return;
     }
     setTitleError(false);
-    setTitleMaxCharacterError(false);
     setDetailError(false);
     setDetailMaxCharacterError(false);
     console.log('submitted');
@@ -75,7 +70,6 @@ export const EditForm = () => {
                 onInputChange={onInputChange}
                 formData={formData}
                 titleError={titleError}
-                titleMaxCharacterError={titleMaxCharacterError}
               />
               <FeatureType setFormData={setFormData} />
               <UpdateStatus setFormData={setFormData} />
