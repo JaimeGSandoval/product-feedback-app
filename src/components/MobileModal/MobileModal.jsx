@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
+import { RequestsContext } from '../../context/requests.context';
 import { Button } from './Button';
 import RoadMap from './RoadMap';
 import styles from './_mobileModal.module.scss';
@@ -15,6 +16,10 @@ const roadMapData = [
 
 export const MobileModal = ({ isModalOpen, handleSetModal }) => {
   const [active, setActive] = useState(0);
+  const requests = useContext(RequestsContext);
+  const roadmapRequests = requests.productRequests.filter(
+    (request) => request.status !== 'suggestion'
+  );
 
   if (!isModalOpen) return null;
 
