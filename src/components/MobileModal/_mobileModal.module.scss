@@ -134,12 +134,12 @@
   border-radius: 50%;
 }
 
-.roadMapCategoryBox {
+.roadMapStatusBox {
   display: flex;
   align-items: center;
 }
 
-.category {
+.status {
   margin-left: 1rem;
   text-transform: capitalize;
   font-family: $roboto;
