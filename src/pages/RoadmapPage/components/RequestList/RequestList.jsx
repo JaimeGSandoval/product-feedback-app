@@ -1,26 +1,28 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { RequestsContext } from '../../../../context/requests.context';
 import { Request } from '../Request';
 import { RequestButton } from './RequestButton';
-import data from '../../../../data/data.json';
 import styles from './_requestList.module.scss';
-
-const PLANNED_REQUESTS = data.productRequests.filter(
-  (request) => request.status === 'planned'
-);
-
-const IN_PROGRESS_REQUESTS = data.productRequests.filter(
-  (request) => request.status === 'in-progress'
-);
-
-const LIVE_REQUESTS = data.productRequests.filter(
-  (request) => request.status === 'live'
-);
 
 export const RequestList = () => {
   const [inProgress, setInProgress] = useState(true);
   const [planned, setPlanned] = useState(false);
   const [live, setLive] = useState(false);
-  const REQUESTS = [PLANNED_REQUESTS, IN_PROGRESS_REQUESTS, LIVE_REQUESTS];
+  const requests = useContext(RequestsContext);
+  const PLANNED_REQUESTS = requests.productRequests.filter(
+    (request) => request.status === 'planned'
+  );
+
+  const IN_PROGRESS_REQUESTS = requests.productRequests.filter(
+    (request) => request.status === 'in-progress'
+  );
+
+  const LIVE_REQUESTS = requests.productRequests.filter(
+    (request) => request.status === 'live'
+  );
+
+  const REQUESTS_DATA = [PLANNED_REQUESTS, IN_PROGRESS_REQUESTS, LIVE_REQUESTS];
+
   const BUTTON_DATA = [
     {
       stateVal: planned,
@@ -90,9 +92,9 @@ export const RequestList = () => {
         </header>
 
         <div className={styles.listContainer}>
-          {planned && handleRenderRequests(REQUESTS[0])}
-          {inProgress && handleRenderRequests(REQUESTS[1])}
-          {live && handleRenderRequests(REQUESTS[2])}
+          {planned && handleRenderRequests(REQUESTS_DATA[0])}
+          {inProgress && handleRenderRequests(REQUESTS_DATA[1])}
+          {live && handleRenderRequests(REQUESTS_DATA[2])}
         </div>
       </section>
     </>
