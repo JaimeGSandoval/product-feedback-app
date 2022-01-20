@@ -3,23 +3,22 @@ import { RequestsContext } from '../../../../context/requests.context';
 import { Suggestion } from '../Suggestion/Suggestion';
 import { EmptySuggestion } from '../EmptySuggestion';
 import styles from './_suggestionList.module.scss';
-import data from '../../../../data/data.json';
+
+import { RenderTypeContext } from '../../../../components/MobileModal/context';
 
 export const SuggestionList = () => {
-  const requests = useContext(RequestsContext);
-  const requestSuggestions = requests.productRequests.filter(
-    (request) => request.status === 'suggestion'
-  );
+  const retrievedRequests = useContext(RequestsContext);
+  const renderType = useContext(RenderTypeContext);
+  let { type } = renderType;
+
+  let renderedRequests = retrievedRequests.filter((req) => req.status === type);
 
   return (
     <main className={styles.container}>
-      {!data.productRequests ? (
-        <EmptySuggestion />
-      ) : (
-        requestSuggestions.map((request) => (
-          <Suggestion request={request} key={request.title} />
-        ))
-      )}
+      {!renderedRequests.length && <EmptySuggestion />}
+      {renderedRequests.map((request) => (
+        <Suggestion request={request} key={request.title} />
+      ))}
     </main>
   );
 };
