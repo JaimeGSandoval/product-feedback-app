@@ -1,4 +1,4 @@
-import { useReducer, useEffect } from 'react';
+import { useReducer } from 'react';
 
 // the function passed in as the third parameter is used to establish the default state, which will be the value of 'state' the's being deconstructed in other modules
 export const useLocalStorageReducer = (key, defaultVal, reducer) => {
@@ -16,9 +16,7 @@ export const useLocalStorageReducer = (key, defaultVal, reducer) => {
     return requests;
   });
 
-  useEffect(() => {
-    window.localStorage.setItem(key, JSON.stringify(state));
-  }, [key, state]);
+  window.localStorage.setItem('requests', JSON.stringify(defaultVal));
 
   return [state, dispatch];
 };

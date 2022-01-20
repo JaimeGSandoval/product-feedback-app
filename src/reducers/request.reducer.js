@@ -1,8 +1,12 @@
 const ACTIONS = {
+  ALL: 'all',
   ADD: 'add',
   EDIT: 'edit',
   DELETE: 'delete',
-  GET: 'get',
+  SUGGESTION: 'suggestion',
+  PLANNED: 'planned',
+  LIVE: 'live',
+  IN_PROGRESS: 'in-progress',
 };
 
 export const requestReducer = (state, action) => {
@@ -15,11 +19,6 @@ export const requestReducer = (state, action) => {
 
     case ACTIONS.DELETE:
       return console.log('DELETE');
-
-    case ACTIONS.GET:
-      return console.log(
-        state.productRequests.find((req) => req.requestID === action.id)
-      );
 
     default:
       return state;
