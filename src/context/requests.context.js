@@ -7,10 +7,9 @@ export const DispatchContext = createContext();
 export const RequestsContext = createContext();
 
 export const RequestsProvider = ({ children }) => {
-  // console.log(defaultRequests);
   const [requests, dispatch] = useLocalStorageReducer(
     'requests',
-    defaultRequests,
+    defaultRequests.productRequests,
     requestReducer
   );
 

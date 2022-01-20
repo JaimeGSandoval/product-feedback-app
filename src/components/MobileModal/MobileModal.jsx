@@ -1,22 +1,38 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
+import { RequestsContext } from '../../context/requests.context';
 import { Button } from './Button';
 import RoadMap from './RoadMap';
 import styles from './_mobileModal.module.scss';
 
 const BUTTON_TITLES = ['All', 'UI', 'UX', 'Enhancement', 'Bug', 'Feature'];
 
-const roadMapData = [
-  { category: 'planned', tasks: 2 },
-  { category: 'in-progress', tasks: 6 },
-  { category: 'live', tasks: 4 },
-];
-
 export const MobileModal = ({ isModalOpen, handleSetModal }) => {
   const [active, setActive] = useState(0);
+  const requests = useContext(RequestsContext);
+
+  const roadmapRequests = requests.filter(
+    (request) => request.status !== 'suggestion'
+  );
 
   if (!isModalOpen) return null;
+
+  const tasksTotals = {
+    planned: 0,
+    'in-progress': 0,
+    live: 0,
+  };
+
+  roadmapRequests.forEach((request) => {
+    tasksTotals[request.status] += 1;
+  });
+
+  const roadMapData = [
+    { status: 'planned', tasks: tasksTotals['planned'] },
+    { status: 'in-progress', tasks: tasksTotals['in-progress'] },
+    { status: 'live', tasks: tasksTotals['live'] },
+  ];
 
   const handleModalClick = (e) => {
     if (e.target.matches('[data-modal]')) {
@@ -45,7 +61,6 @@ export const MobileModal = ({ isModalOpen, handleSetModal }) => {
                   handleClick={handleClick}
                   key={title}
                   activeButton={active}
-                  isModalOpen={isModalOpen}
                 />
               );
             })}
@@ -59,7 +74,7 @@ export const MobileModal = ({ isModalOpen, handleSetModal }) => {
               </Link>
             </div>
             {roadMapData.map((data) => {
-              return <RoadMap data={data} key={data.category} />;
+              return <RoadMap roadmapData={data} key={Math.random() * 4} />;
             })}
           </div>
         </nav>
