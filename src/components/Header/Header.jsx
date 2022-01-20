@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { RenderTypeProvider } from '../MobileModal/context';
 import styles from './_header.module.scss';
 import mobileBgWebp from '../../assets/images/mobile/bg_header_sm.webp';
 import mobileBgPng from '../../assets/images/mobile/bg_header_sm.png';
@@ -63,7 +64,12 @@ export const Header = () => {
           </div>
         </div>
       </header>
-      <MobileModal isModalOpen={isModalOpen} handleSetModal={handleSetModal} />
+      <RenderTypeProvider>
+        <MobileModal
+          isModalOpen={isModalOpen}
+          handleSetModal={handleSetModal}
+        />
+      </RenderTypeProvider>
     </>
   );
 };

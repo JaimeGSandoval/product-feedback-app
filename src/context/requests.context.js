@@ -9,7 +9,7 @@ export const RequestsContext = createContext();
 export const RequestsProvider = ({ children }) => {
   const [requests, dispatch] = useLocalStorageReducer(
     'requests',
-    defaultRequests,
+    defaultRequests.productRequests,
     requestReducer
   );
 

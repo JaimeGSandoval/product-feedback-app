@@ -12,11 +12,11 @@ export const MobileModal = ({ isModalOpen, handleSetModal }) => {
   const [active, setActive] = useState(0);
   const requests = useContext(RequestsContext);
 
-  if (!isModalOpen) return null;
-
-  const roadmapRequests = requests.productRequests.filter(
+  const roadmapRequests = requests.filter(
     (request) => request.status !== 'suggestion'
   );
+
+  if (!isModalOpen) return null;
 
   const tasksTotals = {
     planned: 0,
@@ -61,7 +61,6 @@ export const MobileModal = ({ isModalOpen, handleSetModal }) => {
                   handleClick={handleClick}
                   key={title}
                   activeButton={active}
-                  isModalOpen={isModalOpen}
                 />
               );
             })}
@@ -75,7 +74,7 @@ export const MobileModal = ({ isModalOpen, handleSetModal }) => {
               </Link>
             </div>
             {roadMapData.map((data) => {
-              return <RoadMap roadmapData={data} key={data.category} />;
+              return <RoadMap roadmapData={data} key={Math.random() * 4} />;
             })}
           </div>
         </nav>
