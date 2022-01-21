@@ -1,11 +1,11 @@
 import { useEffect, useRef, useContext } from 'react';
+import { CategoryContext } from './category.context';
 import styles from './_mobileModal.module.scss';
-import { RenderTypeContext } from './context';
 
 export const Button = ({ handleClick, activeButton, index, title }) => {
   const tabRef = useRef();
-  const renderType = useContext(RenderTypeContext);
-  const { setType } = renderType;
+  const categoryData = useContext(CategoryContext);
+  const { setCategory } = categoryData;
 
   useEffect(() => {
     if (index === 0) {
@@ -19,7 +19,7 @@ export const Button = ({ handleClick, activeButton, index, title }) => {
         activeButton === index && styles.activeButton
       }`}
       onClick={() => {
-        setType('planned');
+        setCategory(title.toLowerCase());
         handleClick(index);
       }}
       ref={index === 0 ? tabRef : null}
