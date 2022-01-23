@@ -199,7 +199,8 @@
       "category": "bug",
       "upvotes": 3,
       "status": "suggestion",
-      "description": "Challenge preview images are missing when you apply a filter."
+      "description": "Challenge preview images are missing when you apply a filter.",
+      "comments": []
     },
     {
       "requestID": 7,
@@ -302,7 +303,9 @@
       "category": "bug",
       "upvotes": 9,
       "status": "in-progress",
-      "description": "Screenshots of solutions with animations don’t display correctly."
+      "description": "Screenshots of solutions with animations don’t display correctly.",
+      "comments": []
+
     },
     {
       "requestID": 12,
