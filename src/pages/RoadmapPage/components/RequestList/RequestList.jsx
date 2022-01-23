@@ -9,19 +9,15 @@ export const RequestList = () => {
   const [planned, setPlanned] = useState(false);
   const [live, setLive] = useState(false);
   const requests = useContext(RequestsContext);
-  const PLANNED_REQUESTS = requests.productRequests.filter(
+  const PLANNED_REQUESTS = requests.filter(
     (request) => request.status === 'planned'
   );
 
-  const IN_PROGRESS_REQUESTS = requests.productRequests.filter(
+  const IN_PROGRESS_REQUESTS = requests.filter(
     (request) => request.status === 'in-progress'
   );
 
-  const LIVE_REQUESTS = requests.productRequests.filter(
-    (request) => request.status === 'live'
-  );
-
-  const REQUESTS_DATA = [PLANNED_REQUESTS, IN_PROGRESS_REQUESTS, LIVE_REQUESTS];
+  const LIVE_REQUESTS = requests.filter((request) => request.status === 'live');
 
   const BUTTON_DATA = [
     {
@@ -92,9 +88,9 @@ export const RequestList = () => {
         </header>
 
         <div className={styles.listContainer}>
-          {planned && handleRenderRequests(REQUESTS_DATA[0])}
-          {inProgress && handleRenderRequests(REQUESTS_DATA[1])}
-          {live && handleRenderRequests(REQUESTS_DATA[2])}
+          {planned && handleRenderRequests(PLANNED_REQUESTS)}
+          {inProgress && handleRenderRequests(IN_PROGRESS_REQUESTS)}
+          {live && handleRenderRequests(LIVE_REQUESTS)}
         </div>
       </section>
     </>
