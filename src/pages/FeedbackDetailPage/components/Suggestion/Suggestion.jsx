@@ -1,6 +1,6 @@
-import styles from './_suggestion.module.scss';
 import comment from '../../../../assets/icons/comments.svg';
 import arrowUp from '../../../../assets/icons/arrow-up.svg';
+import styles from './_suggestion.module.scss';
 
 export const Suggestion = ({ productRequest }) => {
   return (

@@ -10,7 +10,7 @@ export const EditFeedback = ({ productRequest, setIsEditing, isEditing }) => {
   return (
     <>
       <GoBackBtn styles={styles} goBack={goBack} />
-      <EditForm />
+      <EditForm productRequest={productRequest} />
     </>
   );
 };
