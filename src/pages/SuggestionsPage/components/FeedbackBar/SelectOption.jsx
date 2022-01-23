@@ -1,24 +1,38 @@
+import { useContext } from 'react';
+import { SortContext } from '../sort.context';
+import checkMarkIcon from '../../../../assets/icons/check.svg';
 import styles from './_feedbackBar.module.scss';
-import checkMark from '../../../../assets/icons/check.svg';
 
 export const SelectOption = ({ sortingData, option, index }) => {
+  const sortContext = useContext(SortContext);
+  const { setSortType } = sortContext;
+  const {
+    setActiveOptionText,
+    checkMark,
+    setCheckMark,
+    isDropDownOpen,
+    setIsDropDownOpen,
+    handleKeyPress,
+  } = sortingData;
+
   return (
     <div
       className={styles.option}
       onClick={() => {
-        sortingData.setActiveOptionText(option);
-        sortingData.setCheckMark(index);
-        sortingData.setIsDropDownOpen(!sortingData.isDropDownOpen);
+        setSortType(option);
+        setActiveOptionText(option);
+        setCheckMark(index);
+        setIsDropDownOpen(!isDropDownOpen);
       }}
       onKeyPress={(e) => {
-        sortingData.setCheckMark(index);
-        sortingData.handleKeyPress(e);
+        setCheckMark(index);
+        handleKeyPress(e);
       }}
       tabIndex="0"
     >
       {option}
-      {sortingData.checkMark === index && (
-        <img className={styles.checkMark} src={checkMark} alt="check mark" />
+      {checkMark === index && (
+        <img className={styles.checkMark} src={checkMarkIcon} alt="checkmark" />
       )}
     </div>
   );

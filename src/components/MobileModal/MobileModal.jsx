@@ -12,11 +12,11 @@ export const MobileModal = ({ isModalOpen, handleSetModal }) => {
   const [active, setActive] = useState(0);
   const requests = useContext(RequestsContext);
 
+  if (!isModalOpen) return null;
+
   const roadmapRequests = requests.filter(
     (request) => request.status !== 'suggestion'
   );
-
-  if (!isModalOpen) return null;
 
   const tasksTotals = {
     planned: 0,
