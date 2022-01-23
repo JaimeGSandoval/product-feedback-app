@@ -7,7 +7,7 @@ export const Suggestion = ({ request }) => {
   return (
     <>
       <div className={styles.container}>
-        <Link to="/feedback-detail">
+        <Link to={`/feedback-detail/${request.requestID}`}>
           <div className={styles.innerContainer}>
             <div className={styles.textBox}>
               <span className={styles.title}>{request.title}</span>
