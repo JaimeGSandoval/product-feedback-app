@@ -16,7 +16,7 @@ export const useLocalStorageReducer = (key, defaultVal, reducer) => {
     return requests;
   });
 
-  window.localStorage.setItem('requests', JSON.stringify(defaultVal));
+  window.localStorage.setItem('requests', JSON.stringify(state));
 
   return [state, dispatch];
 };

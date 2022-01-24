@@ -10,8 +10,6 @@ export const SortContextProvider = ({ children }) => {
     setSortType,
   };
 
-  console.log(sortType);
-
   return (
     <SortContext.Provider value={sortControls}>{children}</SortContext.Provider>
   );
