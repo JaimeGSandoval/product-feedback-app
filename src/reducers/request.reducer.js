@@ -9,6 +9,7 @@ export const requestReducer = (state, action) => {
   const updateLocalStorage = (key, stateData) => {
     window.localStorage.setItem(key, JSON.stringify(stateData));
   };
+
   switch (action.type) {
     case ACTIONS.ADD:
       return console.log('ADD');
@@ -20,31 +21,31 @@ export const requestReducer = (state, action) => {
       return console.log('DELETE');
 
     case ACTIONS.UPVOTE:
-      [...state].filter((request) => {
+      return [...state].filter((request) => {
         if (request.requestID === action.requestID && !request.upvoted) {
-          const update = {
+          const updatedRequest = {
             ...request,
             upvotes: request.upvotes++,
             upvoted: (request.upvoted = true),
           };
-          updateLocalStorage('requests', state);
 
-          return update;
-        } else if (request.requestID === action.requestID && request.upvoted) {
-          const update = {
+          updateLocalStorage('requests', state);
+          return updatedRequest;
+        }
+
+        if (request.requestID === action.requestID && request.upvoted) {
+          const updatedRequest = {
             ...request,
             upvotes: request.upvotes--,
             upvoted: (request.upvoted = false),
           };
+
           updateLocalStorage('requests', state);
-
-          return update;
-        } else {
-          return request;
+          return updatedRequest;
         }
-      });
 
-      return state;
+        return request;
+      });
 
     default:
       return state;

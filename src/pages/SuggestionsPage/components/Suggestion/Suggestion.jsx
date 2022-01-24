@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { DispatchContext } from '../../../../context/requests.context';
 import styles from './_suggestion.module.scss';
@@ -7,12 +7,7 @@ import arrowUp from '../../../../assets/icons/arrow-up.svg';
 import arrowUpWhite from '../../../../assets/icons/arrow-up-white.svg';
 
 export const Suggestion = ({ request }) => {
-  const [active, setActive] = useState(false);
   const dispatch = useContext(DispatchContext);
-
-  const handleUpVoteClick = () => setActive(!active);
-
-  console.log(request.upvoted);
 
   return (
     <>
@@ -36,7 +31,6 @@ export const Suggestion = ({ request }) => {
                     type: 'upvote',
                     requestID: request.requestID,
                   });
-                  handleUpVoteClick();
                 }}
                 tabIndex="0"
               >
