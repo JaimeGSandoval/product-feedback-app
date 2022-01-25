@@ -1,6 +1,5 @@
 import { useReducer } from 'react';
 
-// the function passed in as the third parameter is used to establish the default state, which will be the value of 'state' the's being deconstructed in other modules
 export const useLocalStorageReducer = (key, defaultVal, reducer) => {
   const [state, dispatch] = useReducer(reducer, defaultVal, () => {
     let requests;

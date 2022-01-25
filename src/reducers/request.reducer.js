@@ -26,7 +26,8 @@ export const requestReducer = (state, action) => {
           const updatedRequest = {
             ...request,
             upvotes: request.upvotes++,
-            upvoted: (request.upvoted = true),
+            // upvoted: true, // click event updates the vote count every time, but does not update local storage
+            upvoted: (request.upvoted = true), // updates local storage, but updates only on the first click event in the Request.jsx, but works correctly in the Suggestion.jsx component
           };
 
           updateLocalStorage('requests', state);
@@ -37,7 +38,8 @@ export const requestReducer = (state, action) => {
           const updatedRequest = {
             ...request,
             upvotes: request.upvotes--,
-            upvoted: (request.upvoted = false),
+            // upvoted: true, // click event updates the vote count every time, but does not update local storage
+            upvoted: (request.upvoted = false), // updates local storage, but updates only on the first click event in the Request.jsx, Works as expected in the Suggestion.jsx
           };
 
           updateLocalStorage('requests', state);
