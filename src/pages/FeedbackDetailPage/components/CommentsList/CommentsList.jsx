@@ -15,11 +15,11 @@ export const CommentsList = ({ requestID }) => {
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
 
-  const productRequest = requestsContext.find(
+  const request = requestsContext.find(
     (req) => req.requestID === parseInt(requestID)
   );
 
-  const commentsLength = productRequest.comments.length;
+  const commentsLength = request.comments.length;
 
   const handleEditClick = () => {
     setIsEditing(!isEditing);
@@ -29,7 +29,7 @@ export const CommentsList = ({ requestID }) => {
     <>
       {isEditing && (
         <EditFeedback
-          productRequest={productRequest}
+          request={request}
           setIsEditing={setIsEditing}
           isEditing={isEditing}
         />
@@ -49,14 +49,14 @@ export const CommentsList = ({ requestID }) => {
           <main>
             <section className={styles.outerContainer}>
               <div className={styles.innerContainer}>
-                <Suggestion productRequest={productRequest} />
+                <Suggestion request={request} />
               </div>
               <section className={styles.commentsContainer}>
                 <div className={styles.commentsInnerContainer}>
                   <h1 className={styles.commentsTotal}>
                     {commentsLength + repliesLength} Comments
                   </h1>
-                  {productRequest.comments.map((comment) => (
+                  {request.comments.map((comment) => (
                     <Comment
                       comment={comment}
                       commentsLength={commentsLength}

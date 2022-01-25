@@ -6,16 +6,15 @@ import { DetailInput } from '../DetailInput';
 import penIcon from '../../../../../../assets/icons/edit-feedback.svg';
 import styles from './_editForm.module.scss';
 
-export const EditForm = ({ productRequest }) => {
-  console.log(productRequest);
+export const EditForm = ({ request }) => {
   const [titleError, setTitleError] = useState(false);
   const [detailError, setDetailError] = useState(false);
   const [detailMaxCharacterError, setDetailMaxCharacterError] = useState(false);
   const [formData, setFormData] = useState({
-    title: productRequest.title,
-    category: productRequest.category,
-    status: productRequest.status,
-    detail: productRequest.description,
+    title: request.title,
+    category: request.category,
+    status: request.status,
+    detail: request.description,
   });
 
   const onInputChange = (e) => {

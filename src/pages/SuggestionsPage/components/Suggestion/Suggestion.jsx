@@ -1,9 +1,14 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { DispatchContext } from '../../../../context/requests.context';
 import styles from './_suggestion.module.scss';
 import comment from '../../../../assets/icons/comments.svg';
 import arrowUp from '../../../../assets/icons/arrow-up.svg';
+import arrowUpWhite from '../../../../assets/icons/arrow-up-white.svg';
 
 export const Suggestion = ({ request }) => {
+  const dispatch = useContext(DispatchContext);
+
   return (
     <>
       <div className={styles.container}>
@@ -15,11 +20,23 @@ export const Suggestion = ({ request }) => {
               <span className={styles.category}>{request.category}</span>
             </div>
 
-            <div className={styles.likesBox}>
-              <span className={styles.likesTotal} tabIndex="0">
+            <div className={`${styles.likesBox}`}>
+              <span
+                className={`${styles.likesTotal} ${
+                  request.upvoted && styles.active
+                } `}
+                onClick={(e) => {
+                  e.preventDefault();
+                  dispatch({
+                    type: 'upvote',
+                    requestID: request.requestID,
+                  });
+                }}
+                tabIndex="0"
+              >
                 <img
                   className={styles.likeArrow}
-                  src={arrowUp}
+                  src={request.upvoted ? arrowUpWhite : arrowUp}
                   alt="arrow up"
                 />
                 {request.upvotes}
