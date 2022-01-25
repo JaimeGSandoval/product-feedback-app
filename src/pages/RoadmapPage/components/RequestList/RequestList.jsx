@@ -8,16 +8,19 @@ export const RequestList = () => {
   const [inProgress, setInProgress] = useState(true);
   const [planned, setPlanned] = useState(false);
   const [live, setLive] = useState(false);
-  const requests = useContext(RequestsContext);
-  const PLANNED_REQUESTS = requests.filter(
+  const retrievedRequests = useContext(RequestsContext);
+
+  const PLANNED_REQUESTS = retrievedRequests.filter(
     (request) => request.status === 'planned'
   );
 
-  const IN_PROGRESS_REQUESTS = requests.filter(
+  const IN_PROGRESS_REQUESTS = retrievedRequests.filter(
     (request) => request.status === 'in-progress'
   );
 
-  const LIVE_REQUESTS = requests.filter((request) => request.status === 'live');
+  const LIVE_REQUESTS = retrievedRequests.filter(
+    (request) => request.status === 'live'
+  );
 
   const BUTTON_DATA = [
     {
@@ -56,17 +59,14 @@ export const RequestList = () => {
     live,
   };
 
-  const handleRenderRequests = (requests) => {
-    return requests.map((request) => {
-      return (
-        <Request
-          request={request}
-          stateData={STATE_DATA}
-          key={request.requestID}
-        />
-      );
-    });
-  };
+  const handleRenderRequests = (requests) =>
+    requests.map((request) => (
+      <Request
+        request={request}
+        stateData={STATE_DATA}
+        key={request.requestID}
+      />
+    ));
 
   return (
     <>
