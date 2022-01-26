@@ -1,10 +1,11 @@
-import { useState, useContext } from 'react';
-import { ProductIDsContext } from '../../../../context/ids.context';
+import { useState } from 'react';
 import { FeatureType } from '../FeatureType';
 import { TitleInput } from '../TitleInput';
 import { DetailInput } from '../DetailInput';
 import plusSign from '../../../../assets/icons/new-feedback.svg';
 import styles from './_feedbackForm.module.scss';
+
+import { ProductRequest } from '../../class/ProductRequest';
 
 export const FeedbackForm = () => {
   const [titleError, setTitleError] = useState(false);
@@ -39,6 +40,14 @@ export const FeedbackForm = () => {
       console.log('error');
       return;
     }
+
+    const productRequest = new ProductRequest(
+      formData.title,
+      formData.category,
+      formData.detail
+    );
+
+    console.log(productRequest);
 
     setTitleError(false);
     setDetailError(false);

@@ -29,15 +29,15 @@ export const RequestList = () => {
       callbackOrder: [setInProgress, setLive, setPlanned],
       status: 'Planned',
       numOfRequests: PLANNED_REQUESTS.length,
-      key: Math.floor(Math.random() * 1000),
+      key: 'planned',
     },
     {
       stateVal: inProgress,
       borderStyle: styles.purpleBottomBorder,
       callbackOrder: [setPlanned, setLive, setInProgress],
-      status: 'Planned',
+      status: 'In-Progress',
       numOfRequests: IN_PROGRESS_REQUESTS.length,
-      key: Math.floor(Math.random() * 1000),
+      key: 'in-progress',
     },
     {
       stateVal: live,
@@ -45,7 +45,7 @@ export const RequestList = () => {
       callbackOrder: [setPlanned, setInProgress, setLive],
       status: 'Live',
       numOfRequests: LIVE_REQUESTS.length,
-      key: Math.floor(Math.random() * 1000),
+      key: 'live',
     },
   ];
 
