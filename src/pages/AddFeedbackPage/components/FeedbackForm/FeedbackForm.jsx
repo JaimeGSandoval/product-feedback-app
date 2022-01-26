@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { ProductIDsContext } from '../../../../context/ids.context';
 import { FeatureType } from '../FeatureType';
 import { TitleInput } from '../TitleInput';
 import { DetailInput } from '../DetailInput';
