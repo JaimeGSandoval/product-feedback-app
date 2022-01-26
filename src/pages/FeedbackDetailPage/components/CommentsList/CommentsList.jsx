@@ -49,7 +49,7 @@ export const CommentsList = ({ requestID }) => {
           <main>
             <section className={styles.outerContainer}>
               <div className={styles.innerContainer}>
-                <Suggestion productRequest={productRequest} />
+                <Suggestion request={productRequest} />
               </div>
               <section className={styles.commentsContainer}>
                 <div className={styles.commentsInnerContainer}>
