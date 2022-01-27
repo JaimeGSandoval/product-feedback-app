@@ -1,23 +1,8 @@
+import { SortContextProvider } from './components/sort.context';
+import { CategoryProvider } from '../../components/MobileModal/category.context';
 import { FeedbackBar } from './components/FeedbackBar';
 import { SuggestionList } from './components/SuggestionsList/SuggestionList';
-import { CategoryProvider } from '../../components/MobileModal/category.context';
 import { Header } from '../../components/Header';
-
-import { SortContextProvider } from './components/sort.context';
-
-// export const SuggestionsPage = () => {
-//   return (
-//     <>
-//       <CategoryProvider>
-//         <Header />
-//         <FeedbackBar />
-//         <SuggestionList />
-//       </CategoryProvider>
-//     </>
-//   );
-// };
-
-import { useState, createContext } from 'react';
 
 export const SuggestionsPage = () => {
   return (
@@ -32,5 +17,3 @@ export const SuggestionsPage = () => {
     </>
   );
 };
-
-export const SortContext = createContext();

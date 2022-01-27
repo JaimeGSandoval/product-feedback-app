@@ -8,7 +8,7 @@ const ACTIONS = {
 export const requestReducer = (state, action) => {
   switch (action.type) {
     case ACTIONS.ADD:
-      return console.log('ADD');
+      return [...state, action.newRequest];
 
     case ACTIONS.EDIT:
       return console.log('EDIT');
