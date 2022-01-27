@@ -1,3 +1,5 @@
+// const upvoteControls = (stateVal, )
+
 const ACTIONS = {
   ADD: 'add',
   EDIT: 'edit',
@@ -17,25 +19,101 @@ export const requestReducer = (state, action) => {
       return console.log('DELETE');
 
     case ACTIONS.UPVOTE:
-      return state.map((request) => {
-        if (request.requestID === action.requestID && !request.upvoted) {
-          return {
-            ...request,
-            upvoted: !request.upvoted,
-            upvotes: request.upvotes + 1,
-          };
-        }
+      if (action.sortType === 'most upvotes') {
+        return state
+          .map((request) => {
+            if (request.requestID === action.requestID && !request.upvoted) {
+              return {
+                ...request,
+                upvoted: !request.upvoted,
+                upvotes: request.upvotes + 1,
+              };
+            }
 
-        if (request.requestID === action.requestID && request.upvoted) {
-          return {
-            ...request,
-            upvoted: !request.upvoted,
-            upvotes: request.upvotes - 1,
-          };
-        }
+            if (request.requestID === action.requestID && request.upvoted) {
+              return {
+                ...request,
+                upvoted: !request.upvoted,
+                upvotes: request.upvotes - 1,
+              };
+            }
 
-        return request;
-      });
+            return request;
+          })
+          .sort((a, b) => (a.upvotes > b.upvotes ? -1 : 1));
+      }
+
+      if (action.sortType === 'least upvotes') {
+        return state
+          .map((request) => {
+            if (request.requestID === action.requestID && !request.upvoted) {
+              return {
+                ...request,
+                upvoted: !request.upvoted,
+                upvotes: request.upvotes + 1,
+              };
+            }
+
+            if (request.requestID === action.requestID && request.upvoted) {
+              return {
+                ...request,
+                upvoted: !request.upvoted,
+                upvotes: request.upvotes - 1,
+              };
+            }
+
+            return request;
+          })
+          .sort((a, b) => (a.upvotes > b.upvotes ? 1 : -1));
+      }
+      if (action.sortType === 'most comments') {
+        return state
+          .map((request) => {
+            if (request.requestID === action.requestID && !request.upvoted) {
+              return {
+                ...request,
+                upvoted: !request.upvoted,
+                upvotes: request.upvotes + 1,
+              };
+            }
+
+            if (request.requestID === action.requestID && request.upvoted) {
+              return {
+                ...request,
+                upvoted: !request.upvoted,
+                upvotes: request.upvotes - 1,
+              };
+            }
+
+            return request;
+          })
+          .sort((a, b) => (a.comments.length > b.comments.length ? -1 : 1));
+      }
+      if (action.sortType === 'least comments') {
+        return state
+          .map((request) => {
+            if (request.requestID === action.requestID && !request.upvoted) {
+              return {
+                ...request,
+                upvoted: !request.upvoted,
+                upvotes: request.upvotes + 1,
+              };
+            }
+
+            if (request.requestID === action.requestID && request.upvoted) {
+              return {
+                ...request,
+                upvoted: !request.upvoted,
+                upvotes: request.upvotes - 1,
+              };
+            }
+
+            return request;
+          })
+          .sort((a, b) => (a.comments.length > b.comments.length ? 1 : -1));
+      }
+
+      return state;
 
     default:
       return state;

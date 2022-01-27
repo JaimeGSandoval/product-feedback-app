@@ -71,7 +71,11 @@ export const SuggestionList = () => {
       {!requestsState.length && <EmptySuggestion />}
       {requestsState.length &&
         requestsState.map((request) => (
-          <Suggestion request={request} key={request.title} />
+          <Suggestion
+            request={request}
+            key={request.title}
+            sortType={sortType}
+          />
         ))}
     </main>
   );
