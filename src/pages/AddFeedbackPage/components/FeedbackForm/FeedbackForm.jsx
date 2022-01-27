@@ -1,7 +1,10 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { DispatchContext } from '../../../../context/requests.context';
 import { FeatureType } from '../FeatureType';
 import { TitleInput } from '../TitleInput';
 import { DetailInput } from '../DetailInput';
+import { ProductRequest } from '../../class/ProductRequest';
 import plusSign from '../../../../assets/icons/new-feedback.svg';
 import styles from './_feedbackForm.module.scss';
 
@@ -13,6 +16,8 @@ export const FeedbackForm = () => {
     category: '',
     detail: '',
   });
+  const dispatch = useContext(DispatchContext);
+  const navigate = useNavigate();
 
   const onInputChange = (e) => {
     setFormData((prevData) => ({
@@ -39,9 +44,16 @@ export const FeedbackForm = () => {
       return;
     }
 
+    const productRequest = new ProductRequest(
+      formData.title,
+      formData.category,
+      formData.detail
+    );
+
     setTitleError(false);
     setDetailError(false);
-    console.log('submitted');
+    dispatch({ type: 'add', newRequest: productRequest });
+    navigate('/', { replace: true });
 
     return null;
   };

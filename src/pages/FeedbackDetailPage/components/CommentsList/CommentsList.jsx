@@ -16,9 +16,10 @@ export const CommentsList = ({ requestID }) => {
   const goBack = () => navigate(-1);
 
   const productRequest = requestsContext.find(
-    (req) => req.requestID === parseInt(requestID)
+    (req) => req.requestID === requestID
   );
 
+  console.log(productRequest);
   const commentsLength = productRequest.comments.length;
 
   const handleEditClick = () => {
