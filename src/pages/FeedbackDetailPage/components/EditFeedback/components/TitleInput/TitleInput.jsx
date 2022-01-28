@@ -1,7 +1,12 @@
 import { InputDescription } from '../../../../../../components/InputDescription';
 import styles from './_titleInput.module.scss';
 
-export const TitleInput = ({ onInputChange, formData, titleError }) => {
+export const TitleInput = ({
+  onInputChange,
+  formData,
+  titleError,
+  productRequest,
+}) => {
   return (
     <div className={styles.inputBox}>
       <InputDescription

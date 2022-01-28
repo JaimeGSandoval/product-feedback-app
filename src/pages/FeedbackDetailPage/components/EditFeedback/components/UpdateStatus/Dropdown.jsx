@@ -5,22 +5,22 @@ export const Dropdown = ({ formControls }) => {
   const {
     isDropDownOpen,
     setIsDropDownOpen,
-    setActiveOptionText,
+    setStatusOption,
     handleKeyPress,
     setFormData,
-    SELECT_OPTIONS,
+    STATUS_OPTIONS,
     checkMark,
     setCheckMark,
   } = formControls;
 
   return (
     <div className={styles.selectOptions}>
-      {SELECT_OPTIONS.map((option, index) => {
+      {STATUS_OPTIONS.map((option, index) => {
         return (
           <div
             className={styles.option}
             onClick={() => {
-              setActiveOptionText(option);
+              setStatusOption(option);
               setCheckMark(index);
               setIsDropDownOpen(!isDropDownOpen);
               setFormData((prevData) => ({
