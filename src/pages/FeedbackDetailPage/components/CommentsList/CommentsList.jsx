@@ -19,7 +19,8 @@ export const CommentsList = ({ requestID }) => {
     (req) => req.requestID === requestID
   );
 
-  console.log(productRequest);
+  if (!productRequest) return null;
+
   const commentsLength = productRequest.comments.length;
 
   const handleEditClick = () => {

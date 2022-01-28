@@ -38,7 +38,7 @@ export const requestReducer = (state, action) => {
       return console.log('EDIT');
 
     case ACTIONS.DELETE:
-      return console.log('DELETE');
+      return state.filter((request) => request.requestID !== action.requestID);
 
     case ACTIONS.UPVOTE:
       if (action.sortType === 'most upvotes') {
