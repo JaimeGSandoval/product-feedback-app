@@ -1,3 +1,27 @@
+const upvoteControls = (stateVal, actionVal) => {
+  const updatedState = stateVal.map((request) => {
+    if (request.requestID === actionVal.requestID && !request.upvoted) {
+      return {
+        ...request,
+        upvoted: !request.upvoted,
+        upvotes: request.upvotes + 1,
+      };
+    }
+
+    if (request.requestID === actionVal.requestID && request.upvoted) {
+      return {
+        ...request,
+        upvoted: !request.upvoted,
+        upvotes: request.upvotes - 1,
+      };
+    }
+
+    return request;
+  });
+
+  return updatedState;
+};
+
 const ACTIONS = {
   ADD: 'add',
   EDIT: 'edit',
@@ -14,28 +38,38 @@ export const requestReducer = (state, action) => {
       return console.log('EDIT');
 
     case ACTIONS.DELETE:
-      return console.log('DELETE');
+      return state.filter((request) => request.requestID !== action.requestID);
 
     case ACTIONS.UPVOTE:
-      return state.map((request) => {
-        if (request.requestID === action.requestID && !request.upvoted) {
-          return {
-            ...request,
-            upvoted: !request.upvoted,
-            upvotes: request.upvotes + 1,
-          };
-        }
+      if (action.sortType === 'most upvotes') {
+        return upvoteControls(state, action).sort((a, b) =>
+          a.upvotes === b.upvotes ? 0 : b.upvotes - a.upvotes
+        );
+      }
 
-        if (request.requestID === action.requestID && request.upvoted) {
-          return {
-            ...request,
-            upvoted: !request.upvoted,
-            upvotes: request.upvotes - 1,
-          };
-        }
+      if (action.sortType === 'least upvotes') {
+        return upvoteControls(state, action).sort((a, b) =>
+          a.upvotes === b.upvotes ? 0 : a.upvotes - b.upvotes
+        );
+      }
 
-        return request;
-      });
+      if (action.sortType === 'most comments') {
+        return upvoteControls(state, action).sort((a, b) =>
+          a.comments.length === b.comments.length
+            ? 0
+            : b.comments.length - a.comments.length
+        );
+      }
+
+      if (action.sortType === 'least comments') {
+        return upvoteControls(state, action).sort((a, b) =>
+          a.comments.length === b.comments.length
+            ? 0
+            : a.comments.length - b.comments.length
+        );
+      }
+
+      break;
 
     default:
       return state;

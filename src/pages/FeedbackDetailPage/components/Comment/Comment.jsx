@@ -117,7 +117,6 @@ export const Comment = ({ comment, commentsLength, setRepliesLength }) => {
         </form>
         {comment.replies &&
           comment.replies.map((reply, index) => {
-            console.log(reply);
             return (
               <Reply
                 reply={reply}

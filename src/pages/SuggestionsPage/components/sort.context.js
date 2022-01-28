@@ -3,7 +3,7 @@ import { useState, createContext } from 'react';
 export const SortContext = createContext();
 
 export const SortContextProvider = ({ children }) => {
-  const [sortType, setSortType] = useState(null);
+  const [sortType, setSortType] = useState('most upvotes');
 
   const sortControls = {
     sortType,

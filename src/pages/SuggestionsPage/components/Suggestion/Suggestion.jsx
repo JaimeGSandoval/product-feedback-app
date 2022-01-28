@@ -6,7 +6,7 @@ import comment from '../../../../assets/icons/comments.svg';
 import arrowUp from '../../../../assets/icons/arrow-up.svg';
 import arrowUpWhite from '../../../../assets/icons/arrow-up-white.svg';
 
-export const Suggestion = ({ request }) => {
+export const Suggestion = ({ request, sortType }) => {
   const dispatch = useContext(DispatchContext);
 
   return (
@@ -30,6 +30,7 @@ export const Suggestion = ({ request }) => {
                   dispatch({
                     type: 'upvote',
                     requestID: request.requestID,
+                    sortType: sortType,
                   });
                 }}
                 tabIndex="0"

@@ -35,20 +35,26 @@ export const SuggestionList = () => {
     switch (sortType) {
       case 'most upvotes':
         setRequestsState((prevState) =>
-          [...prevState].sort((a, b) => (a.upvotes > b.upvotes ? -1 : 1))
+          [...prevState].sort((a, b) =>
+            a.upvotes === b.upvotes ? 0 : b.upvotes - a.upvotes
+          )
         );
         break;
 
       case 'least upvotes':
         setRequestsState((prevState) =>
-          [...prevState].sort((a, b) => (a.upvotes > b.upvotes ? 1 : -1))
+          [...prevState].sort((a, b) =>
+            a.upvotes === b.upvotes ? 0 : a.upvotes - b.upvotes
+          )
         );
         break;
 
       case 'most comments':
         setRequestsState((prevState) =>
           [...prevState].sort((a, b) =>
-            a.comments.length > b.comments.length ? -1 : 1
+            a.comments.length === b.comments.length
+              ? 0
+              : b.comments.length - a.comments.length
           )
         );
         break;
@@ -56,7 +62,9 @@ export const SuggestionList = () => {
       case 'least comments':
         setRequestsState((prevState) =>
           [...prevState].sort((a, b) =>
-            a.comments.length > b.comments.length ? 1 : -1
+            a.comments.length === b.comments.length
+              ? 0
+              : a.comments.length - b.comments.length
           )
         );
         break;
@@ -71,7 +79,11 @@ export const SuggestionList = () => {
       {!requestsState.length && <EmptySuggestion />}
       {requestsState.length &&
         requestsState.map((request) => (
-          <Suggestion request={request} key={request.title} />
+          <Suggestion
+            request={request}
+            key={request.title}
+            sortType={sortType}
+          />
         ))}
     </main>
   );
