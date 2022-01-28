@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { DispatchContext } from '../../../../../../context/requests.context';
 import { TitleInput } from '../TitleInput';
 import { FeatureType } from '../FeatureType';
 import { UpdateStatus } from '../UpdateStatus';
@@ -6,8 +8,7 @@ import { DetailInput } from '../DetailInput';
 import penIcon from '../../../../../../assets/icons/edit-feedback.svg';
 import styles from './_editForm.module.scss';
 
-export const EditForm = ({ productRequest }) => {
-  console.log(productRequest);
+export const EditForm = ({ productRequest, isEditing, setIsEditing }) => {
   const [titleError, setTitleError] = useState(false);
   const [detailError, setDetailError] = useState(false);
   const [detailMaxCharacterError, setDetailMaxCharacterError] = useState(false);
@@ -17,6 +18,13 @@ export const EditForm = ({ productRequest }) => {
     status: productRequest.status,
     detail: productRequest.description,
   });
+  const dispatch = useContext(DispatchContext);
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    setIsEditing(!isEditing);
+    window.scrollTo(0, 0);
+  };
 
   const onInputChange = (e) => {
     setFormData((prevData) => ({
@@ -25,6 +33,14 @@ export const EditForm = ({ productRequest }) => {
     }));
     setDetailError(false);
     setTitleError(false);
+  };
+
+  const handleRequestDelete = () => {
+    dispatch({
+      type: 'delete',
+      requestID: productRequest.requestID,
+    });
+    navigate('/');
   };
 
   const handleSubmit = (e) => {
@@ -92,10 +108,18 @@ export const EditForm = ({ productRequest }) => {
               >
                 add feedback
               </button>
-              <button className={styles.cancelButton} tabIndex="0">
+              <button
+                className={styles.cancelButton}
+                onClick={goBack}
+                tabIndex="0"
+              >
                 cancel
               </button>
-              <button className={styles.deleteButton} tabIndex="0">
+              <button
+                className={styles.deleteButton}
+                onClick={handleRequestDelete}
+                tabIndex="0"
+              >
                 delete
               </button>
             </div>
