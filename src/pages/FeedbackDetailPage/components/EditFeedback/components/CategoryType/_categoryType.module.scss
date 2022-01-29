@@ -15,7 +15,7 @@
   z-index: 5;
 }
 
-.activeOptionContainer {
+.activeCategoryContainer {
   width: 100%;
   padding: 0.6rem 0;
   display: flex;
@@ -39,7 +39,7 @@
   }
 }
 
-.activeOptionText {
+.activeCategoryText {
   color: $white;
   font-family: $roboto;
   text-transform: capitalize;

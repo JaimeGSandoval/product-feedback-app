@@ -35,7 +35,17 @@ export const requestReducer = (state, action) => {
       return [...state, action.newRequest];
 
     case ACTIONS.EDIT:
-      return console.log('EDIT');
+      return state.map((request) =>
+        request.requestID === action.requestID
+          ? {
+              ...request,
+              title: action.title,
+              category: action.category,
+              description: action.description,
+              status: action.status,
+            }
+          : request
+      );
 
     case ACTIONS.DELETE:
       return state.filter((request) => request.requestID !== action.requestID);
@@ -69,7 +79,7 @@ export const requestReducer = (state, action) => {
         );
       }
 
-      break;
+      return state;
 
     default:
       return state;

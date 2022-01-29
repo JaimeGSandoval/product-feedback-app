@@ -5,10 +5,14 @@ import arrowUp from '../../../../../../assets/icons/arrow-up.svg';
 import arrowDown from '../../../../../../assets/icons/arrow-down.svg';
 import styles from './_updateStatus.module.scss';
 
-export const UpdateStatus = ({ setFormData }) => {
-  const SELECT_OPTIONS = ['suggestion', 'planned', 'in-progress', 'live'];
+export const UpdateStatus = ({
+  statusOption,
+  setStatusOption,
+  setFormData,
+}) => {
+  const STATUS_OPTIONS = ['suggestion', 'planned', 'in-progress', 'live'];
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
-  const [activeOptionText, setActiveOptionText] = useState(SELECT_OPTIONS[0]);
+  // const [activeOptionText, setActiveOptionText] = useState(SELECT_OPTIONS[0]);
   const [checkMark, setCheckMark] = useState(0);
 
   const arrow = isDropDownOpen ? arrowUp : arrowDown;
@@ -18,7 +22,7 @@ export const UpdateStatus = ({ setFormData }) => {
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
-      setActiveOptionText(e.target.innerText);
+      setStatusOption(e.target.innerText);
       setFormData((prevData) => ({
         ...prevData,
         category: e.target.innerText,
@@ -48,10 +52,10 @@ export const UpdateStatus = ({ setFormData }) => {
   const formControls = {
     isDropDownOpen,
     setIsDropDownOpen,
-    setActiveOptionText,
+    setStatusOption,
     handleKeyPress,
     setFormData,
-    SELECT_OPTIONS,
+    STATUS_OPTIONS,
     checkMark,
     setCheckMark,
   };
@@ -71,8 +75,8 @@ export const UpdateStatus = ({ setFormData }) => {
         onKeyPress={handleKeyPress}
         ref={containerRef}
       >
-        <div className={styles.activeOptionContainer} onClick={handleDropDown}>
-          <span className={styles.activeOptionText}>{activeOptionText}</span>
+        <div className={styles.activeStatusContainer} onClick={handleDropDown}>
+          <span className={styles.activeStatus}>{statusOption}</span>
           <img className={styles.arrow} src={arrow} alt="" />
         </div>
 
