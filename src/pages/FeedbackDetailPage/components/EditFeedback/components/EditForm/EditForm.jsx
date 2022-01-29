@@ -2,21 +2,23 @@ import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { DispatchContext } from '../../../../../../context/requests.context';
 import { TitleInput } from '../TitleInput';
-import { FeatureType } from '../FeatureType';
+import { CategoryType } from '../CategoryType';
 import { UpdateStatus } from '../UpdateStatus';
-import { DetailInput } from '../DetailInput';
+import { DescriptionInput } from '../DescriptionInput';
 import penIcon from '../../../../../../assets/icons/edit-feedback.svg';
 import styles from './_editForm.module.scss';
 
 export const EditForm = ({ productRequest, isEditing, setIsEditing }) => {
   const [titleError, setTitleError] = useState(false);
-  const [detailError, setDetailError] = useState(false);
-  const [detailMaxCharacterError, setDetailMaxCharacterError] = useState(false);
+  const [descriptionError, setDescriptionError] = useState(false);
+  const [categoryOption, setCategoryOption] = useState('bug');
+  const [statusOption, setStatusOption] = useState('suggestion');
+
   const [formData, setFormData] = useState({
     title: productRequest.title,
     category: productRequest.category,
+    description: productRequest.description,
     status: productRequest.status,
-    detail: productRequest.description,
   });
   const dispatch = useContext(DispatchContext);
   const navigate = useNavigate();
@@ -31,7 +33,7 @@ export const EditForm = ({ productRequest, isEditing, setIsEditing }) => {
       ...prevData,
       [e.target.name]: e.target.value,
     }));
-    setDetailError(false);
+    setDescriptionError(false);
     setTitleError(false);
   };
 
@@ -50,19 +52,25 @@ export const EditForm = ({ productRequest, isEditing, setIsEditing }) => {
       return setTitleError(!titleError);
     }
 
-    if (!formData.detail) {
-      return setDetailError(!detailError);
+    if (!formData.description) {
+      return setDescriptionError(!descriptionError);
     }
 
-    if (formData.detail.length >= 75 || formData.title.length >= 35) {
+    if (formData.description.length >= 75 || formData.title.length >= 35) {
       console.log('error');
       return;
     }
+
     setTitleError(false);
-    setDetailError(false);
-    setDetailMaxCharacterError(false);
-    console.log(formData);
-    console.log('submitted');
+    setDescriptionError(false);
+    dispatch({
+      type: 'edit',
+      requestID: productRequest.requestID,
+      title: formData.title,
+      category: categoryOption,
+      status: statusOption,
+      description: formData.description,
+    });
 
     return null;
   };
@@ -88,14 +96,23 @@ export const EditForm = ({ productRequest, isEditing, setIsEditing }) => {
                 onInputChange={onInputChange}
                 formData={formData}
                 titleError={titleError}
+                productRequest={productRequest}
               />
-              <FeatureType setFormData={setFormData} />
-              <UpdateStatus setFormData={setFormData} />
-              <DetailInput
+              <CategoryType
+                categoryOption={categoryOption}
+                setCategoryOption={setCategoryOption}
+                setFormData={setFormData}
+              />
+              <UpdateStatus
+                statusOption={statusOption}
+                setStatusOption={setStatusOption}
+                setFormData={setFormData}
+              />
+              <DescriptionInput
                 onInputChange={onInputChange}
                 formData={formData}
-                detailError={detailError}
-                detailMaxCharacterError={detailMaxCharacterError}
+                descriptionError={descriptionError}
+                productRequest={productRequest}
               />
             </form>
             <div className={styles.buttonBox}>

@@ -3,12 +3,16 @@ import { InputDescription } from '../../../../../../components/InputDescription'
 import { Dropdown } from './Dropdown';
 import arrowUp from '../../../../../../assets/icons/arrow-up.svg';
 import arrowDown from '../../../../../../assets/icons/arrow-down.svg';
-import styles from './_featureType.module.scss';
+import styles from './_categoryType.module.scss';
 
-export const FeatureType = ({ setFormData }) => {
-  const SELECT_OPTIONS = ['bug', 'UI', 'UX', 'enhancement', 'feature'];
+export const CategoryType = ({
+  categoryOption,
+  setCategoryOption,
+  setFormData,
+}) => {
+  const CATEGORY_OPTIONS = ['bug', 'UI', 'UX', 'enhancement', 'feature'];
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
-  const [activeOptionText, setActiveOptionText] = useState(SELECT_OPTIONS[0]);
+  // const [activeOptionText, setActiveOptionText] = useState(CATEGORY_OPTIONS[0]);
   const [checkMark, setCheckMark] = useState(0);
 
   const arrow = isDropDownOpen ? arrowUp : arrowDown;
@@ -18,7 +22,7 @@ export const FeatureType = ({ setFormData }) => {
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
-      setActiveOptionText(e.target.innerText);
+      setCategoryOption(e.target.innerText);
       setFormData((prevData) => ({
         ...prevData,
         category: e.target.innerText,
@@ -48,10 +52,10 @@ export const FeatureType = ({ setFormData }) => {
   const formControls = {
     isDropDownOpen,
     setIsDropDownOpen,
-    setActiveOptionText,
+    setCategoryOption,
     handleKeyPress,
     setFormData,
-    SELECT_OPTIONS,
+    CATEGORY_OPTIONS,
     checkMark,
     setCheckMark,
   };
@@ -62,7 +66,6 @@ export const FeatureType = ({ setFormData }) => {
         label="Category"
         description="Choose a category for your feedback"
         htmlFor="featureDropdown"
-        // styles={styles}
       />
 
       <div
@@ -72,8 +75,11 @@ export const FeatureType = ({ setFormData }) => {
         onKeyPress={handleKeyPress}
         ref={containerRef}
       >
-        <div className={styles.activeOptionContainer} onClick={handleDropDown}>
-          <span className={styles.activeOptionText}>{activeOptionText}</span>
+        <div
+          className={styles.activeCategoryContainer}
+          onClick={handleDropDown}
+        >
+          <span className={styles.activeCategoryText}>{categoryOption}</span>
           <img className={styles.arrow} src={arrow} alt="" />
         </div>
 
