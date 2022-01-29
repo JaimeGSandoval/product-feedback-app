@@ -30,7 +30,7 @@ export const Suggestion = ({ request, sortType }) => {
                 onClick={(e) => {
                   e.preventDefault();
                   dispatch({
-                    type: 'upvote',
+                    type: 'upvote-sort',
                     requestID: request.requestID,
                     sortType: sortType,
                   });
