@@ -27,6 +27,7 @@ const ACTIONS = {
   EDIT: 'edit',
   DELETE: 'delete',
   UPVOTE: 'upvote',
+  UPVOTE_SORT: 'upvote-sort',
 };
 
 export const requestReducer = (state, action) => {
@@ -50,7 +51,7 @@ export const requestReducer = (state, action) => {
     case ACTIONS.DELETE:
       return state.filter((request) => request.requestID !== action.requestID);
 
-    case ACTIONS.UPVOTE:
+    case ACTIONS.UPVOTE_SORT:
       if (action.sortType === 'most upvotes') {
         return upvoteControls(state, action).sort((a, b) =>
           a.upvotes === b.upvotes ? 0 : b.upvotes - a.upvotes
@@ -80,6 +81,9 @@ export const requestReducer = (state, action) => {
       }
 
       return state;
+
+    case ACTIONS.UPVOTE:
+      return upvoteControls(state, action);
 
     default:
       return state;

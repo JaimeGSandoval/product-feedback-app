@@ -16,7 +16,9 @@ export const Suggestion = ({ request, sortType }) => {
           <div className={styles.innerContainer}>
             <div className={styles.textBox}>
               <span className={styles.title}>{request.title}</span>
-              <p className={styles.description}>{request.description}</p>
+              <p className={styles.description} lang="en">
+                {request.description}
+              </p>
               <span className={styles.category}>{request.category}</span>
             </div>
 
@@ -28,7 +30,7 @@ export const Suggestion = ({ request, sortType }) => {
                 onClick={(e) => {
                   e.preventDefault();
                   dispatch({
-                    type: 'upvote',
+                    type: 'upvote-sort',
                     requestID: request.requestID,
                     sortType: sortType,
                   });
