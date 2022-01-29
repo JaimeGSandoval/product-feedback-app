@@ -28,6 +28,10 @@
   margin-top: 1.1rem;
   line-height: 1.7rem;
   word-wrap: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
 
 .category {
