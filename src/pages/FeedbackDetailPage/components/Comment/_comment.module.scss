@@ -63,6 +63,11 @@
   line-height: 1.7rem;
   padding-bottom: 2rem;
   // font-size: 0.9rem;
+  word-wrap: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
 
 .replyForm {

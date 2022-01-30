@@ -87,16 +87,14 @@ export const requestReducer = (state, action) => {
       return upvoteControls(state, action);
 
     case ACTIONS.ADD_COMMENT:
-      return state.map((request) => {
-        if (request.requestID === action.requestID) {
-          return {
-            ...request,
-            comments: [...request.comments, action.comment],
-          };
-        }
-
-        return request;
-      });
+      return state.map((request) =>
+        request.requestID === action.requestID
+          ? {
+              ...request,
+              comments: [...request.comments, action.comment],
+            }
+          : request
+      );
 
     default:
       return state;

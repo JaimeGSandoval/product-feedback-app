@@ -45,6 +45,7 @@ export const CommentForm = ({ styles, requestID }) => {
     });
 
     setCommentInput('');
+    setCharactersLeft(250);
   };
 
   return (
