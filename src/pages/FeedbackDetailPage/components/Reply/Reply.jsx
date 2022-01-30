@@ -61,7 +61,9 @@ export const Reply = ({ reply, commentAuthor }) => {
 
             <div className={styles.userNameBox}>
               <span className={styles.userName}>{reply.user.name}</span>
-              <span className={styles.userHandle}>{reply.user.username}</span>
+              <span
+                className={styles.userHandle}
+              >{`@${reply.user.username}`}</span>
             </div>
           </div>
 
