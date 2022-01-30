@@ -9,11 +9,11 @@ export const Comment = ({ comment, commentsLength, setRepliesLength }) => {
   const firstName = comment.user.name.split(' ')[0].toLowerCase();
   const userImgName = firstName;
 
-  useEffect(() => {
-    if (comment.replies) {
-      setRepliesLength(comment.replies.length);
-    }
-  }, [comment.replies, setRepliesLength]);
+  // useEffect(() => {
+  //   if (comment.replies) {
+  //     setRepliesLength(comment.replies.length);
+  //   }
+  // }, [comment.replies, setRepliesLength]);
 
   const handleReplyFormToggle = (e) => {
     setCommentError(false);

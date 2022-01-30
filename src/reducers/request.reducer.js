@@ -28,6 +28,7 @@ const ACTIONS = {
   DELETE: 'delete',
   UPVOTE: 'upvote',
   UPVOTE_SORT: 'upvote-sort',
+  ADD_COMMENT: 'add-comment',
 };
 
 export const requestReducer = (state, action) => {
@@ -84,6 +85,18 @@ export const requestReducer = (state, action) => {
 
     case ACTIONS.UPVOTE:
       return upvoteControls(state, action);
+
+    case ACTIONS.ADD_COMMENT:
+      return state.map((request) => {
+        if (request.requestID === action.requestID) {
+          return {
+            ...request,
+            comments: [...request.comments, action.comment],
+          };
+        }
+
+        return request;
+      });
 
     default:
       return state;

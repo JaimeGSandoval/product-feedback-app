@@ -123,7 +123,7 @@ export const EditForm = ({ productRequest, isEditing, setIsEditing }) => {
                 onKeyPress={handleSubmit}
                 tabIndex="0"
               >
-                add feedback
+                save changes
               </button>
               <button
                 className={styles.cancelButton}
