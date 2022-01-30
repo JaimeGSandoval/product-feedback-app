@@ -1,10 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { DispatchContext } from '../../../../context/requests.context';
+import { UserContext } from '../../../../context/user.context';
+import { UserComment } from '../class/UserComment';
 
-export const CommentForm = ({ styles }) => {
+export const CommentForm = ({ styles, requestID }) => {
   const [commentInput, setCommentInput] = useState('');
   const [inputError, setErrorInputError] = useState(false);
   const [charactersLeft, setCharactersLeft] = useState(250);
   const [maxCharacterError, setMaxCharacterError] = useState(false);
+  const { user } = useContext(UserContext);
+  const dispatch = useContext(DispatchContext);
 
   useEffect(() => {
     if (charactersLeft <= 0) {
@@ -18,6 +23,8 @@ export const CommentForm = ({ styles }) => {
     setCharactersLeft(250 - e.target.value.length);
   };
 
+  const userComment = new UserComment(commentInput, user);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!commentInput) {
@@ -30,7 +37,15 @@ export const CommentForm = ({ styles }) => {
 
     setMaxCharacterError(false);
     setErrorInputError(false);
-    console.log('submitted');
+    dispatch({
+      type: 'add-comment',
+      comment: userComment,
+      user: user,
+      requestID: requestID,
+    });
+
+    setCommentInput('');
+    setCharactersLeft(250);
   };
 
   return (

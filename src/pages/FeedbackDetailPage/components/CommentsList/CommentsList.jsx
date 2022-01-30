@@ -9,7 +9,6 @@ import { CommentForm } from './CommentForm';
 import styles from './_commentsList.module.scss';
 
 export const CommentsList = ({ requestID }) => {
-  const [repliesLength, setRepliesLength] = useState(0);
   const [isEditing, setIsEditing] = useState(false);
   const requestsContext = useContext(RequestsContext);
   const navigate = useNavigate();
@@ -56,19 +55,18 @@ export const CommentsList = ({ requestID }) => {
               <section className={styles.commentsContainer}>
                 <div className={styles.commentsInnerContainer}>
                   <h1 className={styles.commentsTotal}>
-                    {commentsLength + repliesLength} Comments
+                    {commentsLength} Comments
                   </h1>
                   {productRequest.comments.map((comment) => (
                     <Comment
                       comment={comment}
                       commentsLength={commentsLength}
-                      setRepliesLength={setRepliesLength}
                       key={comment.commentID}
                     />
                   ))}
                 </div>
               </section>
-              <CommentForm styles={styles} />
+              <CommentForm styles={styles} requestID={requestID} />
             </section>
           </main>
         </>
