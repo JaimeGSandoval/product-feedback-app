@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from './_reply.module.scss';
 
-export const Reply = ({ reply, commentAuthor }) => {
+export const Reply = ({ reply, commentAuthor, requestID, commentID }) => {
   const [activeForm, setActiveForm] = useState(false);
   const [replyError, setReplyError] = useState(false);
   const [replyInput, setReplyInput] = useState('');
@@ -22,14 +22,13 @@ export const Reply = ({ reply, commentAuthor }) => {
   };
 
   const handleSubmit = (e) => {
+    e.preventDefault(); // temporary?
     if (!replyInput) {
-      e.preventDefault();
-      setReplyError(!replyError);
-    } else {
-      e.preventDefault(); // temporary
-      setReplyError(false);
-      console.log('submitted');
+      return setReplyError(!replyError);
     }
+
+    setReplyError(false);
+    console.log('submitted');
 
     return null;
   };

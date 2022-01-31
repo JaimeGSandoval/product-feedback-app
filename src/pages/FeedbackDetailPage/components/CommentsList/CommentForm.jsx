@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import { DispatchContext } from '../../../../context/requests.context';
 import { UserContext } from '../../../../context/user.context';
-import { UserComment } from '../class/UserComment';
+import { UserComment } from '../classes/UserComment';
 
 export const CommentForm = ({ styles, requestID }) => {
   const [commentInput, setCommentInput] = useState('');

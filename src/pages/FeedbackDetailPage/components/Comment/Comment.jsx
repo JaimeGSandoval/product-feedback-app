@@ -1,19 +1,23 @@
-import { useState, useEffect } from 'react';
+import { useState, useContext } from 'react';
+import { DispatchContext } from '../../../../context/requests.context';
+import { UserContext } from '../../../../context/user.context';
+import { UserReply } from '../classes/UserReply';
 import { Reply } from '../Reply/Reply';
 import styles from './_comment.module.scss';
 
-export const Comment = ({ comment, commentsLength, setRepliesLength }) => {
+export const Comment = ({
+  comment,
+  commentsLength,
+  setRepliesLength,
+  requestID,
+}) => {
   const [activeForm, setActiveForm] = useState(false);
   const [commentError, setCommentError] = useState(false);
   const [detailInput, setDetailInput] = useState('');
   const firstName = comment.user.name.split(' ')[0].toLowerCase();
   const userImgName = firstName;
-
-  // useEffect(() => {
-  //   if (comment.replies) {
-  //     setRepliesLength(comment.replies.length);
-  //   }
-  // }, [comment.replies, setRepliesLength]);
+  const { user } = useContext(UserContext);
+  const dispatch = useContext(DispatchContext);
 
   const handleReplyFormToggle = (e) => {
     setCommentError(false);
@@ -31,16 +35,28 @@ export const Comment = ({ comment, commentsLength, setRepliesLength }) => {
     setCommentError(false);
   };
 
+  const userReply = new UserReply(
+    detailInput,
+    user,
+    comment.commentID,
+    comment.user.username
+  );
+
   const handleSubmit = (e) => {
+    e.preventDefault(); // temporary
     if (!detailInput) {
-      e.preventDefault();
-      setCommentError(!commentError);
-    } else {
-      e.preventDefault(); // temporary
-      setCommentError(false);
-      console.log('submitted');
+      return setCommentError(!commentError);
     }
 
+    setCommentError(false);
+    dispatch({
+      type: 'add-reply',
+      reply: userReply,
+      commentID: comment.commentID,
+      requestID: requestID,
+    });
+
+    setDetailInput('');
     return null;
   };
 
@@ -122,6 +138,8 @@ export const Comment = ({ comment, commentsLength, setRepliesLength }) => {
                 reply={reply}
                 commentAuthor={comment.user.username}
                 key={reply.replyID}
+                requestID={requestID}
+                commentID={comment.commentID}
               />
             );
           })}
