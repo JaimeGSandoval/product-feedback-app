@@ -1,14 +1,17 @@
 import { useState } from 'react';
 import styles from './_reply.module.scss';
 
-export const Reply = ({ reply, commentAuthor }) => {
+export const Reply = ({ reply, commentAuthor, requestID, commentID }) => {
   const [activeForm, setActiveForm] = useState(false);
   const [replyError, setReplyError] = useState(false);
   const [replyInput, setReplyInput] = useState('');
   const firstName = reply.user.name.split(' ')[0].toLowerCase();
   const userImgName = firstName;
 
-  const handleReplyFormToggle = () => setActiveForm(!activeForm);
+  const handleReplyFormToggle = () => {
+    setActiveForm(!activeForm);
+    setReplyError(false);
+  };
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
@@ -22,14 +25,13 @@ export const Reply = ({ reply, commentAuthor }) => {
   };
 
   const handleSubmit = (e) => {
+    e.preventDefault(); // temporary?
     if (!replyInput) {
-      e.preventDefault();
-      setReplyError(!replyError);
-    } else {
-      e.preventDefault(); // temporary
-      setReplyError(false);
-      console.log('submitted');
+      return setReplyError(true);
     }
+
+    setReplyError(false);
+    console.log('submitted');
 
     return null;
   };

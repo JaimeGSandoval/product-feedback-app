@@ -23,7 +23,8 @@
             "imageWebp": "../../../../assets/images/user-images/suzanne.webp","imageJpg": "../../../../assets/images/user-images/suzanne.jpg",
             "name": "Suzanne Chang",
             "username": "upbeat1811"
-          }
+          },
+          "replies": []
         },
         {
           "commentID": "zbz6ydeo6",
@@ -33,7 +34,8 @@
             "imageWebp": "../../../../assets/images/user-images/thomas.webp","imageJpg": "../../../../assets/images/user-images/thomas.jpg",
             "name": "Thomas Hood",
             "username": "brawnybrave"
-          }
+          },
+          "replies": []
         }
       ]
     },
@@ -55,7 +57,8 @@
             "imageJpg": "../assets/images/user-images/elijah.jpg",
             "name": "Elijah Moss",
             "username": "hexagon.bestagon"
-          }
+          },
+          "replies": []
         },
         {
           "commentID": "6sh9qbeuw",
@@ -70,7 +73,7 @@
           "replies": [
             {
               "replyID": "6g27qm8n5",
-              "parentID": 4,
+              "parentID": "6sh9qbeuw",
               "content": "While waiting for dark mode, there are browser extensions that will also do the job. Search for 'dark theme' followed by your browser. There might be a need to turn off the extension for sites with naturally black backgrounds though.",
               "replyingTo": "hummingbird1",
               "user": {
@@ -78,10 +81,11 @@
                 "imageJpg": "../../../../assets/images/user-images/anne.jpg",
                 "name": "Anne Valentine",
                 "username": "annev1990"
-              }
+              },
+              "replies": []
             },
             {
-              "parentID": 4,
+              "parentID": "6sh9qbeuw",
               "replyID": "9e4mogrfo",
               "content": "Good point! Using any kind of style extension is great and can be highly customizable, like the ability to change contrast and brightness. I'd prefer not to use one of such extensions, however, for security and privacy reasons.",
               "replyingTo": "annev1990",
@@ -90,7 +94,8 @@
                 "imageJpg": "../../../../assets/images/user-images/ryan.jpg",
                 "name": "Ryan Welles",
                 "username": "voyager.344"
-              }
+              },
+              "replies": []
             }
           ]
         }
@@ -114,7 +119,8 @@
             "imageJpg": "../../../../assets/images/user-images/george.jpg",
             "name": "George Partridge",
             "username": "soccerviewer8"
-          }
+          },
+          "replies": []
         }
       ]
     },
@@ -136,7 +142,8 @@
             "imageJpg": "../../../../assets/images/user-images/javier.jpg",
             "name": "Javier Pollard",
             "username": "warlikeduke"
-          }
+          },
+          "replies": []
         },
         {
           "commentID": "nlhep9s3d",
@@ -147,7 +154,8 @@
             "imageJpg": "../../../../assets/images/user-images/roxanne.jpg",
             "name": "Roxanne Travis",
             "username": "peppersprime32"
-          }
+          },
+          "replies": []
         }
       ]
     },
@@ -173,7 +181,7 @@
           "replies": [
             {
               "replyID": "wwrfr03se",
-              "parentID": 8,
+              "parentID": "m9jflatpi",
               "content": "Bumping this. It would be good to have a tab with a feed of people I follow so it's easy to see what challenges they’ve done lately. I learn a lot by reading good developers' code.",
               "replyingTo": "arlen_the_marlin",
               "user": {
@@ -181,7 +189,8 @@
                 "imageJpg": "../../../../assets/user-images/zena.jpg",
                 "name": "Zena Kelley",
                 "username": "velvetround"
-              }
+              },
+              "replies": []
             }
           ]
         },
@@ -194,7 +203,8 @@
             "imageJpg": "../../../../assets/images/user-images/jackson.jpg",
             "name": "Jackson Barker",
             "username": "countryspirit"
-          }
+          },
+          "replies": []
         }
       ]
     },
@@ -226,7 +236,8 @@
             "imageJpg": "../../../../assets/images/user-images/victoria.jpg",
             "name": "Victoria Mejia",
             "username": "arlen_the_marlin"
-          }
+          },
+          "replies": []
         },
         {
           "commentID": "kmcwavvkr",
@@ -237,7 +248,8 @@
             "imageJpg": "../../../../assets/images/user-images/jackson.jpg",
             "name": "Jackson Barker",
             "username": "countryspirit"
-          }
+          },
+          "replies": []
         }
       ]
     },
@@ -259,7 +271,8 @@
             "imageJpg": "../../../../assets/images/user-images/george.jpg",
             "name": "George Partridge",
             "username": "soccerviewer8"
-          }
+          },
+          "replies": []
         }
       ]
     },
@@ -281,7 +294,8 @@
             "imageJpg": "../../../../assets/images/user-images/ryan.jpg",
             "name": "Ryan Welles",
             "username": "voyager.344"
-          }
+          },
+          "replies": []
         }
       ]
     },
@@ -303,7 +317,8 @@
             "imageJpg": "../../../../assets/images/user-images/suzanne.jpg",
             "name": "Suzanne Chang",
             "username": "upbeat1811"
-          }
+          },
+          "replies": []
         }
       ]
     },
@@ -340,7 +355,7 @@
           "replies": [
             {
               "replyID": "scuz7d4pr",
-              "parentID": 15,
+              "parentID": "2d2rn4ftl",
               "content": "Me too! I'd also love to see celebrations at specific points as well. It would help people take a moment to celebrate their achievements!",
               "replyingTo": "arlen_the_marlin",
               "user": {
@@ -348,7 +363,8 @@
                 "imageJpg": "../../../../assets/images/user-images/suzanne.jpg",
                 "name": "Suzanne Chang",
                 "username": "upbeat1811"
-              }
+              },
+              "replies": []
             }
           ]
         }
