@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { DispatchContext } from '../../../../context/requests.context';
 import { UserContext } from '../../../../context/user.context';
 import { UserReply } from '../classes/UserReply';
@@ -14,10 +14,18 @@ export const Comment = ({
   const [activeForm, setActiveForm] = useState(false);
   const [commentError, setCommentError] = useState(false);
   const [detailInput, setDetailInput] = useState('');
+  const [charactersLeft, setCharactersLeft] = useState(250);
+  const [maxCharacterError, setMaxCharacterError] = useState(false);
   const firstName = comment.user.name.split(' ')[0].toLowerCase();
   const userImgName = firstName;
   const { user } = useContext(UserContext);
   const dispatch = useContext(DispatchContext);
+
+  useEffect(() => {
+    if (charactersLeft <= 0) {
+      return setCharactersLeft(0);
+    }
+  }, [charactersLeft]);
 
   const handleReplyFormToggle = (e) => {
     setCommentError(false);
@@ -30,9 +38,10 @@ export const Comment = ({
     }
   };
 
-  const handleChange = (e) => {
+  const onCommentChange = (e) => {
     setDetailInput(e.target.value);
     setCommentError(false);
+    setCharactersLeft(250 - e.target.value.length);
   };
 
   const userReply = new UserReply(
@@ -45,9 +54,13 @@ export const Comment = ({
   const handleSubmit = (e) => {
     e.preventDefault(); // temporary
     if (!detailInput) {
-      return setCommentError(!commentError);
+      return setCommentError(true);
     }
 
+    if (detailInput.length >= 250) {
+      return setMaxCharacterError(true);
+    }
+    setMaxCharacterError(false);
     setCommentError(false);
     dispatch({
       type: 'add-reply',
@@ -57,6 +70,8 @@ export const Comment = ({
     });
 
     setDetailInput('');
+    setActiveForm(false);
+    setCharactersLeft(250);
     return null;
   };
 
@@ -122,14 +137,23 @@ export const Comment = ({
             className={`${styles.textArea} ${
               commentError && styles.errorOutline
             }`}
-            onChange={handleChange}
+            onChange={onCommentChange}
             value={detailInput}
             rows="8"
             tabIndex="0"
           />
-          <button className={styles.submitButton} type="submit">
-            post reply
-          </button>
+          <div className={styles.buttonBox}>
+            <span
+              className={`${styles.characterCountText} ${
+                detailInput.length >= 250 ? styles.charactersError : null
+              }`}
+            >
+              {`${charactersLeft} characters left`}
+            </span>
+            <button className={styles.submitButton} type="submit">
+              post reply
+            </button>
+          </div>
         </form>
         {comment.replies &&
           comment.replies.map((reply, index) => {

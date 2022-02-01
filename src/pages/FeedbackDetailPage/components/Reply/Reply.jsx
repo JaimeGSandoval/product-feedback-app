@@ -8,7 +8,10 @@ export const Reply = ({ reply, commentAuthor, requestID, commentID }) => {
   const firstName = reply.user.name.split(' ')[0].toLowerCase();
   const userImgName = firstName;
 
-  const handleReplyFormToggle = () => setActiveForm(!activeForm);
+  const handleReplyFormToggle = () => {
+    setActiveForm(!activeForm);
+    setReplyError(false);
+  };
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
@@ -24,7 +27,7 @@ export const Reply = ({ reply, commentAuthor, requestID, commentID }) => {
   const handleSubmit = (e) => {
     e.preventDefault(); // temporary?
     if (!replyInput) {
-      return setReplyError(!replyError);
+      return setReplyError(true);
     }
 
     setReplyError(false);

@@ -5,7 +5,7 @@ import { UserComment } from '../classes/UserComment';
 
 export const CommentForm = ({ styles, requestID }) => {
   const [commentInput, setCommentInput] = useState('');
-  const [inputError, setErrorInputError] = useState(false);
+  const [inputError, setInputError] = useState(false);
   const [charactersLeft, setCharactersLeft] = useState(250);
   const [maxCharacterError, setMaxCharacterError] = useState(false);
   const { user } = useContext(UserContext);
@@ -18,7 +18,7 @@ export const CommentForm = ({ styles, requestID }) => {
   }, [charactersLeft]);
 
   const onCommentChange = (e) => {
-    setErrorInputError(false);
+    setInputError(false);
     setCommentInput(e.target.value);
     setCharactersLeft(250 - e.target.value.length);
   };
@@ -28,7 +28,7 @@ export const CommentForm = ({ styles, requestID }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!commentInput) {
-      return setErrorInputError(true);
+      return setInputError(true);
     }
 
     if (commentInput.length >= 250) {
@@ -36,7 +36,7 @@ export const CommentForm = ({ styles, requestID }) => {
     }
 
     setMaxCharacterError(false);
-    setErrorInputError(false);
+    setInputError(false);
     dispatch({
       type: 'add-comment',
       comment: userComment,

@@ -6,11 +6,6 @@
   border-bottom: 1px solid $lightGrey;
 }
 
-// .commentsTotal {
-//   font-family: $robotoBold;
-//   color: $darkNavy;
-// }
-
 .userInfoContainer {
   display: flex;
   justify-content: space-between;
@@ -131,4 +126,30 @@
 
 .errorOutline {
   outline: 1px solid $red;
+}
+
+.characterCountText {
+  display: inline-block;
+  font-family: $roboto;
+  color: $lightNavy;
+  font-size: 0.8rem;
+}
+
+.errorText,
+.charactersError {
+  color: $red;
+  visibility: visible;
+  position: relative;
+  bottom: 0.3rem;
+  font-family: $roboto;
+  font-size: 0.8rem;
+}
+
+.charactersError {
+  bottom: 0;
+}
+
+.buttonBox {
+  display: flex;
+  align-items: center;
 }
