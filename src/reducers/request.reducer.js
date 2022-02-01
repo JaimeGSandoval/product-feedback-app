@@ -29,6 +29,7 @@ const ACTIONS = {
   UPVOTE: 'upvote',
   UPVOTE_SORT: 'upvote-sort',
   ADD_COMMENT: 'add-comment',
+  ADD_REPLY: 'add-reply',
 };
 
 export const requestReducer = (state, action) => {
@@ -81,7 +82,7 @@ export const requestReducer = (state, action) => {
         );
       }
 
-      return state;
+      return [...state];
 
     case ACTIONS.UPVOTE:
       return upvoteControls(state, action);
@@ -96,7 +97,24 @@ export const requestReducer = (state, action) => {
           : request
       );
 
+    case ACTIONS.ADD_REPLY:
+      return state.map((request) => {
+        if (request.requestID === action.requestID) {
+          request.comments.map((comment) => {
+            if (comment.commentID === action.commentID) {
+              comment.replies =
+                comment.replies.length > 0
+                  ? [...comment.replies, action.reply]
+                  : [action.reply];
+            }
+            return comment;
+          });
+        }
+
+        return request;
+      });
+
     default:
-      return state;
+      return [...state];
   }
 };

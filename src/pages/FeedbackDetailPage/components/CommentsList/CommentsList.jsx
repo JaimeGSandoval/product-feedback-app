@@ -62,6 +62,7 @@ export const CommentsList = ({ requestID }) => {
                       comment={comment}
                       commentsLength={commentsLength}
                       key={comment.commentID}
+                      requestID={requestID}
                     />
                   ))}
                 </div>
