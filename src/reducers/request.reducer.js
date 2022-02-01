@@ -82,7 +82,7 @@ export const requestReducer = (state, action) => {
         );
       }
 
-      return state;
+      return [...state];
 
     case ACTIONS.UPVOTE:
       return upvoteControls(state, action);
@@ -102,7 +102,10 @@ export const requestReducer = (state, action) => {
         if (request.requestID === action.requestID) {
           request.comments.map((comment) => {
             if (comment.commentID === action.commentID) {
-              comment.replies = [...comment.replies, action.reply];
+              comment.replies =
+                comment.replies.length > 0
+                  ? [...comment.replies, action.reply]
+                  : [action.reply];
             }
             return comment;
           });
@@ -112,6 +115,6 @@ export const requestReducer = (state, action) => {
       });
 
     default:
-      return state;
+      return [...state];
   }
 };

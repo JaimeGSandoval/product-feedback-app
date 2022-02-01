@@ -23,6 +23,7 @@ export const SelectOption = ({ sortingData, option, index }) => {
         setActiveOptionText(option);
         setCheckMark(index);
         setIsDropDownOpen(!isDropDownOpen);
+        window.scrollTo(0, 0);
       }}
       onKeyPress={(e) => {
         setCheckMark(index);

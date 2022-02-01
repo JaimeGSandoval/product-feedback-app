@@ -71,6 +71,8 @@ export const EditForm = ({ productRequest, isEditing, setIsEditing }) => {
       status: statusOption,
       description: formData.description,
     });
+    setIsEditing(false);
+    window.scrollTo(0, 0);
 
     return null;
   };
