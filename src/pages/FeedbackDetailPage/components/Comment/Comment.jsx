@@ -5,17 +5,11 @@ import { UserReply } from '../classes/UserReply';
 import { Reply } from '../Reply/Reply';
 import styles from './_comment.module.scss';
 
-export const Comment = ({
-  comment,
-  commentsLength,
-  setRepliesLength,
-  requestID,
-}) => {
+export const Comment = ({ comment, commentsLength, requestID }) => {
   const [activeForm, setActiveForm] = useState(false);
   const [commentError, setCommentError] = useState(false);
   const [detailInput, setDetailInput] = useState('');
   const [charactersLeft, setCharactersLeft] = useState(250);
-  const [maxCharacterError, setMaxCharacterError] = useState(false);
   const firstName = comment.user.name.split(' ')[0].toLowerCase();
   const userImgName = firstName;
   const { user } = useContext(UserContext);
@@ -57,10 +51,8 @@ export const Comment = ({
       return setCommentError(true);
     }
 
-    if (detailInput.length >= 250) {
-      return setMaxCharacterError(true);
-    }
-    setMaxCharacterError(false);
+    if (detailInput.length >= 250) return;
+
     setCommentError(false);
     dispatch({
       type: 'add-reply',
