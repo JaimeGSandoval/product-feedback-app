@@ -18,6 +18,7 @@ export const FeedbackForm = () => {
   });
   const dispatch = useContext(DispatchContext);
   const navigate = useNavigate();
+  const goBack = () => navigate(-1);
 
   const onInputChange = (e) => {
     setFormData((prevData) => ({
@@ -97,7 +98,11 @@ export const FeedbackForm = () => {
               >
                 add feedback
               </button>
-              <button className={styles.cancelButton} tabIndex="0">
+              <button
+                className={styles.cancelButton}
+                tabIndex="0"
+                onClick={goBack}
+              >
                 cancel
               </button>
             </div>

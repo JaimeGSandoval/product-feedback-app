@@ -7,7 +7,6 @@ export const CommentForm = ({ styles, requestID }) => {
   const [commentInput, setCommentInput] = useState('');
   const [inputError, setInputError] = useState(false);
   const [charactersLeft, setCharactersLeft] = useState(250);
-  const [maxCharacterError, setMaxCharacterError] = useState(false);
   const { user } = useContext(UserContext);
   const dispatch = useContext(DispatchContext);
 
@@ -31,11 +30,8 @@ export const CommentForm = ({ styles, requestID }) => {
       return setInputError(true);
     }
 
-    if (commentInput.length >= 250) {
-      return setMaxCharacterError(true);
-    }
+    if (commentInput.length >= 250) return;
 
-    setMaxCharacterError(false);
     setInputError(false);
     dispatch({
       type: 'add-comment',
@@ -69,10 +65,7 @@ export const CommentForm = ({ styles, requestID }) => {
         </span>
         <textarea
           id="add-comment"
-          className={`${styles.textarea} ${
-            (inputError && styles.errorOutline) ||
-            (maxCharacterError && styles.errorOutline)
-          }`}
+          className={`${styles.textarea} ${inputError && styles.errorOutline}`}
           onChange={onCommentChange}
           name="add-comment"
           value={commentInput}
