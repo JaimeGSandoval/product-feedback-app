@@ -74,7 +74,8 @@ export const MobileModal = ({ isModalOpen, handleSetModal }) => {
               </Link>
             </div>
             {roadMapData.map((data) => {
-              return <RoadMap roadmapData={data} key={Math.random() * 4} />;
+              console.log(data);
+              return <RoadMap roadmapData={data} key={data.status} />;
             })}
           </div>
         </nav>
