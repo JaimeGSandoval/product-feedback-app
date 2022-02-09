@@ -175,16 +175,18 @@ export const Comment = ({
           }}
         >
           {childComments &&
-            childComments.map((comment) => {
-              return (
-                <Comment
-                  key={comment.commentID}
-                  comment={comment}
-                  allComments={allComments}
-                  id={comment.commentID}
-                />
-              );
-            })}
+            childComments
+              .map((comment) => {
+                return (
+                  <Comment
+                    key={comment.commentID}
+                    comment={comment}
+                    allComments={allComments}
+                    id={comment.commentID}
+                  />
+                );
+              })
+              .reverse()}
         </div>
       </div>
     </>
