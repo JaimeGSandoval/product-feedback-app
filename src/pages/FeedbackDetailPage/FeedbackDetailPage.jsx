@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import { IDContextProvider } from './context/ID.context';
 import { CommentsList } from './components/CommentsList';
 import styles from './components/CommentsList/_commentsList.module.scss';
 
@@ -8,7 +9,9 @@ export const FeedbackDetailPage = () => {
   return (
     <>
       <div className={styles.container}>
-        <CommentsList requestID={requestID} />
+        <IDContextProvider>
+          <CommentsList requestID={requestID} />
+        </IDContextProvider>
       </div>
     </>
   );

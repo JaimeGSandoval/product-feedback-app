@@ -74,7 +74,6 @@ export const MobileModal = ({ isModalOpen, handleSetModal }) => {
               </Link>
             </div>
             {roadMapData.map((data) => {
-              console.log(data);
               return <RoadMap roadmapData={data} key={data.status} />;
             })}
           </div>

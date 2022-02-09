@@ -6,6 +6,5 @@ export class UserComment {
     this.parentID = null;
     this.content = content;
     this.user = user;
-    this.replies = [];
   }
 }
