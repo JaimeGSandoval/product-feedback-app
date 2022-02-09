@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styles from './_reply.module.scss';
 
 export const Reply = ({ reply, commentAuthor, requestID, commentID }) => {
+  console.log(reply);
   const [activeForm, setActiveForm] = useState(false);
   const [replyError, setReplyError] = useState(false);
   const [replyInput, setReplyInput] = useState('');

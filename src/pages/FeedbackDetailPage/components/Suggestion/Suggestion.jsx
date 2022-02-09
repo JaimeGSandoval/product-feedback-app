@@ -45,7 +45,9 @@ export const Suggestion = ({ request }) => {
               </span>
               <div className={styles.commentBox}>
                 <img
-                  className={styles.commentBubble}
+                  className={`${styles.commentBubble} ${
+                    request.comments.length > 9 && styles.customPositionRight
+                  }`}
                   src={comment}
                   alt="comment bubble"
                 />

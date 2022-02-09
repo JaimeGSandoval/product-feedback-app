@@ -1,11 +1,17 @@
 import { useState, useContext, useEffect } from 'react';
 import { DispatchContext } from '../../../../context/requests.context';
 import { UserContext } from '../../../../context/user.context';
+import { IDContext } from '../../context/ID.context';
 import { UserReply } from '../classes/UserReply';
-import { Reply } from '../Reply/Reply';
 import styles from './_comment.module.scss';
 
-export const Comment = ({ comment, commentsLength, requestID }) => {
+export const Comment = ({
+  comment,
+  commentsLength,
+  allComments,
+  customMargin,
+  index,
+}) => {
   const [activeForm, setActiveForm] = useState(false);
   const [commentError, setCommentError] = useState(false);
   const [detailInput, setDetailInput] = useState('');
@@ -14,6 +20,14 @@ export const Comment = ({ comment, commentsLength, requestID }) => {
   const userImgName = firstName;
   const { user } = useContext(UserContext);
   const dispatch = useContext(DispatchContext);
+
+  const idContext = useContext(IDContext);
+  const { currentRequestID, setCommentIDContext } = idContext;
+
+  // gathers the child comments for the current comment being passed through. If the childComment.parentID is equal to the comment.commentID, thie child comment belongs to that comment
+  const childComments = allComments.filter(
+    (childComment) => childComment.parentID === comment.commentID
+  );
 
   useEffect(() => {
     if (charactersLeft <= 0) {
@@ -42,7 +56,8 @@ export const Comment = ({ comment, commentsLength, requestID }) => {
     detailInput,
     user,
     comment.commentID,
-    comment.user.username
+    comment.user.username,
+    currentRequestID // identifies what suggestion the reply or comment belongs to
   );
 
   const handleSubmit = (e) => {
@@ -54,11 +69,11 @@ export const Comment = ({ comment, commentsLength, requestID }) => {
     if (detailInput.length >= 250) return;
 
     setCommentError(false);
+    setCommentIDContext(comment.commentID);
+
     dispatch({
       type: 'add-reply',
       reply: userReply,
-      commentID: comment.commentID,
-      requestID: requestID,
     });
 
     setDetailInput('');
@@ -100,7 +115,6 @@ export const Comment = ({ comment, commentsLength, requestID }) => {
               >{`@${comment.user.username}`}</span>
             </div>
           </div>
-
           <span
             className={styles.replyLink}
             onClick={handleReplyFormToggle}
@@ -111,12 +125,18 @@ export const Comment = ({ comment, commentsLength, requestID }) => {
           </span>
         </div>
 
-        <p className={styles.commentText}>{comment.content}</p>
+        <p className={styles.commentText}>
+          <span className={styles.commentAuthor}>
+            {comment.replyingTo && `@${comment.replyingTo} `}
+          </span>
+          {comment.content}
+        </p>
 
         <form
           method="POST"
           className={`${styles.replyForm} ${!activeForm && styles.hide}`}
           onSubmit={handleSubmit}
+          data-author={comment.user.username}
         >
           <span
             className={
@@ -147,18 +167,25 @@ export const Comment = ({ comment, commentsLength, requestID }) => {
             </button>
           </div>
         </form>
-        {comment.replies &&
-          comment.replies.map((reply, index) => {
-            return (
-              <Reply
-                reply={reply}
-                commentAuthor={comment.user.username}
-                key={reply.replyID}
-                requestID={requestID}
-                commentID={comment.commentID}
-              />
-            );
-          })}
+        <div
+          key={comment.commentID}
+          className={styles.replyContainer}
+          style={{
+            paddingLeft: index > 0 ? '1rem' : '0',
+          }}
+        >
+          {childComments &&
+            childComments.map((comment) => {
+              return (
+                <Comment
+                  key={comment.commentID}
+                  comment={comment}
+                  allComments={allComments}
+                  id={comment.commentID}
+                />
+              );
+            })}
+        </div>
       </div>
     </>
   );

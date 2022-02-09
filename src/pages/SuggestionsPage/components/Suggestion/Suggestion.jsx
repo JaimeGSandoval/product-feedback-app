@@ -1,10 +1,10 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { DispatchContext } from '../../../../context/requests.context';
-import styles from './_suggestion.module.scss';
 import comment from '../../../../assets/icons/comments.svg';
 import arrowUp from '../../../../assets/icons/arrow-up.svg';
 import arrowUpWhite from '../../../../assets/icons/arrow-up-white.svg';
+import styles from './_suggestion.module.scss';
 
 export const Suggestion = ({ request, sortType }) => {
   const dispatch = useContext(DispatchContext);
@@ -46,7 +46,9 @@ export const Suggestion = ({ request, sortType }) => {
               </span>
               <div className={styles.commentBox}>
                 <img
-                  className={styles.commentBubble}
+                  className={`${styles.commentBubble} ${
+                    request.comments.length > 9 && styles.customPositionRight
+                  }`}
                   src={comment}
                   alt="comment bubble"
                 />
