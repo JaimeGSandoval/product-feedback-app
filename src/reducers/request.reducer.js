@@ -99,16 +99,9 @@ export const requestReducer = (state, action) => {
 
     case ACTIONS.ADD_REPLY:
       return state.map((request) => {
-        if (request.requestID === action.requestID) {
-          request.comments.map((comment) => {
-            if (comment.commentID === action.commentID) {
-              comment.replies =
-                comment.replies.length > 0
-                  ? [...comment.replies, action.reply]
-                  : [action.reply];
-            }
-            return comment;
-          });
+        // find suggestion request to add the comment or reply to its comments array
+        if (request.requestID === action.reply.requestID) {
+          request.comments = [...request.comments, action.reply];
         }
 
         return request;
