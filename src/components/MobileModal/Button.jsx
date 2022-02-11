@@ -19,7 +19,7 @@ export const Button = ({ handleClick, activeButton, index, title }) => {
         activeButton === index && styles.activeButton
       }`}
       onClick={() => {
-        setCategory(title.toLowerCase());
+        setCategory(title === 'UI' || title === 'UX' ? title : title.toLowerCase());
         handleClick(index);
       }}
       ref={index === 0 ? tabRef : null}

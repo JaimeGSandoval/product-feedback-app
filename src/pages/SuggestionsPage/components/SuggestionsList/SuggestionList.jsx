@@ -77,7 +77,7 @@ export const SuggestionList = () => {
   return (
     <main className={styles.container}>
       {!requestsState.length && <EmptySuggestion />}
-      {requestsState.length &&
+      {requestsState.length > 0 &&
         requestsState.map((request) => (
           <Suggestion
             request={request}
