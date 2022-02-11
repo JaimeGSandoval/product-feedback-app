@@ -157,12 +157,14 @@
 .replyContainer {
   margin-top: 2rem;
   border-bottom: 1px solid $lightGrey;
-  // width: 92%;
   text-align: left;
-  // margin-left: auto;
 }
 
 .commentAuthor {
   color: $purple;
   font-family: $robotoBold;
+}
+
+.customPaddingLeft {
+  padding-left: 1rem;
 }

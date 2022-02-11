@@ -46,7 +46,7 @@ export const Header = () => {
         </picture>
         <div className={styles.contentBox}>
           <div className={styles.textContainer}>
-            <span className={styles.headerText}>frontend mentor</span>
+            <span className={styles.headerText}>dynamic devs</span>
             <span className={styles.secondaryHeaderText}>feedback board</span>
           </div>
           <div

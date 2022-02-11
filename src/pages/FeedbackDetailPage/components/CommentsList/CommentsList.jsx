@@ -73,17 +73,15 @@ export const CommentsList = ({ requestID }) => {
                       ? `${commentsLength} Comments`
                       : `${commentsLength} Comment`}
                   </h1>
-                  {parentComments.map((comment, index) => {
-                    return (
-                      <Comment
-                        key={comment.commentID}
-                        comment={comment}
-                        commentsLength={commentsLength}
-                        allComments={allComments}
-                        index={index}
-                      />
-                    );
-                  })}
+                  {parentComments.map((comment, index) => (
+                    <Comment
+                      key={comment.commentID}
+                      comment={comment}
+                      commentsLength={commentsLength}
+                      allComments={allComments}
+                      index={index}
+                    />
+                  ))}
                 </div>
               </section>
               <CommentForm styles={styles} requestID={requestID} />

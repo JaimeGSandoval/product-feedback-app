@@ -169,23 +169,20 @@ export const Comment = ({
         </form>
         <div
           key={comment.commentID}
-          className={styles.replyContainer}
-          style={{
-            paddingLeft: index > 0 ? '1rem' : '0',
-          }}
+          className={`${styles.replyContainer} ${
+            index !== undefined && styles.customPaddingLeft
+          }`}
         >
           {childComments &&
             childComments
-              .map((comment) => {
-                return (
-                  <Comment
-                    key={comment.commentID}
-                    comment={comment}
-                    allComments={allComments}
-                    id={comment.commentID}
-                  />
-                );
-              })
+              .map((comment) => (
+                <Comment
+                  key={comment.commentID}
+                  comment={comment}
+                  allComments={allComments}
+                  id={comment.commentID}
+                />
+              ))
               .reverse()}
         </div>
       </div>
