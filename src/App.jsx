@@ -19,18 +19,16 @@ import './index.scss';
 function App() {
   return (
     <div className="App">
-      <main>
-        <Routes>
-          <Route path="/" element={<SuggestionsPage />} />
-          <Route path="/add-feedback" element={<AddFeedbackPage />} />
-          <Route
-            path="/feedback-detail/:requestID"
-            element={<FeedbackDetailPage />}
-          />
-          <Route path="/roadmap" element={<RoadmapPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </main>
+      <Routes>
+        <Route path="/" element={<SuggestionsPage />} />
+        <Route path="/add-feedback" element={<AddFeedbackPage />} />
+        <Route
+          path="/feedback-detail/:requestID"
+          element={<FeedbackDetailPage />}
+        />
+        <Route path="/roadmap" element={<RoadmapPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
     </div>
   );
 }
