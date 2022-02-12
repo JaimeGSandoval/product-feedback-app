@@ -1,10 +1,6 @@
 @import '../../sass/abstract/vars';
 @import '../../sass/abstract/media-queries';
 
-picture {
-  width: 100%;
-}
-
 .header {
   width: 100%;
   display: flex;
@@ -18,17 +14,10 @@ picture {
     height: 1.5rem;
     position: static;
   }
-
-  @include mobileLandscapeXLg {
-    display: block;
-    height: 4.5rem;
-    width: 100vw; // works, but doesn't take up full width of screen
-    max-width: 100%; // works, but doesn't take up full width of screen
-  }
 }
 
 .headerBgImg {
-  width: 100%;
+  width: 100vw;
   height: 100%;
   max-width: 100%;
   display: initial;
@@ -43,12 +32,6 @@ picture {
 
   @include mobileLandscapeXSm {
     top: 0.8rem;
-  }
-
-  @include mobileLandscapeXLg {
-    margin-left: 5%;
-    position: relative;
-    top: -3.8rem;
   }
 }
 

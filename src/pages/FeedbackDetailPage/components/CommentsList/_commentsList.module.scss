@@ -121,6 +121,7 @@
   font-size: 1rem;
   display: block;
   margin: auto;
+  font-family: $roboto;
 }
 
 .buttonBox {
@@ -142,6 +143,10 @@
   padding: 0.9rem 0.7rem;
   border: none;
   border-radius: 10px;
+
+  @include mobileLg {
+    font-size: 0.9rem;
+  }
 }
 
 .visibilityHidden {
