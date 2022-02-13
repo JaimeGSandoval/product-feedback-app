@@ -1,9 +1,10 @@
 import { useState, useContext, useEffect } from 'react';
 import { RequestsContext } from '../../../../context/requests.context';
-import { CategoryContext } from '../../../../components/MobileModal/category.context';
+import { CategoryContext } from '../../../../components/context/category.context';
 import { SortContext } from '../sort.context';
 import { Suggestion } from '../Suggestion/Suggestion';
 import { EmptySuggestion } from '../EmptySuggestion';
+import { FeedbackBar } from '../FeedbackBar';
 import styles from './_suggestionList.module.scss';
 
 export const SuggestionList = () => {
@@ -75,16 +76,21 @@ export const SuggestionList = () => {
   }, [sortType]);
 
   return (
-    <main className={styles.container}>
-      {!requestsState.length && <EmptySuggestion />}
-      {requestsState.length > 0 &&
-        requestsState.map((request) => (
-          <Suggestion
-            request={request}
-            key={request.title}
-            sortType={sortType}
-          />
-        ))}
-    </main>
+    <>
+      <div>
+        <FeedbackBar />
+        <main className={styles.container}>
+          {!requestsState.length && <EmptySuggestion />}
+          {requestsState.length > 0 &&
+            requestsState.map((request) => (
+              <Suggestion
+                request={request}
+                key={request.title}
+                sortType={sortType}
+              />
+            ))}
+        </main>
+      </div>
+    </>
   );
 };

@@ -18,4 +18,8 @@
   @include mobileLandscapeXSm {
     top: 0;
   }
+
+  @include tabletMd {
+    top: 19rem;
+  }
 }

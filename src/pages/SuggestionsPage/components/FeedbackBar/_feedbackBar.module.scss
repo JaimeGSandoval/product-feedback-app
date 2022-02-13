@@ -6,7 +6,7 @@
   background-color: $darkNavy;
   position: fixed;
   top: 3.8rem;
-  z-index: 2;
+  z-index: 12;
 
   @include mobileXSm {
     top: 4.3rem;
@@ -49,6 +49,11 @@
     margin-top: 0;
     width: 100vw;
     max-width: 100%;
+  }
+
+  @include tabletMd {
+    top: 13.7rem;
+    max-height: 11.1rem;
   }
 }
 
