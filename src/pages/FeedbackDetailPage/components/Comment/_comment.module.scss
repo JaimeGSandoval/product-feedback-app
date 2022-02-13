@@ -19,6 +19,10 @@
 
 .imgBox {
   width: 1.9rem;
+
+  @include mobileLg {
+    width: 2.3rem;
+  }
 }
 
 .userImg {
@@ -37,18 +41,32 @@
   font-family: $robotoBold;
   text-transform: capitalize;
   font-size: 0.9rem;
+
+  @include mobileLg {
+    font-size: 1rem;
+  }
 }
 
 .userHandle {
   color: $grey;
   font-family: $roboto;
   font-size: 0.7rem;
+
+  @include mobileLg {
+    position: relative;
+    top: 3px;
+    font-size: 0.8rem;
+  }
 }
 
 .replyLink {
   color: $blue;
   font-family: $robotoBold;
   font-size: 0.9rem;
+
+  @include mobileLg {
+    font-size: 1rem;
+  }
 }
 
 .commentText {
@@ -101,6 +119,10 @@
   border: none;
   padding: 0.6rem 0.9rem;
   border-radius: 10px;
+
+  @include mobileLg {
+    font-size: 0.9rem;
+  }
 
   @include tabletMd {
     margin-bottom: auto;
@@ -167,4 +189,8 @@
 
 .customPaddingLeft {
   padding-left: 1rem;
+
+  @include mobileLg {
+    padding-left: 1.3rem;
+  }
 }

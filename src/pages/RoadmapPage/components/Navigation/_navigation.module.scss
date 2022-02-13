@@ -31,6 +31,10 @@
 .goBackText {
   position: relative;
   left: 0.7rem;
+
+  @include mobileLg {
+    font-size: 1rem;
+  }
 }
 
 .arrowLeft {
@@ -43,6 +47,10 @@
   font-family: $robotoBold;
   margin-top: 0.2rem;
   font-size: 1rem;
+
+  @include mobileLg {
+    font-size: 1.1rem;
+  }
 }
 
 .feedBackBtn {

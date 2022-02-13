@@ -42,53 +42,55 @@ export const CommentsList = ({ requestID }) => {
 
   return (
     <>
-      {isEditing && (
-        <EditFeedback
-          productRequest={productRequest}
-          setIsEditing={setIsEditing}
-          isEditing={isEditing}
-        />
-      )}
-      {!isEditing && (
-        <>
-          <div className={styles.buttonBox}>
-            <GoBackBtn styles={styles} goBack={goBack} />
-            <button
-              className={styles.editButton}
-              onClick={handleEditClick}
-              tabIndex="0"
-            >
-              edit feedback
-            </button>
-          </div>
-          <main>
-            <section className={styles.outerContainer}>
-              <div className={styles.innerContainer}>
-                <Suggestion request={productRequest} />
-              </div>
-              <section className={styles.commentsContainer}>
-                <div className={styles.commentsInnerContainer}>
-                  <h1 className={styles.commentsTotal}>
-                    {commentsLength > 1 || commentsLength === 0
-                      ? `${commentsLength} Comments`
-                      : `${commentsLength} Comment`}
-                  </h1>
-                  {parentComments.map((comment, index) => (
-                    <Comment
-                      key={comment.commentID}
-                      comment={comment}
-                      commentsLength={commentsLength}
-                      allComments={allComments}
-                      index={index}
-                    />
-                  ))}
+      <div className={styles.container}>
+        {isEditing && (
+          <EditFeedback
+            productRequest={productRequest}
+            setIsEditing={setIsEditing}
+            isEditing={isEditing}
+          />
+        )}
+        {!isEditing && (
+          <>
+            <div className={styles.buttonBox}>
+              <GoBackBtn styles={styles} goBack={goBack} />
+              <button
+                className={styles.editButton}
+                onClick={handleEditClick}
+                tabIndex="0"
+              >
+                edit feedback
+              </button>
+            </div>
+            <main>
+              <section className={styles.outerContainer}>
+                <div className={styles.innerContainer}>
+                  <Suggestion request={productRequest} />
                 </div>
+                <section className={styles.commentsContainer}>
+                  <div className={styles.commentsInnerContainer}>
+                    <h1 className={styles.commentsTotal}>
+                      {commentsLength > 1 || commentsLength === 0
+                        ? `${commentsLength} Comments`
+                        : `${commentsLength} Comment`}
+                    </h1>
+                    {parentComments.map((comment, index) => (
+                      <Comment
+                        key={comment.commentID}
+                        comment={comment}
+                        commentsLength={commentsLength}
+                        allComments={allComments}
+                        index={index}
+                      />
+                    ))}
+                  </div>
+                </section>
+                <CommentForm styles={styles} requestID={requestID} />
               </section>
-              <CommentForm styles={styles} requestID={requestID} />
-            </section>
-          </main>
-        </>
-      )}
+            </main>
+          </>
+        )}
+      </div>
     </>
   );
 };
