@@ -73,7 +73,7 @@ export const RequestList = () => {
       <div className={styles.roadmapBtnsContainer}>
         <div className={styles.roadmapBtnsBox}>{renderedButtons}</div>
       </div>
-      <section className={styles.container}>
+      <main className={styles.container}>
         <header className={styles.header}>
           <h1 className={styles.headerTitle}>
             {planned && `Planned (${PLANNED_REQUESTS.length})`}
@@ -92,7 +92,7 @@ export const RequestList = () => {
           {inProgress && handleRenderRequests(IN_PROGRESS_REQUESTS)}
           {live && handleRenderRequests(LIVE_REQUESTS)}
         </div>
-      </section>
+      </main>
     </>
   );
 };

@@ -14,4 +14,8 @@
   @include mobileLg {
     top: 9rem;
   }
+
+  @include mobileLandscapeXSm {
+    top: 0;
+  }
 }

@@ -10,12 +10,12 @@ export const NotFoundPage = () => {
   return (
     <>
       <Header />
-      <div className={styles.container}>
+      <main className={styles.container}>
         <p className={styles.notFoundText}>Page not found!</p>
         <p className={styles.notFoundText}>
           Redirecting to the Suggestions Page
         </p>
-      </div>
+      </main>
     </>
   );
 };

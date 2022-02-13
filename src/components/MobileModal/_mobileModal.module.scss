@@ -22,6 +22,18 @@
   width: 80%;
   height: 100vh;
   background-color: $lightGrey;
+
+  @include mobileLandscapeXSm {
+    width: 100%;
+    display: flex;
+  }
+}
+
+.nav {
+  @include mobileLandscapeXSm {
+    width: 100%;
+    display: flex;
+  }
 }
 
 .buttonsContainer {
@@ -33,6 +45,11 @@
   border-radius: 15px;
   display: flex;
   flex-wrap: wrap;
+
+  @include mobileLandscapeXSm {
+    width: 40%;
+    margin-top: 14%;
+  }
 }
 
 .buttons {
@@ -95,6 +112,11 @@
   div:nth-of-type(4) span:first-child {
     background-color: $blue;
   }
+
+  @include mobileLandscapeXSm {
+    width: 30%;
+    margin-top: 14%;
+  }
 }
 
 .titleContainer {
@@ -119,6 +141,11 @@
   font-size: 0.9rem;
   position: relative;
   top: 2px;
+
+  @include mobileLg {
+    font-size: 1rem;
+    top: 1px;
+  }
 }
 
 .roadMapRow {

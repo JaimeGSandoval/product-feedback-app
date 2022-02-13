@@ -51,7 +51,7 @@ export const MobileModal = ({ isModalOpen, handleSetModal }) => {
       data-modal
     >
       <div className={styles.modal}>
-        <nav>
+        <nav className={styles.nav}>
           <div className={styles.buttonsContainer}>
             {BUTTON_TITLES.map((title, index) => {
               return (

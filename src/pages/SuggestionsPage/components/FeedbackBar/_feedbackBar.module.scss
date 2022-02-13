@@ -31,6 +31,25 @@
   @include mobileXL {
     top: 5.1rem;
   }
+
+  @include mobileLandscapeXSm {
+    margin-top: 2.5rem;
+    position: static;
+  }
+
+  @include mobileLandscapeSm {
+    margin-top: 3rem;
+  }
+
+  @include mobileLandscapeLg {
+    margin-top: 3.5rem;
+  }
+
+  @include mobileLandscapeXLg {
+    margin-top: 0;
+    width: 100vw;
+    max-width: 100%;
+  }
 }
 
 .contentBox {
@@ -86,20 +105,25 @@
   @include mobileSm {
     top: 0;
   }
+
+  @include mobileLg {
+    font-size: 1rem;
+  }
 }
 
 .arrow {
-  font-size: 0.7rem;
   position: absolute;
   left: 7.2rem;
   bottom: 5px;
 
-  @include mobileXSm {
-    left: 7rem;
-  }
-
   @include mobileSm {
     left: 7.6rem;
+    width: 0.7rem;
+  }
+
+  @include mobileLg {
+    width: 0.8rem;
+    left: 8.1rem;
   }
 }
 
