@@ -1,7 +1,6 @@
 import React from 'react';
-import styles from './_mobileModal.module.scss';
 
-const RoadMapData = ({ roadmapData, taskTotal }) => {
+const RoadMapData = ({ roadmapData, taskTotal, styles }) => {
   return (
     <div className={styles.roadMapRow}>
       <div className={styles.roadMapStatusBox}>

@@ -2,17 +2,17 @@ import { useState, useContext } from 'react';
 import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
 import { RequestsContext } from '../../context/requests.context';
-import { Button } from './Button';
-import RoadMap from './RoadMap';
+import { NavButton } from '../NavButton';
+import RoadMapData from '../RoadMap';
 import styles from './_mobileModal.module.scss';
-
-const BUTTON_TITLES = ['All', 'UI', 'UX', 'Enhancement', 'Bug', 'Feature'];
 
 export const MobileModal = ({ isModalOpen, handleSetModal }) => {
   const [active, setActive] = useState(0);
   const requests = useContext(RequestsContext);
 
   if (!isModalOpen) return null;
+
+  const BUTTON_TITLES = ['All', 'UI', 'UX', 'Enhancement', 'Bug', 'Feature'];
 
   const roadmapRequests = requests.filter(
     (request) => request.status !== 'suggestion'
@@ -55,12 +55,13 @@ export const MobileModal = ({ isModalOpen, handleSetModal }) => {
           <div className={styles.buttonsContainer}>
             {BUTTON_TITLES.map((title, index) => {
               return (
-                <Button
+                <NavButton
                   title={title}
                   index={index}
                   handleClick={handleClick}
                   key={title}
                   activeButton={active}
+                  styles={styles}
                 />
               );
             })}
@@ -74,7 +75,13 @@ export const MobileModal = ({ isModalOpen, handleSetModal }) => {
               </Link>
             </div>
             {roadMapData.map((data) => {
-              return <RoadMap roadmapData={data} key={data.status} />;
+              return (
+                <RoadMapData
+                  roadmapData={data}
+                  key={data.status}
+                  styles={styles}
+                />
+              );
             })}
           </div>
         </nav>

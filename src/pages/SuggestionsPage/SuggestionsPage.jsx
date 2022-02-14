@@ -1,17 +1,20 @@
 import { SortContextProvider } from './components/sort.context';
-import { CategoryProvider } from '../../components/MobileModal/category.context';
-import { FeedbackBar } from './components/FeedbackBar';
+import { CategoryProvider } from '../../components/context/category.context';
 import { SuggestionList } from './components/SuggestionsList/SuggestionList';
-import { Header } from '../../components/Header';
+import { MobileHeader } from '../../components/MobileHeader';
+import { Header } from '../../components/Header/Header';
+import styles from './_suggestionPage.module.scss';
 
 export const SuggestionsPage = () => {
   return (
     <>
       <SortContextProvider>
         <CategoryProvider>
-          <Header />
-          <FeedbackBar />
-          <SuggestionList />
+          <div className={styles.container}>
+            <Header />
+            <MobileHeader />
+            <SuggestionList />
+          </div>
         </CategoryProvider>
       </SortContextProvider>
     </>

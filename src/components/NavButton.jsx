@@ -1,8 +1,13 @@
 import { useEffect, useRef, useContext } from 'react';
-import { CategoryContext } from './category.context';
-import styles from './_mobileModal.module.scss';
+import { CategoryContext } from './context/category.context';
 
-export const Button = ({ handleClick, activeButton, index, title }) => {
+export const NavButton = ({
+  handleClick,
+  activeButton,
+  index,
+  title,
+  styles,
+}) => {
   const tabRef = useRef();
   const categoryData = useContext(CategoryContext);
   const { setCategory } = categoryData;
@@ -19,7 +24,9 @@ export const Button = ({ handleClick, activeButton, index, title }) => {
         activeButton === index && styles.activeButton
       }`}
       onClick={() => {
-        setCategory(title === 'UI' || title === 'UX' ? title : title.toLowerCase());
+        setCategory(
+          title === 'UI' || title === 'UX' ? title : title.toLowerCase()
+        );
         handleClick(index);
       }}
       ref={index === 0 ? tabRef : null}
