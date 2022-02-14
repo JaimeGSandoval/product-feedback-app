@@ -5,6 +5,7 @@ import { Modal } from '../Modal/Modal';
 import arrowUp from '../../../../assets/icons/arrow-up-white.svg';
 import arrowDown from '../../../../assets/icons/arrow-down-white.svg';
 import styles from './_feedbackBar.module.scss';
+import lightbulb from '../../../../assets/icons/lightbulb.svg';
 
 const SELECT_OPTIONS = [
   'most upvotes',
@@ -13,7 +14,7 @@ const SELECT_OPTIONS = [
   'least comments',
 ];
 
-export const FeedbackBar = () => {
+export const FeedbackBar = ({ requestsLength }) => {
   const [activeOptionText, setActiveOptionText] = useState(SELECT_OPTIONS[0]);
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const [checkMark, setCheckMark] = useState(0);
@@ -72,6 +73,15 @@ export const FeedbackBar = () => {
       )}
       <div className={styles.container}>
         <div className={styles.contentBox}>
+          <div className={styles.suggestionTextBox}>
+            <img src={lightbulb} alt="" />
+            <span className={styles.suggestionsLengthText}>
+              {requestsLength}
+              {requestsLength === 0 || requestsLength > 1
+                ? ' Suggestions'
+                : ' Suggestion'}
+            </span>
+          </div>
           <div
             className={styles.selectContainer}
             onClick={handleDropdown}

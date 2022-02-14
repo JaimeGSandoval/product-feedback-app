@@ -23,6 +23,11 @@
   text-align: center;
   margin-top: 1.5rem;
   line-height: 1.6rem;
+
+  @include tabletMd {
+    width: 69%;
+    margin: 1.3rem auto 0;
+  }
 }
 
 .feedBackBtn {
