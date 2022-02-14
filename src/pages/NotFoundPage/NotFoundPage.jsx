@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { Header } from '../../components/Header';
+import { MobileHeader } from '../../components/MobileHeader';
 import styles from './_notFoundPage.module.scss';
 
 export const NotFoundPage = () => {
@@ -9,7 +9,7 @@ export const NotFoundPage = () => {
 
   return (
     <>
-      <Header />
+      <MobileHeader />
       <main className={styles.container}>
         <p className={styles.notFoundText}>Page not found!</p>
         <p className={styles.notFoundText}>
