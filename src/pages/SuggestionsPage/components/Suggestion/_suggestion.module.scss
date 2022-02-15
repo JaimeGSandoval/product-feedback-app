@@ -8,32 +8,12 @@
 }
 
 .innerContainer {
-  padding: 1.8rem 0 6.6rem 0;
-  width: 90%;
-  width: 84%;
-  margin: auto;
-  display: flex;
-  background-color: $white;
-  align-items: center;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-
-  @include tabletMd {
-    width: 96%;
-    padding-bottom: 1.8rem;
-  }
+  padding: 1.5rem 0;
 }
 
 .textBox {
-  width: 100%;
+  width: 84%;
   margin: auto;
-
-  @include tabletMd {
-    width: 68%;
-    margin: 0 1.9rem 0 2.2rem;
-  }
 }
 
 .title {
@@ -81,11 +61,6 @@
 .likeArrow {
   position: relative;
   right: 7px;
-
-  @include tabletMd {
-    right: 0;
-    bottom: 0.6rem;
-  }
 }
 
 .likesTotal {
@@ -94,17 +69,6 @@
   color: $darkNavy;
   padding: 0.7rem 1.3rem;
   border-radius: 0.5rem;
-  position: absolute;
-  left: 0;
-  bottom: 2.2rem;
-
-  @include tabletMd {
-    position: static;
-    flex-direction: column;
-    justify-content: center;
-    padding: 1.2rem 0;
-    min-width: 49px;
-  }
 }
 
 .commentBox {
@@ -113,13 +77,6 @@
   align-items: center;
   justify-content: space-between;
   padding-top: 0.3rem;
-  position: absolute;
-  bottom: 2.6rem;
-  right: 0;
-
-  @include tabletMd {
-    position: static;
-  }
 }
 
 .commentBubble {
