@@ -39,6 +39,7 @@
 
   @include mobileLandscapeSm {
     margin-top: 3rem;
+    margin-top: 0.7rem;
   }
 
   @include mobileLandscapeLg {
@@ -162,6 +163,10 @@
   @include mobileLg {
     font-size: 1rem;
   }
+
+  @include tabletMd {
+    padding: 0.8rem 1.2rem;
+  }
 }
 
 .feedBackText {
@@ -176,4 +181,21 @@
   @include mobileLg {
     bottom: 1px;
   }
+}
+
+.suggestionTextBox {
+  display: none;
+
+  img {
+    margin-right: 0.6rem;
+  }
+
+  @include tabletMd {
+    display: flex;
+  }
+}
+
+.suggestionsLengthText {
+  color: $white;
+  font-family: $robotoBold;
 }

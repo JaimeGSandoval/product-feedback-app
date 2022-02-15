@@ -18,6 +18,8 @@ export const SuggestionList = () => {
     retrievedRequests.filter((req) => req.status === 'suggestion')
   );
 
+  console.log(requestsState.length);
+
   useEffect(() => {
     if (category === 'all') {
       return setRequestsState(
@@ -78,7 +80,7 @@ export const SuggestionList = () => {
   return (
     <>
       <div>
-        <FeedbackBar />
+        <FeedbackBar requestsLength={requestsState.length} />
         <main className={styles.container}>
           {!requestsState.length && <EmptySuggestion />}
           {requestsState.length > 0 &&
