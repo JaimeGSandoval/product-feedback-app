@@ -14,28 +14,6 @@ export const Suggestion = ({ request, sortType }) => {
       <div className={styles.container}>
         <Link to={`/feedback-detail/${request.requestID}`}>
           <div className={styles.innerContainer}>
-            <span
-              className={`${styles.likesTotal} ${
-                request.upvoted && styles.active
-              } `}
-              onClick={(e) => {
-                e.preventDefault();
-                dispatch({
-                  type: 'upvote-sort',
-                  requestID: request.requestID,
-                  sortType: sortType,
-                });
-              }}
-              tabIndex="0"
-            >
-              <img
-                className={styles.likeArrow}
-                src={request.upvoted ? arrowUpWhite : arrowUp}
-                alt="arrow up"
-              />
-              {request.upvotes}
-            </span>
-
             <div className={styles.textBox}>
               <span className={styles.title}>{request.title}</span>
               <p className={styles.description} lang="en">
@@ -44,17 +22,39 @@ export const Suggestion = ({ request, sortType }) => {
               <span className={styles.category}>{request.category}</span>
             </div>
 
-            <div className={styles.commentBox}>
-              <img
-                className={`${styles.commentBubble} ${
-                  request.comments.length > 9 && styles.customPositionRight
+            <div className={styles.likesBox}>
+              <span
+                className={`${styles.likesTotal} ${
+                  request.upvoted && styles.active
                 }`}
-                src={comment}
-                alt="comment bubble"
-              />
-              <span className={styles.commentsTotal}>
-                {request.comments ? request.comments.length : 0}
+                onClick={(e) => {
+                  e.preventDefault();
+                  dispatch({
+                    type: 'upvote',
+                    requestID: request.requestID,
+                  });
+                }}
+                tabIndex="0"
+              >
+                <img
+                  className={styles.likeArrow}
+                  src={request.upvoted ? arrowUpWhite : arrowUp}
+                  alt="arrow up"
+                />
+                {request.upvotes}
               </span>
+              <div className={styles.commentBox}>
+                <img
+                  className={`${styles.commentBubble} ${
+                    request.comments.length > 9 && styles.customPositionRight
+                  }`}
+                  src={comment}
+                  alt="comment bubble"
+                />
+                <span className={styles.commentsTotal}>
+                  {request.comments ? request.comments.length : 0}
+                </span>
+              </div>
             </div>
           </div>
         </Link>
