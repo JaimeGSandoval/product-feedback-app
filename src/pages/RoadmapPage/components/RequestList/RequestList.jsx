@@ -5,7 +5,11 @@ import { RequestButton } from './RequestButton';
 import styles from './_requestList.module.scss';
 
 export const RequestList = () => {
-  const [inProgress, setInProgress] = useState(true);
+  const isNotMobile = window.matchMedia('(min-width: 768px)');
+
+  const [inProgress, setInProgress] = useState(
+    !isNotMobile.matches ? true : false
+  );
   const [planned, setPlanned] = useState(false);
   const [live, setLive] = useState(false);
   const retrievedRequests = useContext(RequestsContext);
@@ -30,6 +34,7 @@ export const RequestList = () => {
       status: 'Planned',
       numOfRequests: PLANNED_REQUESTS.length,
       key: 'planned',
+      description: 'Ideas prioritized for research',
     },
     {
       stateVal: inProgress,
@@ -38,6 +43,7 @@ export const RequestList = () => {
       status: 'In-Progress',
       numOfRequests: IN_PROGRESS_REQUESTS.length,
       key: 'in-progress',
+      description: 'Currently being developed',
     },
     {
       stateVal: live,
@@ -46,11 +52,17 @@ export const RequestList = () => {
       status: 'Live',
       numOfRequests: LIVE_REQUESTS.length,
       key: 'live',
+      description: 'Released features',
     },
   ];
 
   const renderedButtons = BUTTON_DATA.map((data) => (
-    <RequestButton buttonData={data} styles={styles} key={data.key} />
+    <RequestButton
+      buttonData={data}
+      styles={styles}
+      key={data.key}
+      isNotMobile={isNotMobile}
+    />
   ));
 
   const STATE_DATA = {
@@ -59,12 +71,13 @@ export const RequestList = () => {
     live,
   };
 
-  const handleRenderRequests = (requests) =>
+  const handleRenderRequests = (requests, category) =>
     requests.map((request) => (
       <Request
         request={request}
         stateData={STATE_DATA}
         key={request.requestID}
+        category={category}
       />
     ));
 
@@ -87,11 +100,23 @@ export const RequestList = () => {
           </span>
         </header>
 
-        <div className={styles.listContainer}>
-          {planned && handleRenderRequests(PLANNED_REQUESTS)}
-          {inProgress && handleRenderRequests(IN_PROGRESS_REQUESTS)}
-          {live && handleRenderRequests(LIVE_REQUESTS)}
-        </div>
+        {!isNotMobile.matches && (
+          <div className={styles.listContainer}>
+            {planned && handleRenderRequests(PLANNED_REQUESTS)}
+            {inProgress && handleRenderRequests(IN_PROGRESS_REQUESTS)}
+            {live && handleRenderRequests(LIVE_REQUESTS)}
+          </div>
+        )}
+
+        {isNotMobile.matches && (
+          <div className={styles.listContainer}>
+            <div>{handleRenderRequests(PLANNED_REQUESTS, 'planned')}</div>
+            <div>
+              {handleRenderRequests(IN_PROGRESS_REQUESTS, 'in-progress')}
+            </div>
+            <div>{handleRenderRequests(LIVE_REQUESTS, 'live')}</div>
+          </div>
+        )}
       </main>
     </>
   );

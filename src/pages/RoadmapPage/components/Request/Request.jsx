@@ -6,20 +6,22 @@ import arrowUp from '../../../../assets/icons/arrow-up.svg';
 import arrowUpWhite from '../../../../assets/icons/arrow-up-white.svg';
 import styles from './_request.module.scss';
 
-export const Request = ({ request, stateData }) => {
+export const Request = ({ request, stateData, category }) => {
   const dispatch = useContext(DispatchContext);
   const { planned, inProgress, live } = stateData;
 
+  console.log(category);
+
   const setBorder = () => {
-    if (planned) return styles.peachBorder;
-    if (inProgress) return styles.purpleBorder;
-    return styles.cyanBorder;
+    if (planned || category === 'planned') return styles.peachBorder;
+    if (inProgress || category === 'in-progress') return styles.purpleBorder;
+    if (live || category === 'live') return styles.cyanBorder;
   };
 
   const setBackground = () => {
-    if (planned) return styles.peachBg;
-    if (inProgress) return styles.purpleBg;
-    return styles.cyanBg;
+    if (planned || category === 'planned') return styles.peachBg;
+    if (inProgress || category === 'in-progress') return styles.purpleBg;
+    if (live || category === 'live') return styles.cyanBg;
   };
 
   return (
@@ -30,13 +32,17 @@ export const Request = ({ request, stateData }) => {
             <div className={styles.requestTypeBox}>
               <span className={`${styles.circle} ${setBackground()}`}></span>
               <span className={styles.requestTypeText}>
-                {planned && 'Planned'}
-                {inProgress && 'In Progress'}
-                {live && 'Live'}
+                {planned || (category === 'planned' && 'Planned')}
+                {inProgress || (category === 'in-progress' && 'In Progress')}
+                {live || (category === 'live' && 'Live')}
               </span>
             </div>
-            <span className={styles.title}>{request.title}</span>
-            <p className={styles.description}>{request.description}</p>
+            <span className={styles.title} lang="en">
+              {request.title}
+            </span>
+            <p className={styles.description} lang="en">
+              {request.description}
+            </p>
             <span className={styles.category}>{request.category}</span>
           </div>
 

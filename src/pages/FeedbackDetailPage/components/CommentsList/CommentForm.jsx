@@ -10,6 +10,8 @@ export const CommentForm = ({ styles, requestID }) => {
   const { user } = useContext(UserContext);
   const dispatch = useContext(DispatchContext);
 
+  const isNotMobile = window.matchMedia('(min-width: 768px)');
+
   useEffect(() => {
     if (charactersLeft <= 0) {
       return setCharactersLeft(0);
@@ -69,7 +71,7 @@ export const CommentForm = ({ styles, requestID }) => {
           onChange={onCommentChange}
           name="add-comment"
           value={commentInput}
-          rows="8"
+          rows={isNotMobile.matches ? '5' : '8'}
           placeholder="Type your comment here"
         />
       </div>

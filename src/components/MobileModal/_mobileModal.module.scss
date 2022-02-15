@@ -33,6 +33,9 @@
   @include mobileLandscapeXSm {
     width: 100%;
     display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 3.3rem;
   }
 }
 
@@ -47,8 +50,55 @@
   flex-wrap: wrap;
 
   @include mobileLandscapeXSm {
-    width: 40%;
+    width: 63%;
+    width: 70%;
     margin-top: 14%;
+  }
+
+  @include mobileLandscapeXXLg {
+    width: 60%;
+  }
+}
+
+.buttonBox {
+  max-width: 265px;
+  position: relative;
+  left: 4%;
+
+  @include mobileLg {
+    left: 7%;
+  }
+
+  @include mobileLandscapeXSm {
+    left: 0;
+  }
+
+  @include mobileLandscapeSm {
+    left: 5%;
+  }
+
+  @include mobileLandscapeLg {
+    left: 7%;
+  }
+
+  @include mobileLandscapeXL {
+    left: 9.5%;
+  }
+
+  @include mobileLandscapeXXLg {
+    left: 9%;
+  }
+}
+
+@media (min-width: 360px) and (max-width: 389px) and (orientation: portrait) {
+  .buttonBox {
+    left: 2%;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 666px) and (orientation: landscape) {
+  .buttonBox {
+    left: 4%;
   }
 }
 
@@ -56,7 +106,7 @@
   font-family: $robotoBold;
   background-color: $lightGrey;
   color: $blue;
-  border-radius: 0.7rem;
+  border-radius: 6px;
   border: none;
   padding: 0.5rem 0.8rem;
 
@@ -71,7 +121,6 @@
     margin-right: 0.8rem;
     width: 25%;
     padding: 0.5rem 0;
-    border-radius: 0.7rem;
   }
 
   &:nth-of-type(4),
@@ -81,10 +130,24 @@
 
   &:nth-of-type(5) {
     margin-left: 0.5rem;
+
+    @include mobileLandscapeLg {
+      margin-left: 1rem;
+    }
   }
 
   &:nth-of-type(6) {
-    width: 51%;
+    width: 45%;
+
+    @include mobileLandscapeXSm {
+      width: 45%;
+      max-width: 5.4rem;
+      padding: 0.5rem 0;
+    }
+
+    @include mobileLandscapeSm {
+      width: 35%;
+    }
   }
 }
 
@@ -114,8 +177,12 @@
   }
 
   @include mobileLandscapeXSm {
-    width: 30%;
+    width: 70%;
     margin-top: 14%;
+  }
+
+  @include mobileLandscapeXXLg {
+    width: 60%;
   }
 }
 

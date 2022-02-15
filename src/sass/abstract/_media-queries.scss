@@ -34,6 +34,18 @@
   }
 }
 
+@mixin tabletLg {
+  @media (min-width: 820px) and (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin tabletXLg {
+  @media (min-width: 1024px) and (orientation: portrait) {
+    @content;
+  }
+}
+
 @mixin laptop {
   @media (min-width: 900px) {
     @content;
@@ -102,8 +114,14 @@
   }
 }
 
-@mixin mobileLandscapeXLg {
-  @media (min-width: 736px) and (max-width: 926px) and (orientation: landscape) {
+@mixin mobileLandscapeXL {
+  @media (min-width: 812px) and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin mobileLandscapeXXLg {
+  @media (min-width: 896px) and (max-width: 926px) and (orientation: landscape) {
     @content;
   }
 }

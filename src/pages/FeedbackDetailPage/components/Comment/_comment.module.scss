@@ -23,6 +23,10 @@
   @include mobileLg {
     width: 2.3rem;
   }
+
+  @include tabletMd {
+    width: 2.6rem;
+  }
 }
 
 .userImg {
@@ -33,6 +37,10 @@
 
 .userNameBox {
   margin-left: 0.4rem;
+
+  @include tabletMd {
+    margin-left: 0.7rem;
+  }
 }
 
 .userName {
@@ -56,6 +64,10 @@
     position: relative;
     top: 3px;
     font-size: 0.8rem;
+  }
+
+  @include tabletMd {
+    top: 5px;
   }
 }
 
@@ -86,11 +98,6 @@
 .replyForm {
   margin-bottom: 2rem;
   outline-color: $blue;
-
-  @include tabletMd {
-    display: flex;
-    align-items: center;
-  }
 }
 
 .textArea {
@@ -103,10 +110,6 @@
   outline-color: $blue;
   font-size: 1rem;
   padding: 0.5rem;
-
-  @include tabletMd {
-    width: 50%;
-  }
 }
 
 .submitButton {
@@ -192,5 +195,9 @@
 
   @include mobileLg {
     padding-left: 1.3rem;
+  }
+
+  @include tabletMd {
+    padding-left: 2.3rem;
   }
 }

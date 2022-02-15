@@ -9,6 +9,10 @@ textarea {
 
 .inputBox {
   width: 100%;
+
+  @include tabletMd {
+    margin-top: 2rem;
+  }
 }
 
 .textArea {
@@ -42,6 +46,10 @@ textarea {
   font-size: 0.8rem;
   position: relative;
   top: 3px;
+
+  @include tabletMd {
+    font-size: 0.9rem;
+  }
 }
 
 .errorText,
