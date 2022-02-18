@@ -15,7 +15,8 @@ picture {
   top: 0;
 
   @include mobileLandscapeXSm {
-    height: 1.5rem;
+    height: 3.5rem;
+    max-height: 3.5rem;
     position: static;
   }
 
@@ -24,7 +25,7 @@ picture {
     max-height: 5rem;
   }
 
-  @include mobileLandscapeXLg {
+  @include mobileLandscapeXXLg {
     display: block;
     height: 4.5rem;
     max-height: 4.5rem;
@@ -56,7 +57,7 @@ picture {
     top: 0.8rem;
   }
 
-  @include mobileLandscapeXLg {
+  @include mobileLandscapeXXLg {
     margin-left: 5%;
     position: relative;
     top: -3.8rem;

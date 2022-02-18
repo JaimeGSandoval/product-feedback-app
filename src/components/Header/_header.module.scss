@@ -16,6 +16,10 @@
   @include tabletMd {
     display: grid;
   }
+
+  @include tabletXLg {
+    gap: 3rem;
+  }
 }
 
 .imgBox {
@@ -24,6 +28,13 @@
 
 .imgBox img {
   border-radius: 10px;
+
+  @include tabletXLg {
+    width: 264px;
+    height: 264px;
+    max-width: 290px;
+    max-height: 179px;
+  }
 }
 
 .textBox {
@@ -50,13 +61,17 @@
 
 .buttonsContainer {
   background-color: $white;
-  // width: 70%;
-  // margin: auto;
-  // margin-top: 35%;
   padding: 1.4rem;
   border-radius: 15px;
   display: flex;
   flex-wrap: wrap;
+}
+
+.buttonsBox {
+  @include tabletLg {
+    position: relative;
+    left: 6%;
+  }
 }
 
 .buttons {
@@ -86,6 +101,11 @@
 
   &:nth-of-type(6) {
     width: 51%;
+
+    @include tabletMd {
+      width: 45%;
+      max-width: 5.1rem;
+    }
   }
 }
 
@@ -96,9 +116,6 @@
 
 .roadMapContainer {
   background-color: $white;
-  // width: 70%;
-  // margin: auto;
-  // margin-top: 10%;
   padding: 1.6rem 1.5rem;
   border-radius: 15px;
 
@@ -153,7 +170,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // padding-bottom: 1rem;
   line-height: 1.8rem;
 }
 
@@ -181,8 +197,4 @@
   font-family: $robotoBold;
   color: $darkNavy;
   font-size: 1.1rem;
-}
-
-.roadMapContainer div:nth-of-type(3) {
-  // padding: 1.3rem 0;
 }

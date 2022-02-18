@@ -56,18 +56,20 @@ export const Header = () => {
 
       <nav className={styles.nav}>
         <div className={styles.buttonsContainer}>
-          {BUTTON_TITLES.map((title, index) => {
-            return (
-              <NavButton
-                title={title}
-                index={index}
-                handleClick={handleClick}
-                key={title}
-                activeButton={active}
-                styles={styles}
-              />
-            );
-          })}
+          <div className={styles.buttonsBox}>
+            {BUTTON_TITLES.map((title, index) => {
+              return (
+                <NavButton
+                  title={title}
+                  index={index}
+                  handleClick={handleClick}
+                  key={title}
+                  activeButton={active}
+                  styles={styles}
+                />
+              );
+            })}
+          </div>
         </div>
       </nav>
 

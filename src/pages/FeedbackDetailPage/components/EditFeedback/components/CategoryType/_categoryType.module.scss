@@ -66,6 +66,10 @@
   width: 15rem;
   top: 0.9rem;
   border-radius: 20px;
+
+  @include tabletMd {
+    top: 2rem;
+  }
 }
 
 .option {

@@ -5,6 +5,11 @@
   width: 88%;
   margin: auto;
   margin-top: 1.5rem;
+  padding-bottom: 1.5rem;
+
+  @include tabletMd {
+    padding-bottom: 3.5rem;
+  }
 }
 
 .commentsContainer {
@@ -77,6 +82,10 @@
   @include mobileLg {
     font-size: 1rem;
   }
+
+  @include tabletMd {
+    padding: 0.9rem 1.2rem;
+  }
 }
 
 .form {
@@ -122,6 +131,10 @@
   display: block;
   margin: auto;
   font-family: $roboto;
+
+  @include tabletMd {
+    padding: 0.8rem;
+  }
 }
 
 .buttonBox {
@@ -133,6 +146,10 @@
   font-family: $roboto;
   color: $lightNavy;
   font-size: 0.8rem;
+
+  @include tabletMd {
+    font-size: 0.9rem;
+  }
 }
 
 .submitBtn {
@@ -146,6 +163,10 @@
 
   @include mobileLg {
     font-size: 0.9rem;
+  }
+
+  @include tabletMd {
+    font-size: 1rem;
   }
 }
 
