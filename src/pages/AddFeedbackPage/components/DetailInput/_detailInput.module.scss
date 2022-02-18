@@ -10,6 +10,10 @@ textarea {
 .inputBox {
   width: 100%;
   margin: 3.5rem 0;
+
+  @include tabletMd {
+    margin-top: 1.3rem;
+  }
 }
 
 .textArea {

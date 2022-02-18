@@ -53,18 +53,20 @@ export const MobileModal = ({ isModalOpen, handleSetModal }) => {
       <div className={styles.modal}>
         <nav className={styles.nav}>
           <div className={styles.buttonsContainer}>
-            {BUTTON_TITLES.map((title, index) => {
-              return (
-                <NavButton
-                  title={title}
-                  index={index}
-                  handleClick={handleClick}
-                  key={title}
-                  activeButton={active}
-                  styles={styles}
-                />
-              );
-            })}
+            <div className={styles.buttonBox}>
+              {BUTTON_TITLES.map((title, index) => {
+                return (
+                  <NavButton
+                    title={title}
+                    index={index}
+                    handleClick={handleClick}
+                    key={title}
+                    activeButton={active}
+                    styles={styles}
+                  />
+                );
+              })}
+            </div>
           </div>
 
           <div className={styles.roadMapContainer}>

@@ -10,6 +10,8 @@ export const DescriptionInput = ({
 }) => {
   const [descriptionCharsLeft, setDescriptionCharsLeft] = useState(75);
 
+  const isNotMobile = window.matchMedia('(min-width: 768px)');
+
   useEffect(() => {
     if (descriptionCharsLeft <= 0) {
       return setDescriptionCharsLeft(0);
@@ -43,7 +45,7 @@ export const DescriptionInput = ({
         onChange={onChange}
         value={formData.description}
         name="description"
-        rows="8"
+        rows={isNotMobile.matches ? '5' : '8'}
       />
       <span
         className={`${styles.characterCountText} ${

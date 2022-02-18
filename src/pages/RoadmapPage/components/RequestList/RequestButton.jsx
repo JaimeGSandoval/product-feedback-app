@@ -1,4 +1,4 @@
-export const RequestButton = ({ styles, buttonData }) => {
+export const RequestButton = ({ styles, buttonData, isNotMobile }) => {
   const { stateVal, callbackOrder, borderStyle, status, numOfRequests } =
     buttonData;
 
@@ -9,18 +9,33 @@ export const RequestButton = ({ styles, buttonData }) => {
   };
 
   return (
-    <button
-      className={`${styles.roadmapBtn} ${stateVal && borderStyle}`}
-      onClick={() =>
-        handleListTypeClick(
-          callbackOrder[0],
-          callbackOrder[1],
-          callbackOrder[2]
-        )
-      }
-      tabIndex="0"
-    >
-      {status} ({numOfRequests})
-    </button>
+    <>
+      {!isNotMobile.matches && (
+        <button
+          className={`${styles.roadmapBtn} ${stateVal && borderStyle}`}
+          onClick={() =>
+            handleListTypeClick(
+              callbackOrder[0],
+              callbackOrder[1],
+              callbackOrder[2]
+            )
+          }
+          tabIndex="0"
+        >
+          {status} ({numOfRequests})
+        </button>
+      )}
+
+      {isNotMobile.matches && (
+        <>
+          <div className={styles.roadmapCategoryTitle} tabIndex="0">
+            {status} ({numOfRequests})
+            <span className={styles.categoryDescription}>
+              {buttonData.description}
+            </span>
+          </div>
+        </>
+      )}
+    </>
   );
 };

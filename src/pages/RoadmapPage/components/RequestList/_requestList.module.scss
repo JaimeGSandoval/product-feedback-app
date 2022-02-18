@@ -5,6 +5,10 @@
   width: 90%;
   margin: 2rem auto 0 auto;
   padding-bottom: 2rem;
+
+  @include tabletMd {
+    margin-top: 0;
+  }
 }
 
 .roadmapBtnsContainer {
@@ -15,6 +19,10 @@
   width: 90%;
   margin: auto;
   display: flex;
+
+  @include tabletMd {
+    padding-top: 1rem;
+  }
 }
 
 .roadmapBtn {
@@ -48,6 +56,12 @@
   color: $darkNavy;
 }
 
+.header {
+  @include tabletMd {
+    display: none;
+  }
+}
+
 .headerTitle {
   margin-bottom: 0.8rem;
   font-family: $robotoBold;
@@ -64,4 +78,47 @@
 .listContainer {
   width: 100%;
   margin-top: 1.5rem;
+
+  @include tabletMd {
+    margin-top: -0.4rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    gap: 0.6rem;
+    // grid-auto-rows: 1fr;
+  }
+
+  @include laptop {
+    margin-top: -0.4rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    gap: 0.6rem;
+  }
+}
+
+.roadmapCategoryTitle {
+  color: $darkNavy;
+  text-align: left;
+  font-size: 1.1rem;
+  border: 1px solid teal;
+  width: 100%;
+  padding: 1.4rem 0;
+  border: 0;
+  background-color: $offWhite;
+  font-family: $robotoBold;
+  border-bottom: 3px solid transparent;
+}
+
+.categoryDescription {
+  display: block;
+  font-family: $roboto;
+  color: $lightNavy;
+  padding-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.roadmapBtnsContainer div:nth-of-type(2),
+.roadmapBtnsContainer div:nth-of-type(3) {
+  padding-left: 1.4rem;
 }

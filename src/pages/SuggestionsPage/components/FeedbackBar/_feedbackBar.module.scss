@@ -33,20 +33,17 @@
   }
 
   @include mobileLandscapeXSm {
-    margin-top: 2.5rem;
+    margin-top: 0.7rem;
     position: static;
   }
 
   @include mobileLandscapeSm {
     margin-top: 3rem;
     margin-top: 0.7rem;
+    margin-top: .5rem;
   }
 
-  @include mobileLandscapeLg {
-    margin-top: 3.5rem;
-  }
-
-  @include mobileLandscapeXLg {
+  @include mobileLandscapeXXLg {
     margin-top: 0;
     width: 100vw;
     max-width: 100%;

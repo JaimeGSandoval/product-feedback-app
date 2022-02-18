@@ -5,6 +5,10 @@
   width: 88%;
   margin: auto;
   margin-top: 1.5rem;
+
+  @include tabletMd {
+    padding-bottom: 4rem;
+  }
 }
 
 .goBackBtn {
@@ -35,6 +39,12 @@
   width: 100%;
   margin-top: 3.1rem;
   border-radius: 5px;
+
+  @include tabletMd {
+    width: 70%;
+    margin: 3.1rem auto 0;
+    padding: 0 1rem;
+  }
 }
 
 .innerContainer {
@@ -64,10 +74,18 @@
   @include mobileLg {
     font-size: 1.5rem;
   }
+
+  @include tabletMd {
+    padding-bottom: 2rem;
+  }
 }
 
 .form div:nth-of-type(2) {
   margin: 2rem 0;
+
+  @include tabletMd {
+    margin: 1rem 0 0;
+  }
 }
 
 .form div:nth-of-type(2) span,
@@ -90,6 +108,12 @@
   display: flex;
   flex-direction: column;
   margin-top: 2rem;
+
+  @include tabletMd {
+    flex-direction: row-reverse;
+    align-items: center;
+    margin-top: 3rem;
+  }
 }
 
 .submitButton,
@@ -106,19 +130,36 @@
 .submitButton {
   background-color: $purple;
   margin-bottom: 1rem;
+
+  @include tabletMd {
+    margin-bottom: 0;
+  }
 }
 
 .cancelButton {
   background-color: $darkNavy;
   margin-bottom: 1rem;
+
+  @include tabletMd {
+    margin-bottom: 0;
+    margin-right: 0.8rem;
+  }
 }
 
 .deleteButton {
   background-color: $red;
+
+  @include tabletMd {
+    margin-right: auto;
+  }
 }
 
-main {
-  padding-bottom: 1.5rem;
+.submitButton,
+.cancelButton,
+.deleteButton {
+  @include tabletMd {
+    padding: 1rem 1.3rem;
+  }
 }
 
 .hide {
