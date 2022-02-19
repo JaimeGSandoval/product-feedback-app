@@ -17,6 +17,14 @@ export const Suggestion = ({ request, sortType }) => {
   const removeHoverColor = () =>
     titleRef.current.classList.remove(styles.hoverTextColor);
 
+  const addLikesHoverBgColor = (e) => {
+    e.target.classList.add(styles.hover);
+  };
+
+  const removeLikesHoverBgColor = (e) => {
+    e.target.classList.remove(styles.hover);
+  };
+
   return (
     <>
       <div
@@ -49,6 +57,8 @@ export const Suggestion = ({ request, sortType }) => {
                   });
                 }}
                 tabIndex="0"
+                onMouseEnter={addLikesHoverBgColor}
+                onMouseLeave={removeLikesHoverBgColor}
               >
                 <img
                   className={styles.likeArrow}
