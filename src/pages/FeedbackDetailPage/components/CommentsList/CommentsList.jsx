@@ -42,7 +42,9 @@ export const CommentsList = ({ requestID }) => {
 
   return (
     <>
-      <div className={styles.container}>
+      <div
+        className={`${styles.container} ${isEditing && styles.editContainer}`}
+      >
         {isEditing && (
           <EditFeedback
             productRequest={productRequest}

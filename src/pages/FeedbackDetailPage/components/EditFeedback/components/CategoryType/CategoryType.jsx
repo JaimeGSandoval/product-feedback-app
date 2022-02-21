@@ -12,11 +12,11 @@ export const CategoryType = ({
 }) => {
   const CATEGORY_OPTIONS = ['bug', 'UI', 'UX', 'enhancement', 'feature'];
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
-  // const [activeOptionText, setActiveOptionText] = useState(CATEGORY_OPTIONS[0]);
   const [checkMark, setCheckMark] = useState(0);
 
   const arrow = isDropDownOpen ? arrowUp : arrowDown;
   const containerRef = useRef(null);
+  const dropdownRef = useRef();
 
   const handleDropDown = () => setIsDropDownOpen(!isDropDownOpen);
 
@@ -76,14 +76,22 @@ export const CategoryType = ({
         ref={containerRef}
       >
         <div
-          className={styles.activeCategoryContainer}
+          className={`${styles.activeCategoryContainer} ${
+            isDropDownOpen && styles.blueBorder
+          }`}
           onClick={handleDropDown}
+          ref={dropdownRef}
         >
           <span className={styles.activeCategoryText}>{categoryOption}</span>
           <img className={styles.arrow} src={arrow} alt="" />
         </div>
 
-        {isDropDownOpen && <Dropdown formControls={formControls} />}
+        {isDropDownOpen && (
+          <Dropdown
+            formControls={formControls}
+            dropdownOptionWidth={dropdownRef.current.offsetWidth}
+          />
+        )}
       </div>
     </div>
   );

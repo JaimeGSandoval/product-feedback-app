@@ -1,7 +1,7 @@
 import checkMarkSvg from '../../../../../../assets/icons/check.svg';
 import styles from './_updateStatus.module.scss';
 
-export const Dropdown = ({ formControls }) => {
+export const Dropdown = ({ formControls, dropdownOptionWidth }) => {
   const {
     isDropDownOpen,
     setIsDropDownOpen,
@@ -19,6 +19,7 @@ export const Dropdown = ({ formControls }) => {
         return (
           <div
             className={styles.option}
+            style={{ width: dropdownOptionWidth - 13 }}
             onClick={() => {
               setStatusOption(option);
               setCheckMark(index);

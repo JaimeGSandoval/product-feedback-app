@@ -20,10 +20,6 @@
     width: 60%;
   }
 
-  @include desktopMd {
-    width: 60%;
-  }
-
   @include desktopLg {
     width: 54%;
   }
@@ -107,11 +103,6 @@
 
   @include tabletMd {
     padding-bottom: 0;
-  }
-
-  @include laptop {
-    // padding: 0 3rem 3rem;
-    // width: initial;
   }
 }
 
