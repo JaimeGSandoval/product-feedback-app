@@ -6,11 +6,21 @@
   padding: 0.5rem;
   background-color: $lightGrey;
   border: none;
+  border: 1px solid transparent;
   outline-color: $blue;
   font-size: 1rem;
   color: $darkNavy;
   font-family: $roboto;
   border-radius: 5px;
+  cursor: pointer;
+
+  @include laptop {
+    padding: 0.8rem;
+  }
+
+  &:focus {
+    border: 1px solid $blue;
+  }
 }
 
 .inputBox {

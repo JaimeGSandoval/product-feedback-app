@@ -32,6 +32,9 @@
   background-color: $lightGrey;
   border-radius: 10px;
   margin-top: 1.8rem;
+  outline-color: $blue;
+  border: 1px solid transparent;
+  cursor: pointer;
 
   span {
     margin-left: 1rem;
@@ -39,12 +42,23 @@
 
   img {
     margin-right: 1rem;
+
+    @include laptop {
+      width: 0.8rem;
+    }
   }
-  outline-color: $blue;
 
   &:focus {
     box-shadow: 0 0 0.3rem 0.1rem transparent;
   }
+
+  @include laptop {
+    padding: 0.8rem 0;
+  }
+}
+
+.blueBorder {
+  border: 1px solid $blue;
 }
 
 .activeOptionText {
@@ -53,6 +67,7 @@
   text-transform: capitalize;
   font-size: 1rem;
   color: $darkNavy;
+
   @include mobileSm {
     top: 0;
   }
@@ -71,7 +86,7 @@
   cursor: pointer;
   position: absolute;
   box-shadow: 3px 3px 13px #bdbdbd;
-  width: 15rem;
+  // width: 15rem;
   top: 3rem;
   border-radius: 20px;
 }
