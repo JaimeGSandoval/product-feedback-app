@@ -20,6 +20,34 @@
   @include tabletXLg {
     gap: 3rem;
   }
+
+  @include laptop {
+    display: block;
+    position: static;
+    width: initial;
+    // border: 1px solid teal;
+    flex: 0;
+    padding: 0;
+    gap: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    width: 22.5%;
+    max-width: 223px;
+  }
+
+  @include desktop {
+    max-width: 264px;
+  }
+
+  @include desktopMd {
+    left: 8%;
+    left: 8vw;
+  }
+
+  @include desktopLg {
+    left: 9vw;
+  }
 }
 
 .imgBox {
@@ -34,6 +62,11 @@
     height: 264px;
     max-width: 290px;
     max-height: 179px;
+  }
+
+  @include desktop {
+    width: 100%;
+    max-height: 178px;
   }
 }
 
@@ -53,10 +86,19 @@
   font-family: $robotoBold;
   padding-bottom: 0.5rem;
   font-size: 1.3rem;
+
+  @include desktopXL {
+    font-size: 1.5rem;
+    padding-bottom: 0.7rem;
+  }
 }
 
 .feedbackText {
   font-family: $roboto;
+
+  @include desktopXL {
+    font-size: 1.2rem;
+  }
 }
 
 .buttonsContainer {
@@ -72,6 +114,11 @@
     position: relative;
     left: 6%;
   }
+
+  @include laptop {
+    position: relative;
+    left: 4%;
+  }
 }
 
 .buttons {
@@ -81,6 +128,10 @@
   border-radius: 0.5rem;
   border: none;
   padding: 0.5rem 0.8rem;
+
+  &:hover {
+    cursor: pointer;
+  }
 
   &:nth-of-type(1),
   &:nth-of-type(2),
@@ -106,6 +157,16 @@
       width: 45%;
       max-width: 5.1rem;
     }
+
+    @include laptop {
+      width: 37%;
+      padding: 0.5rem 0;
+      max-width: 77px;
+    }
+  }
+
+  @include desktopXL {
+    font-size: 1rem;
   }
 }
 
@@ -135,6 +196,11 @@
     width: 30%;
     margin-top: 14%;
   }
+
+  @include laptop {
+    width: initial;
+    margin-top: 0;
+  }
 }
 
 .titleContainer {
@@ -149,6 +215,10 @@
   color: $darkNavy;
   font-size: 1.3rem;
   font-family: $robotoBold;
+
+  @include desktopXL {
+    font-size: 1.5rem;
+  }
 }
 
 .viewLink {
@@ -160,9 +230,18 @@
   position: relative;
   top: 2px;
 
+  &:hover {
+    opacity: 0.7;
+  }
+
   @include mobileLg {
     font-size: 1rem;
     top: 1px;
+  }
+
+  @include desktopXL {
+    font-size: 1.1rem;
+    top: 2px;
   }
 }
 
@@ -191,10 +270,22 @@
   font-family: $roboto;
   color: $lightNavy;
   font-size: 1.1rem;
+
+  @include desktopXL {
+    font-size: 1.2rem;
+  }
 }
 
 .taskAmount {
   font-family: $robotoBold;
   color: $darkNavy;
   font-size: 1.1rem;
+
+  @include desktopXL {
+    font-size: 1.2rem;
+  }
+}
+
+.hover {
+  background-color: #b1b2b1;
 }

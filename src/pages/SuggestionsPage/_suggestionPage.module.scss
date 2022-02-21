@@ -1,1 +1,23 @@
 @import '../../sass/abstract/media-queries';
+
+.container {
+  @include laptop {
+    display: flex;
+    margin: auto;
+    gap: 1.4rem;
+    margin-left: 31vw;
+    width: 62%;
+  }
+
+  @include desktopMd {
+    margin-left: 30vw;
+  }
+
+  @include desktopLg {
+    margin-left: 29vw;
+  }
+
+  @include desktopXL {
+    margin-left: 27vw;
+  }
+}

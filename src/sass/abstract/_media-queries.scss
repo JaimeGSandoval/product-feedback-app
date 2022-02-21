@@ -47,7 +47,7 @@
 }
 
 @mixin laptop {
-  @media (min-width: 900px) {
+  @media (min-width: 992px) and (orientation: landscape) {
     @content;
   }
 }
@@ -71,12 +71,18 @@
 }
 
 @mixin desktopLg {
-  @media (min-width: 1440px) {
+  @media (min-width: 1560px) {
     @content;
   }
 }
 
 @mixin desktopXL {
+  @media (min-width: 1820px) {
+    @content;
+  }
+}
+
+@mixin desktopXXL {
   @media (min-width: 1920px) {
     @content;
   }

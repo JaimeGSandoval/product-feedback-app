@@ -22,7 +22,7 @@ export const FeedbackBar = ({ requestsLength }) => {
   const containerRef = useRef(null);
 
   const handleDropdown = (e) => {
-    if (e.target.classList.contains(styles.sortText)) return;
+    // if (e.target.classList.contains(styles.sortText)) return;
     const closest = e.target.closest('.sortTabContainer');
     if (closest || e.target === window) {
       setIsDropDownOpen(!isDropDownOpen);
@@ -87,7 +87,7 @@ export const FeedbackBar = ({ requestsLength }) => {
             onClick={handleDropdown}
             ref={containerRef}
           >
-            <div className={'sortTabContainer'}>
+            <div className="sortTabContainer">
               <span className={styles.sortText}>sort by : </span>
               <span
                 className={styles.sortTitle}
