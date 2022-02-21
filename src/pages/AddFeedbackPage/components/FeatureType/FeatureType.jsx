@@ -15,8 +15,6 @@ export const FeatureType = ({ setFormData }) => {
   const containerRef = useRef(null);
   const dropdownRef = useRef();
 
-  // const dropdownOptionWidth = dropdownRef.current.offsetWidth;
-
   const handleDropDown = () => setIsDropDownOpen(!isDropDownOpen);
 
   const handleKeyPress = (e) => {
