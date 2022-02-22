@@ -25,6 +25,12 @@ textarea {
   border-radius: 5px;
   font-size: 1rem;
   font-family: $roboto;
+  border: 1px solid transparent;
+  cursor: pointer;
+
+  &:focus {
+    border-color: $blue;
+  }
 }
 
 .visibilityHidden {
@@ -64,4 +70,8 @@ textarea {
 .errorText {
   position: relative;
   bottom: 3px;
+}
+
+.blueBorder {
+  border: 1px solid $blue;
 }

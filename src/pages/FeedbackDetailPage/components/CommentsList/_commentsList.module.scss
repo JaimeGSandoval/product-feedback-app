@@ -10,6 +10,12 @@
   @include tabletMd {
     padding-bottom: 3.5rem;
   }
+
+  @include desktop {
+    width: 76%;
+    max-width: 61rem;
+    padding-bottom: 4.5rem;
+  }
 }
 
 .commentsContainer {
@@ -27,6 +33,10 @@
 .commentsTotal {
   font-family: $robotoBold;
   color: $darkNavy;
+
+  @include desktopXL {
+    font-size: 1.2rem;
+  }
 }
 
 .goBackBtn {
@@ -38,9 +48,13 @@
   text-transform: capitalize;
   font-family: $robotoBold;
   font-size: 1rem;
-  // font-size: 1.2rem;
   color: $grey;
   background-color: $lightGrey;
+  cursor: pointer;
+
+  @include desktopXXL {
+    font-size: 1.2rem;
+  }
 }
 
 .goBackText {
@@ -56,6 +70,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  margin: auto;
 }
 
 .editButton {
@@ -69,6 +85,11 @@
   position: relative;
   font-family: $roboto;
   top: 2px;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.6;
+  }
 
   @include mobileXSm {
     padding: 0.8rem;
@@ -86,24 +107,39 @@
   @include tabletMd {
     padding: 0.9rem 1.2rem;
   }
+
+  @include desktopXXL {
+    font-size: 1.1rem;
+    padding: 0.9rem 1.3rem;
+  }
 }
 
 .form {
   background-color: $white;
   display: block;
   margin-top: 2rem;
-  // padding: 1rem 0 1rem 0;
   border-radius: 10px;
 }
 
-.labelBox,
-.buttonBox {
+// .buttonBox {
+//   // width: 88%;
+//   width: 100%;
+//   margin: auto;
+// }
+
+.formButtonBox {
   width: 88%;
   margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
 }
 
 .labelBox {
+  width: 88%;
   padding: 2rem 0;
+  margin: auto;
 }
 
 .formLabel {
@@ -131,6 +167,12 @@
   display: block;
   margin: auto;
   font-family: $roboto;
+  cursor: pointer;
+  border: 1px solid transparent;
+
+  &:focus {
+    border-color: $blue;
+  }
 
   @include tabletMd {
     padding: 0.8rem;
@@ -150,6 +192,10 @@
   @include tabletMd {
     font-size: 0.9rem;
   }
+
+  @include desktopLg {
+    font-size: 0.9rem;
+  }
 }
 
 .submitBtn {
@@ -160,12 +206,21 @@
   padding: 0.9rem 0.7rem;
   border: none;
   border-radius: 10px;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.7;
+  }
 
   @include mobileLg {
     font-size: 0.9rem;
   }
 
   @include tabletMd {
+    font-size: 1rem;
+  }
+
+  @include laptop {
     font-size: 1rem;
   }
 }
@@ -190,4 +245,8 @@
 
 .errorOutline {
   outline: 1px solid $red;
+}
+
+.editContainer {
+  width: 60%;
 }

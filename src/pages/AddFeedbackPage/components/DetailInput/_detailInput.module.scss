@@ -21,10 +21,16 @@ textarea {
   background-color: $lightGrey;
   padding: 0.5rem;
   border: none;
+  border: 1px solid transparent;
   resize: none;
   outline-color: $blue;
   border-radius: 5px;
   font-size: 1rem;
+  cursor: pointer;
+
+  &:focus {
+    border: 1px solid $blue;
+  }
 }
 
 .visibilityHidden {

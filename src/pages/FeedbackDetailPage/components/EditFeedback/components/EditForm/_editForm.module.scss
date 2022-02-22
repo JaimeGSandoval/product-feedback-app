@@ -8,6 +8,16 @@
 
   @include tabletMd {
     padding-bottom: 4rem;
+    width: 70%;
+  }
+
+  @include laptop {
+    padding-bottom: 4rem;
+    width: 60%;
+  }
+
+  @include desktopLg {
+    width: 54%;
   }
 }
 
@@ -20,9 +30,12 @@
   text-transform: capitalize;
   font-family: $robotoBold;
   font-size: 1rem;
-  // font-size: 1.2rem;
   color: $grey;
   background-color: $lightGrey;
+
+  @include laptop {
+    padding: 1.5rem 0;
+  }
 }
 
 .goBackText {
@@ -39,17 +52,28 @@
   width: 100%;
   margin-top: 3.1rem;
   border-radius: 5px;
+  max-width: 700px;
 
   @include tabletMd {
     width: 70%;
     margin: 3.1rem auto 0;
     padding: 0 1rem;
   }
+
+  @include laptop {
+    width: 78%;
+    margin: 3rem auto 0 auto;
+  }
 }
 
 .innerContainer {
   width: 88%;
   margin: auto;
+
+  @include laptop {
+    padding-bottom: 2rem;
+    width: 74%;
+  }
 }
 
 .penIcon {
@@ -77,6 +101,11 @@
 
   @include tabletMd {
     padding-bottom: 2rem;
+  }
+
+  @include laptop {
+    margin-top: 1.5rem;
+    line-height: 2rem;
   }
 }
 
@@ -114,6 +143,12 @@
     align-items: center;
     margin-top: 3rem;
   }
+
+  @include laptop {
+    flex-direction: row-reverse;
+    align-items: center;
+    margin-top: 3rem;
+  }
 }
 
 .submitButton,
@@ -125,6 +160,24 @@
   padding: 0.7rem 0;
   border: none;
   border-radius: 10px;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  @include tabletMd {
+    padding: 1rem 1.3rem;
+  }
+
+  @include laptop {
+    padding: 1rem;
+    font-size: 0.8rem;
+  }
+
+  @include desktop {
+    font-size: 1rem;
+  }
 }
 
 .submitButton {
@@ -132,6 +185,10 @@
   margin-bottom: 1rem;
 
   @include tabletMd {
+    margin-bottom: 0;
+  }
+
+  @include laptop {
     margin-bottom: 0;
   }
 }
@@ -144,6 +201,11 @@
     margin-bottom: 0;
     margin-right: 0.8rem;
   }
+
+  @include laptop {
+    margin-bottom: 0;
+    margin-right: 0.8rem;
+  }
 }
 
 .deleteButton {
@@ -152,13 +214,9 @@
   @include tabletMd {
     margin-right: auto;
   }
-}
 
-.submitButton,
-.cancelButton,
-.deleteButton {
-  @include tabletMd {
-    padding: 1rem 1.3rem;
+  @include laptop {
+    margin-right: auto;
   }
 }
 
