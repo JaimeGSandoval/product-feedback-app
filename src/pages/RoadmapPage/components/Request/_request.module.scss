@@ -5,6 +5,7 @@
   background-color: $white;
   border-radius: 10px;
   margin-top: 2rem;
+  cursor: pointer;
 }
 
 .innerContainer {
@@ -76,7 +77,6 @@
 
   @include tabletXLg {
     font-size: 0.9rem;
-
   }
 }
 
@@ -185,7 +185,10 @@
   color: $white;
 }
 
-// align-items: stretch;
-// grid-auto-rows: 1fr;
-// grid-template-rows: 373px;
-// height: 100%;
+.hoverTextColor {
+  color: $blue;
+}
+
+.hover {
+  background-color: #b1b2b1;
+}
