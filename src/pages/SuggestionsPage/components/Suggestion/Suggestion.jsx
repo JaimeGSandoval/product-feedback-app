@@ -8,22 +8,14 @@ import styles from './_suggestion.module.scss';
 
 export const Suggestion = ({ request, sortType }) => {
   const dispatch = useContext(DispatchContext);
-
   const titleRef = useRef();
-
+  const addLikesHoverBgColor = (e) => e.target.classList.add(styles.hover);
+  const removeLikesHoverBgColor = (e) =>
+    e.target.classList.remove(styles.hover);
   const addHoverColor = () =>
     titleRef.current.classList.add(styles.hoverTextColor);
-
   const removeHoverColor = () =>
     titleRef.current.classList.remove(styles.hoverTextColor);
-
-  const addLikesHoverBgColor = (e) => {
-    e.target.classList.add(styles.hover);
-  };
-
-  const removeLikesHoverBgColor = (e) => {
-    e.target.classList.remove(styles.hover);
-  };
 
   return (
     <>
@@ -56,9 +48,9 @@ export const Suggestion = ({ request, sortType }) => {
                     requestID: request.requestID,
                   });
                 }}
-                tabIndex="0"
                 onMouseEnter={addLikesHoverBgColor}
                 onMouseLeave={removeLikesHoverBgColor}
+                tabIndex="0"
               >
                 <img
                   className={styles.likeArrow}

@@ -12,11 +12,10 @@ import styles from './_commentsList.module.scss';
 export const CommentsList = ({ requestID }) => {
   const [isEditing, setIsEditing] = useState(false);
   const requestsContext = useContext(RequestsContext);
-  const navigate = useNavigate();
-  const goBack = () => navigate(-1);
-
   const idContext = useContext(IDContext);
   const { setCurrentRequestID } = idContext;
+  const navigate = useNavigate();
+  const goBack = () => navigate(-1);
 
   useEffect(() => {
     setCurrentRequestID(requestID);

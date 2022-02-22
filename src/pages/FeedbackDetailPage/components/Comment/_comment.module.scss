@@ -27,6 +27,10 @@
   @include tabletMd {
     width: 2.6rem;
   }
+
+  @include desktopLg {
+    width: 2.8rem;
+  }
 }
 
 .userImg {
@@ -53,6 +57,10 @@
   @include mobileLg {
     font-size: 1rem;
   }
+
+  @include desktopXL {
+    font-size: 1.1rem;
+  }
 }
 
 .userHandle {
@@ -69,12 +77,23 @@
   @include tabletMd {
     top: 5px;
   }
+
+  @include desktopLg {
+    font-size: 0.9rem;
+    top: 5px;
+  }
 }
 
 .replyLink {
   color: $blue;
   font-family: $robotoBold;
   font-size: 0.9rem;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+
+  &:hover {
+    border-bottom-color: $blue;
+  }
 
   @include mobileLg {
     font-size: 1rem;
@@ -87,12 +106,24 @@
   color: $lightNavy;
   line-height: 1.7rem;
   padding-bottom: 2rem;
-  // font-size: 0.9rem;
   word-wrap: break-word;
   -ms-hyphens: auto;
   -moz-hyphens: auto;
   -webkit-hyphens: auto;
   hyphens: auto;
+  font-size: 0.9rem;
+
+  @include tabletMd {
+    font-size: 1rem;
+  }
+
+  @include laptop {
+    font-size: 1rem;
+  }
+
+  @include desktopXL {
+    font-size: 1.1rem;
+  }
 }
 
 .replyForm {
@@ -110,6 +141,12 @@
   outline-color: $blue;
   font-size: 1rem;
   padding: 0.5rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+
+  &:focus {
+    border-color: $blue;
+  }
 }
 
 .submitButton {
@@ -122,6 +159,11 @@
   border: none;
   padding: 0.6rem 0.9rem;
   border-radius: 10px;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.7;
+  }
 
   @include mobileLg {
     font-size: 0.9rem;
@@ -199,5 +241,9 @@
 
   @include tabletMd {
     padding-left: 2.3rem;
+  }
+
+  @include laptop {
+    padding-left: 3.3rem;
   }
 }

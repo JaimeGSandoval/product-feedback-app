@@ -21,6 +21,14 @@
   color: $darkNavy;
   font-size: 1.1rem;
   line-height: 1.5rem;
+
+  @include laptopLg {
+    font-size: 1.2rem;
+  }
+
+  @include desktopXL {
+    font-size: 1.4rem;
+  }
 }
 
 .description {
@@ -33,6 +41,10 @@
   -moz-hyphens: auto;
   -webkit-hyphens: auto;
   hyphens: auto;
+
+  @include desktopXL {
+    font-size: 1.1rem;
+  }
 }
 
 .category {
@@ -44,6 +56,10 @@
   margin-top: 1.5rem;
   display: inline-block;
   text-transform: capitalize;
+
+  @include desktopXL {
+    font-size: 1.2rem;
+  }
 }
 
 .likesBox {
@@ -56,19 +72,20 @@
 .likesTotal {
   display: flex;
   align-items: center;
-}
-
-.likeArrow {
-  position: relative;
-  right: 7px;
-}
-
-.likesTotal {
   background-color: $lightGrey;
   font-family: $robotoBold;
   color: $darkNavy;
   padding: 0.7rem 1.3rem;
   border-radius: 0.5rem;
+
+  @include desktopXL {
+    font-size: 1.2rem;
+  }
+}
+
+.likeArrow {
+  position: relative;
+  right: 7px;
 }
 
 .commentBox {
@@ -77,18 +94,30 @@
   align-items: center;
   justify-content: space-between;
   padding-top: 0.3rem;
+
+  @include desktopXL {
+    width: 3rem;
+  }
 }
 
 .commentBubble {
   width: 1.5rem;
   display: inline-block;
   background-color: $lightGrey;
+
+  @include desktopXL {
+    width: 1.7rem;
+  }
 }
 
 .commentsTotal {
   display: inline-block;
   font-family: $robotoBold;
   color: $darkNavy;
+
+  @include desktopXL {
+    font-size: 1.2rem;
+  }
 }
 
 .active {
@@ -99,4 +128,12 @@
 .customPositionRight {
   right: 0.4rem;
   position: relative;
+}
+
+.hoverTextColor {
+  color: $blue;
+}
+
+.hover {
+  background-color: #b1b2b1;
 }
