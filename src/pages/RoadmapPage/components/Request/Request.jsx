@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { DispatchContext } from '../../../../context/requests.context';
 import comment from '../../../../assets/icons/comments.svg';
@@ -9,8 +9,19 @@ import styles from './_request.module.scss';
 export const Request = ({ request, stateData, category }) => {
   const dispatch = useContext(DispatchContext);
   const { planned, inProgress, live } = stateData;
+  const titleRef = useRef();
 
-  console.log(category);
+  const addHoverColor = () =>
+    titleRef.current.classList.add(styles.hoverTextColor);
+  const removeHoverColor = () =>
+    titleRef.current.classList.remove(styles.hoverTextColor);
+
+  const addLikesHoverBgColor = (e) => {
+    if (e.target.classList.contains(styles.activeUpvote)) return;
+    e.target.classList.add(styles.hover);
+  };
+  const removeLikesHoverBgColor = (e) =>
+    e.target.classList.remove(styles.hover);
 
   const setBorder = () => {
     if (planned || category === 'planned') return styles.peachBorder;
@@ -25,7 +36,11 @@ export const Request = ({ request, stateData, category }) => {
   };
 
   return (
-    <div className={`${styles.container} ${setBorder()}`}>
+    <div
+      className={`${styles.container} ${setBorder()}`}
+      onMouseOver={addHoverColor}
+      onMouseLeave={removeHoverColor}
+    >
       <Link to={`/feedback-detail/${request.requestID}`}>
         <div className={styles.innerContainer}>
           <div className={styles.textBox}>
@@ -37,7 +52,7 @@ export const Request = ({ request, stateData, category }) => {
                 {live || (category === 'live' && 'Live')}
               </span>
             </div>
-            <span className={styles.title} lang="en">
+            <span className={styles.title} ref={titleRef} lang="en">
               {request.title}
             </span>
             <p className={styles.description} lang="en">
@@ -58,6 +73,8 @@ export const Request = ({ request, stateData, category }) => {
                   requestID: request.requestID,
                 });
               }}
+              onMouseEnter={addLikesHoverBgColor}
+              onMouseLeave={removeLikesHoverBgColor}
               tabIndex="0"
             >
               <img

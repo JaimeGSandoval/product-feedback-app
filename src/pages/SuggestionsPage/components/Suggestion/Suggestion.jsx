@@ -8,12 +8,12 @@ import styles from './_suggestion.module.scss';
 
 export const Suggestion = ({ request, sortType }) => {
   const dispatch = useContext(DispatchContext);
-
   const titleRef = useRef();
-
+  const addLikesHoverBgColor = (e) => e.target.classList.add(styles.hover);
+  const removeLikesHoverBgColor = (e) =>
+    e.target.classList.remove(styles.hover);
   const addHoverColor = () =>
     titleRef.current.classList.add(styles.hoverTextColor);
-
   const removeHoverColor = () =>
     titleRef.current.classList.remove(styles.hoverTextColor);
 
@@ -48,6 +48,8 @@ export const Suggestion = ({ request, sortType }) => {
                     requestID: request.requestID,
                   });
                 }}
+                onMouseEnter={addLikesHoverBgColor}
+                onMouseLeave={removeLikesHoverBgColor}
                 tabIndex="0"
               >
                 <img

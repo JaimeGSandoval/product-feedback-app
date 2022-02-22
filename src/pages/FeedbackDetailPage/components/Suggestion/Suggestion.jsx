@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { DispatchContext } from '../../../../context/requests.context';
 import comment from '../../../../assets/icons/comments.svg';
@@ -8,14 +8,31 @@ import styles from './_suggestion.module.scss';
 
 export const Suggestion = ({ request }) => {
   const dispatch = useContext(DispatchContext);
+  const titleRef = useRef();
+  const addHoverColor = () =>
+    titleRef.current.classList.add(styles.hoverTextColor);
+  const removeHoverColor = () =>
+    titleRef.current.classList.remove(styles.hoverTextColor);
+  const addLikesHoverBgColor = (e) => {
+    if (e.target.classList.contains(styles.active)) return;
+    e.target.classList.add(styles.hover);
+  };
+  const removeLikesHoverBgColor = (e) =>
+    e.target.classList.remove(styles.hover);
 
   return (
     <>
-      <div className={styles.container}>
+      <div
+        className={styles.container}
+        onMouseOver={addHoverColor}
+        onMouseLeave={removeHoverColor}
+      >
         <Link to={`/feedback-detail/${request.requestID}`}>
           <div className={styles.innerContainer}>
             <div className={styles.textBox}>
-              <span className={styles.title}>{request.title}</span>
+              <span className={styles.title} ref={titleRef}>
+                {request.title}
+              </span>
               <p className={styles.description} lang="en">
                 {request.description}
               </p>
@@ -34,6 +51,8 @@ export const Suggestion = ({ request }) => {
                     requestID: request.requestID,
                   });
                 }}
+                onMouseEnter={addLikesHoverBgColor}
+                onMouseLeave={removeLikesHoverBgColor}
                 tabIndex="0"
               >
                 <img

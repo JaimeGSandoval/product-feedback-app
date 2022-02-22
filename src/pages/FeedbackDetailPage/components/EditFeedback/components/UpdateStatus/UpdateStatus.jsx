@@ -12,11 +12,11 @@ export const UpdateStatus = ({
 }) => {
   const STATUS_OPTIONS = ['suggestion', 'planned', 'in-progress', 'live'];
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
-  // const [activeOptionText, setActiveOptionText] = useState(SELECT_OPTIONS[0]);
   const [checkMark, setCheckMark] = useState(0);
 
   const arrow = isDropDownOpen ? arrowUp : arrowDown;
   const containerRef = useRef(null);
+  const dropdownRef = useRef();
 
   const handleDropDown = () => setIsDropDownOpen(!isDropDownOpen);
 
@@ -75,12 +75,23 @@ export const UpdateStatus = ({
         onKeyPress={handleKeyPress}
         ref={containerRef}
       >
-        <div className={styles.activeStatusContainer} onClick={handleDropDown}>
+        <div
+          className={`${styles.activeStatusContainer} ${
+            isDropDownOpen && styles.blueBorder
+          }`}
+          onClick={handleDropDown}
+          ref={dropdownRef}
+        >
           <span className={styles.activeStatus}>{statusOption}</span>
           <img className={styles.arrow} src={arrow} alt="" />
         </div>
 
-        {isDropDownOpen && <Dropdown formControls={formControls} />}
+        {isDropDownOpen && (
+          <Dropdown
+            formControls={formControls}
+            dropdownOptionWidth={dropdownRef.current.offsetWidth}
+          />
+        )}
       </div>
     </div>
   );

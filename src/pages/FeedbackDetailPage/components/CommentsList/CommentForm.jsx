@@ -75,7 +75,7 @@ export const CommentForm = ({ styles, requestID }) => {
           placeholder="Type your comment here"
         />
       </div>
-      <div className={styles.buttonBox}>
+      <div className={styles.formButtonBox}>
         <span
           className={`${styles.characterCountText} ${
             commentInput.length >= 250 ? styles.charactersError : null

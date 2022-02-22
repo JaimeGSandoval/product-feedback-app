@@ -11,6 +11,16 @@
   color: $darkNavy;
   font-family: $roboto;
   border-radius: 5px;
+  border: 1px solid transparent;
+  cursor: pointer;
+
+  &:focus {
+    border: 1px solid $blue;
+  }
+
+  @include laptop {
+    padding: 0.8rem;
+  }
 }
 
 .inputBox {

@@ -13,6 +13,7 @@ export const FeatureType = ({ setFormData }) => {
 
   const arrow = isDropDownOpen ? arrowUp : arrowDown;
   const containerRef = useRef(null);
+  const dropdownRef = useRef();
 
   const handleDropDown = () => setIsDropDownOpen(!isDropDownOpen);
 
@@ -71,12 +72,23 @@ export const FeatureType = ({ setFormData }) => {
         onKeyPress={handleKeyPress}
         ref={containerRef}
       >
-        <div className={styles.activeOptionContainer} onClick={handleDropDown}>
+        <div
+          className={`${styles.activeOptionContainer} ${
+            isDropDownOpen && styles.blueBorder
+          }`}
+          onClick={handleDropDown}
+          ref={dropdownRef}
+        >
           <span className={styles.activeOptionText}>{activeOptionText}</span>
           <img className={styles.arrow} src={arrow} alt="" />
         </div>
 
-        {isDropDownOpen && <Dropdown formControls={formControls} />}
+        {isDropDownOpen && (
+          <Dropdown
+            formControls={formControls}
+            dropdownOptionWidth={dropdownRef.current.offsetWidth}
+          />
+        )}
       </div>
     </div>
   );

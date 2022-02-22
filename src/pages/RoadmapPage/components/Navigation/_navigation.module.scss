@@ -13,6 +13,7 @@
   width: 90%;
   margin: auto;
   padding: 0.8rem 0 1.4rem 0;
+  max-width: 75rem;
 }
 
 .goBackBtn {
@@ -23,14 +24,23 @@
   border: none;
   text-transform: capitalize;
   font-family: $robotoBold;
-  // font-size: 1.2rem;
   color: $white;
   background-color: $darkNavy;
+  cursor: pointer;
+
+  @include desktopXXL {
+    font-size: 1.2rem;
+  }
 }
 
 .goBackText {
   position: relative;
   left: 0.7rem;
+  border-bottom: 2px solid transparent;
+
+  &:hover {
+    border-bottom-color: $white;
+  }
 
   @include mobileLg {
     font-size: 1rem;
@@ -56,6 +66,10 @@
     margin-top: 0.5rem;
     font-size: 1.4rem;
   }
+
+  @include laptop {
+    font-size: 1.5rem;
+  }
 }
 
 .feedBackBtn {
@@ -64,10 +78,15 @@
   outline: none;
   border: none;
   padding: 0.8rem 1rem;
-  border-radius: 16px;
+  border-radius: 0.7rem;
   font-size: 0.8rem;
   position: relative;
   top: 5px;
+  font-family: $roboto;
+
+  &:hover {
+    background-color: #bf5ce9;
+  }
 
   @include mobileXSm {
     padding: 0.8rem;

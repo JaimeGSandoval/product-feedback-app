@@ -2,15 +2,36 @@
 @import '../../sass/abstract/media-queries';
 
 .container {
-  width: 90%;
+  height: 40vh;
   margin: auto;
+  width: 90%;
   text-align: center;
   margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  img {
+    width: 30%;
+    margin: auto;
+    display: block;
+    max-width: 7.6rem;
+
+    @include laptop {
+      width: 10%;
+      margin-top: 5rem;
+    }
+  }
 }
 
 .notFoundText {
   padding: 1rem 0 0.5rem 0;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-family: $roboto;
   color: $darkNavy;
+
+  @include mobileLg {
+    font-size: 1.6rem;
+  }
 }
