@@ -9,16 +9,13 @@ import styles from './_suggestion.module.scss';
 export const Suggestion = ({ request }) => {
   const dispatch = useContext(DispatchContext);
   const titleRef = useRef();
+  const addLikesHoverBgColor = (e) => e.target.classList.add(styles.hover);
+  const removeLikesHoverBgColor = (e) =>
+    e.target.classList.remove(styles.hover);
   const addHoverColor = () =>
     titleRef.current.classList.add(styles.hoverTextColor);
   const removeHoverColor = () =>
     titleRef.current.classList.remove(styles.hoverTextColor);
-  const addLikesHoverBgColor = (e) => {
-    if (e.target.classList.contains(styles.active)) return;
-    e.target.classList.add(styles.hover);
-  };
-  const removeLikesHoverBgColor = (e) =>
-    e.target.classList.remove(styles.hover);
 
   return (
     <>

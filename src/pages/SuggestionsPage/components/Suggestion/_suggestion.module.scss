@@ -88,10 +88,6 @@
   }
 }
 
-.hover {
-  background-color: #b1b2b1;
-}
-
 .commentBox {
   display: flex;
   width: 2.6rem;
@@ -140,4 +136,8 @@
 
 .hoverTextColor {
   color: $blue;
+}
+
+.hover {
+  background-color: #b1b2b1;
 }

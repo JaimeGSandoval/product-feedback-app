@@ -9,15 +9,11 @@
     width: 62%;
   }
 
-  @include desktopMd {
-    margin-left: 30vw;
-  }
-
   @include desktopLg {
-    margin-left: 29vw;
+    margin-left: 33vw;
   }
 
   @include desktopXL {
-    margin-left: 27vw;
+    margin-left: 36vw;
   }
 }
