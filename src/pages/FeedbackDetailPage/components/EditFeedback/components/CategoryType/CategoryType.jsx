@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { InputDescription } from '../../../../../../components/InputDescription';
-import { Dropdown } from './Dropdown';
+// import { Dropdown } from './Dropdown';
+import { Dropdown } from '../../../../../../components/Dropdown';
 import arrowUp from '../../../../../../assets/icons/arrow-up.svg';
 import arrowDown from '../../../../../../assets/icons/arrow-down.svg';
 import styles from './_categoryType.module.scss';
@@ -49,16 +50,28 @@ export const CategoryType = ({
     };
   }, [isDropDownOpen, setIsDropDownOpen]);
 
+  // const formControls = {
+  //   isDropDownOpen,
+  //   setIsDropDownOpen,
+  //   setCategoryOption,
+  //   handleKeyPress,
+  //   setFormData,
+  //   CATEGORY_OPTIONS,
+  //   checkMark,
+  //   setCheckMark,
+  // };
+
   const formControls = {
     isDropDownOpen,
     setIsDropDownOpen,
     setCategoryOption,
     handleKeyPress,
     setFormData,
-    CATEGORY_OPTIONS,
     checkMark,
     setCheckMark,
   };
+
+  console.log(formControls);
 
   return (
     <div className={styles.inputBox}>
@@ -90,6 +103,9 @@ export const CategoryType = ({
           <Dropdown
             formControls={formControls}
             dropdownOptionWidth={dropdownRef.current.offsetWidth}
+            styles={styles}
+            options={CATEGORY_OPTIONS}
+            setOption={setCategoryOption}
           />
         )}
       </div>

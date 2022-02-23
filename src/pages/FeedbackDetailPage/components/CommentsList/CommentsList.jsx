@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { RequestsContext } from '../../../../context/requests.context';
 import { IDContext } from '../../context/ID.context';
 import { GoBackBtn } from '../../../../components/GoBackBtn';
-import { Suggestion } from '../Suggestion';
+import { Suggestion } from '../../../../components/Suggestion/Suggestion';
 import { Comment } from '../Comment';
 import { EditFeedback } from '../EditFeedback';
 import { CommentForm } from './CommentForm';
