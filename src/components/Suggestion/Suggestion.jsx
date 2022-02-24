@@ -1,31 +1,31 @@
 import { useContext, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { DispatchContext } from '../../../../context/requests.context';
-import comment from '../../../../assets/icons/comments.svg';
-import arrowUp from '../../../../assets/icons/arrow-up.svg';
-import arrowUpWhite from '../../../../assets/icons/arrow-up-white.svg';
+import { DispatchContext } from '../../context/requests.context';
+import {
+  addLikesHoverBgColor,
+  removeLikesHoverBgColor,
+  addHoverColor,
+  removeHoverColor,
+} from '../../utils/hover';
+import comment from '../../assets/icons/comments.svg';
+import arrowUp from '../../assets/icons/arrow-up.svg';
+import arrowUpWhite from '../../assets/icons/arrow-up-white.svg';
 import styles from './_suggestion.module.scss';
 
 export const Suggestion = ({ request }) => {
   const dispatch = useContext(DispatchContext);
   const titleRef = useRef();
-  const addHoverColor = () =>
-    titleRef.current.classList.add(styles.hoverTextColor);
-  const removeHoverColor = () =>
-    titleRef.current.classList.remove(styles.hoverTextColor);
-  const addLikesHoverBgColor = (e) => {
-    if (e.target.classList.contains(styles.active)) return;
-    e.target.classList.add(styles.hover);
-  };
-  const removeLikesHoverBgColor = (e) =>
-    e.target.classList.remove(styles.hover);
+  const handleLikesMouseEnter = (e) => addLikesHoverBgColor(e, styles);
+  const handleLikeMouseLeave = (e) => removeLikesHoverBgColor(e, styles);
+  const handleSuggestionMouseOver = () => addHoverColor(titleRef, styles);
+  const handleSuggestionMouseLeave = () => removeHoverColor(titleRef, styles);
 
   return (
     <>
       <div
         className={styles.container}
-        onMouseOver={addHoverColor}
-        onMouseLeave={removeHoverColor}
+        onMouseOver={handleSuggestionMouseOver}
+        onMouseLeave={handleSuggestionMouseLeave}
       >
         <Link to={`/feedback-detail/${request.requestID}`}>
           <div className={styles.innerContainer}>
@@ -51,8 +51,8 @@ export const Suggestion = ({ request }) => {
                     requestID: request.requestID,
                   });
                 }}
-                onMouseEnter={addLikesHoverBgColor}
-                onMouseLeave={removeLikesHoverBgColor}
+                onMouseEnter={handleLikesMouseEnter}
+                onMouseLeave={handleLikeMouseLeave}
                 tabIndex="0"
               >
                 <img

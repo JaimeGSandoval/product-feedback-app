@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { InputDescription } from '../../../../../../components/InputDescription';
-import { Dropdown } from './Dropdown';
+import { Dropdown } from '../../../../../../components/Dropdown';
 import arrowUp from '../../../../../../assets/icons/arrow-up.svg';
 import arrowDown from '../../../../../../assets/icons/arrow-down.svg';
 import styles from './_updateStatus.module.scss';
@@ -52,7 +52,6 @@ export const UpdateStatus = ({
   const formControls = {
     isDropDownOpen,
     setIsDropDownOpen,
-    setStatusOption,
     handleKeyPress,
     setFormData,
     STATUS_OPTIONS,
@@ -90,6 +89,9 @@ export const UpdateStatus = ({
           <Dropdown
             formControls={formControls}
             dropdownOptionWidth={dropdownRef.current.offsetWidth}
+            options={STATUS_OPTIONS}
+            setOption={setStatusOption}
+            styles={styles}
           />
         )}
       </div>

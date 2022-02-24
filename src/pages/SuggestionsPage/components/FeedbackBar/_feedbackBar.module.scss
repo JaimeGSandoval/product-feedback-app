@@ -59,6 +59,10 @@
     top: 0;
   }
 
+  @include desktop {
+    max-width: 55rem;
+  }
+
   @include desktopXL {
     padding: 0.5rem 0;
   }
