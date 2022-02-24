@@ -7,22 +7,21 @@ import arrowDown from '../../../../assets/icons/arrow-down-white.svg';
 import styles from './_feedbackBar.module.scss';
 import lightbulb from '../../../../assets/icons/lightbulb.svg';
 
-const SELECT_OPTIONS = [
-  'most upvotes',
-  'least upvotes',
-  'most comments',
-  'least comments',
-];
-
 export const FeedbackBar = ({ requestsLength }) => {
-  const [activeOptionText, setActiveOptionText] = useState(SELECT_OPTIONS[0]);
+  const [activeOptionText, setActiveOptionText] = useState('most upvotes');
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const [checkMark, setCheckMark] = useState(0);
   const arrow = isDropDownOpen ? arrowUp : arrowDown;
   const containerRef = useRef(null);
 
+  const SELECT_OPTIONS = [
+    'most upvotes',
+    'least upvotes',
+    'most comments',
+    'least comments',
+  ];
+
   const handleDropdown = (e) => {
-    // if (e.target.classList.contains(styles.sortText)) return;
     const closest = e.target.closest('.sortTabContainer');
     if (closest || e.target === window) {
       setIsDropDownOpen(!isDropDownOpen);

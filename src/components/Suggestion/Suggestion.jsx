@@ -12,7 +12,7 @@ import arrowUp from '../../assets/icons/arrow-up.svg';
 import arrowUpWhite from '../../assets/icons/arrow-up-white.svg';
 import styles from './_suggestion.module.scss';
 
-export const Suggestion = ({ request }) => {
+export const Suggestion = ({ request, sortType, sort }) => {
   const dispatch = useContext(DispatchContext);
   const titleRef = useRef();
   const handleLikesMouseEnter = (e) => addLikesHoverBgColor(e, styles);
@@ -47,8 +47,9 @@ export const Suggestion = ({ request }) => {
                 onClick={(e) => {
                   e.preventDefault();
                   dispatch({
-                    type: 'upvote',
+                    type: sort === 'upvote-sort' ? 'upvote-sort' : 'upvote',
                     requestID: request.requestID,
+                    sortType: sortType,
                   });
                 }}
                 onMouseEnter={handleLikesMouseEnter}

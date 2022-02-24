@@ -16,6 +16,7 @@ export const CommentsList = ({ requestID }) => {
   const { setCurrentRequestID } = idContext;
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
+  const sort = 'upvote';
 
   useEffect(() => {
     setCurrentRequestID(requestID);
@@ -66,7 +67,7 @@ export const CommentsList = ({ requestID }) => {
             <main>
               <section className={styles.outerContainer}>
                 <div className={styles.innerContainer}>
-                  <Suggestion request={productRequest} />
+                  <Suggestion request={productRequest} sort={sort} />
                 </div>
                 <section className={styles.commentsContainer}>
                   <div className={styles.commentsInnerContainer}>
