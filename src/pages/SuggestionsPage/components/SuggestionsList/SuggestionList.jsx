@@ -13,6 +13,7 @@ export const SuggestionList = () => {
   const sortContext = useContext(SortContext);
   const { category } = categoryData;
   const { sortType } = sortContext;
+  const sort = 'upvote-sort';
 
   const [requestsState, setRequestsState] = useState(
     retrievedRequests.filter((req) => req.status === 'suggestion')
@@ -83,7 +84,12 @@ export const SuggestionList = () => {
           {!requestsState.length && <EmptySuggestion />}
           {requestsState.length > 0 &&
             requestsState.map((request) => (
-              <Suggestion request={request} key={request.title} />
+              <Suggestion
+                request={request}
+                key={request.title}
+                sort={sort}
+                sortType={sortType}
+              />
             ))}
         </main>
       </div>
