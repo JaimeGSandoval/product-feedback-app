@@ -1,10 +1,10 @@
-@import '../../../../sass/abstract/vars';
-@import '../../../../sass/abstract/media-queries';
+@import '../../sass/abstract/vars';
+@import '../../sass/abstract/media-queries';
 
 .container {
   background-color: $white;
   border-radius: 10px;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .innerContainer {
@@ -21,6 +21,10 @@
   color: $darkNavy;
   font-size: 1.1rem;
   line-height: 1.5rem;
+
+  @include laptopLg {
+    font-size: 1.2rem;
+  }
 
   @include desktopXL {
     font-size: 1.4rem;
@@ -39,7 +43,7 @@
   hyphens: auto;
 
   @include desktopXL {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 }
 
@@ -82,14 +86,6 @@
 .likeArrow {
   position: relative;
   right: 7px;
-
-  @include desktopXL {
-    width: 0.7rem;
-  }
-}
-
-.hover {
-  background-color: #b1b2b1;
 }
 
 .commentBox {
@@ -107,6 +103,7 @@
 .commentBubble {
   width: 1.5rem;
   display: inline-block;
+  background-color: $lightGrey;
 
   @include desktopXL {
     width: 1.7rem;
@@ -128,11 +125,6 @@
   color: $white;
 }
 
-.upvote {
-  background-color: $blue;
-  color: $white;
-}
-
 .customPositionRight {
   right: 0.4rem;
   position: relative;
@@ -140,4 +132,8 @@
 
 .hoverTextColor {
   color: $blue;
+}
+
+.hover {
+  background-color: #b1b2b1;
 }

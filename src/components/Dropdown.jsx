@@ -1,27 +1,30 @@
-import checkMarkSvg from '../../../../assets/icons/check.svg';
-import styles from './_featureType.module.scss';
+import checkMarkSvg from '../assets/icons/check.svg';
 
-export const Dropdown = ({ formControls, dropdownOptionWidth }) => {
+export const Dropdown = ({
+  formControls,
+  dropdownOptionWidth,
+  styles,
+  options,
+  setOption,
+}) => {
   const {
     isDropDownOpen,
     setIsDropDownOpen,
-    setActiveOptionText,
     handleKeyPress,
     setFormData,
-    SELECT_OPTIONS,
     checkMark,
     setCheckMark,
   } = formControls;
 
   return (
     <div className={styles.selectOptions}>
-      {SELECT_OPTIONS.map((option, index) => {
+      {options.map((option, index) => {
         return (
           <div
             className={styles.option}
             style={{ width: dropdownOptionWidth - 13 }}
             onClick={() => {
-              setActiveOptionText(option);
+              setOption(option);
               setCheckMark(index);
               setIsDropDownOpen(!isDropDownOpen);
               setFormData((prevData) => ({

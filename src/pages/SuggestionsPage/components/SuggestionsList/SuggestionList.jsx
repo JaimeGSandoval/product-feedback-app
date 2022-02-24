@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from 'react';
 import { RequestsContext } from '../../../../context/requests.context';
 import { CategoryContext } from '../../../../components/context/category.context';
 import { SortContext } from '../sort.context';
-import { Suggestion } from '../Suggestion/Suggestion';
+import { Suggestion } from '../../../../components/Suggestion/Suggestion';
 import { EmptySuggestion } from '../EmptySuggestion';
 import { FeedbackBar } from '../FeedbackBar';
 import styles from './_suggestionList.module.scss';
@@ -83,11 +83,7 @@ export const SuggestionList = () => {
           {!requestsState.length && <EmptySuggestion />}
           {requestsState.length > 0 &&
             requestsState.map((request) => (
-              <Suggestion
-                request={request}
-                key={request.title}
-                sortType={sortType}
-              />
+              <Suggestion request={request} key={request.title} />
             ))}
         </main>
       </div>

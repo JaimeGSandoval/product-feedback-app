@@ -11,6 +11,10 @@
     padding-bottom: 3.5rem;
   }
 
+  @include laptop {
+    width: 60%;
+  }
+
   @include desktop {
     width: 76%;
     max-width: 61rem;
@@ -245,8 +249,4 @@
 
 .errorOutline {
   outline: 1px solid $red;
-}
-
-.editContainer {
-  width: 60%;
 }

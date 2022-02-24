@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { InputDescription } from '../../../../components/InputDescription';
-import { Dropdown } from './Dropdown';
+import { Dropdown } from '../../../../components/Dropdown';
 import arrowUp from '../../../../assets/icons/arrow-up.svg';
 import arrowDown from '../../../../assets/icons/arrow-down.svg';
 import styles from './_featureType.module.scss';
@@ -49,7 +49,6 @@ export const FeatureType = ({ setFormData }) => {
   const formControls = {
     isDropDownOpen,
     setIsDropDownOpen,
-    setActiveOptionText,
     handleKeyPress,
     setFormData,
     SELECT_OPTIONS,
@@ -87,6 +86,9 @@ export const FeatureType = ({ setFormData }) => {
           <Dropdown
             formControls={formControls}
             dropdownOptionWidth={dropdownRef.current.offsetWidth}
+            options={SELECT_OPTIONS}
+            setOption={setActiveOptionText}
+            styles={styles}
           />
         )}
       </div>

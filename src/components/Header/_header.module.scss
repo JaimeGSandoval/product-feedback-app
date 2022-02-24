@@ -12,6 +12,7 @@
   background-color: $lightGrey;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 1rem;
+  max-width: 60rem;
 
   @include tabletMd {
     display: grid;
@@ -25,7 +26,6 @@
     display: block;
     position: static;
     width: initial;
-    // border: 1px solid teal;
     flex: 0;
     padding: 0;
     gap: 1.4rem;
@@ -41,12 +41,15 @@
   }
 
   @include desktopMd {
-    left: 8%;
     left: 8vw;
   }
 
   @include desktopLg {
-    left: 9vw;
+    left: 14vw;
+  }
+
+  @include desktopXL {
+    left: 20vw;
   }
 }
 
