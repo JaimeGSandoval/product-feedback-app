@@ -15,14 +15,25 @@ export const SelectOption = ({ sortingData, option, index }) => {
     handleKeyPress,
   } = sortingData;
 
+  const setSessionStorage = (optionVal, indexVal) => {
+    window.sessionStorage.setItem('sortType', optionVal);
+    window.sessionStorage.setItem('activeOptionText', optionVal);
+    window.sessionStorage.setItem('checkmark', indexVal);
+  };
+
+  const setSortingData = (optionVal, indexVal, dropdownVal) => {
+    setSortType(optionVal);
+    setActiveOptionText(optionVal);
+    setCheckMark(indexVal);
+    setIsDropDownOpen(!dropdownVal);
+  };
+
   return (
     <div
       className={styles.option}
       onClick={() => {
-        setSortType(option);
-        setActiveOptionText(option);
-        setCheckMark(index);
-        setIsDropDownOpen(!isDropDownOpen);
+        setSortingData(option, index, isDropDownOpen);
+        setSessionStorage(option, index);
         window.scrollTo(0, 0);
       }}
       onKeyPress={(e) => {
