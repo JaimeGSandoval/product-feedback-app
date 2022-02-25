@@ -26,6 +26,12 @@ export const Suggestion = ({ request, sortType, sort }) => {
         className={styles.container}
         onMouseOver={handleSuggestionMouseOver}
         onMouseLeave={handleSuggestionMouseLeave}
+        onClick={() =>
+          sessionStorage.setItem(
+            'scrollPosition',
+            JSON.stringify(window.scrollY)
+          )
+        }
       >
         <Link to={`/feedback-detail/${request.requestID}`}>
           <div className={styles.innerContainer}>

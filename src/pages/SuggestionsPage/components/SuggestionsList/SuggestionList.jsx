@@ -15,9 +15,15 @@ export const SuggestionList = () => {
   const { sortType } = sortContext;
   const sort = 'upvote-sort';
 
+  const scrollPosition = JSON.parse(sessionStorage.getItem('scrollPosition'));
+
   const [requestsState, setRequestsState] = useState(
     retrievedRequests.filter((req) => req.status === 'suggestion')
   );
+
+  useEffect(() => {
+    window.scrollTo(0, parseInt(scrollPosition));
+  });
 
   useEffect(() => {
     if (category === 'all') {

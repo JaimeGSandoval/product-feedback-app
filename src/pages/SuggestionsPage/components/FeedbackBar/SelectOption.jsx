@@ -19,6 +19,7 @@ export const SelectOption = ({ sortingData, option, index }) => {
     window.sessionStorage.setItem('sortType', optionVal);
     window.sessionStorage.setItem('activeOptionText', optionVal);
     window.sessionStorage.setItem('checkmark', indexVal);
+    window.sessionStorage.setItem('scrollPosition', 0);
   };
 
   const setSortingData = (optionVal, indexVal, dropdownVal) => {
@@ -34,7 +35,6 @@ export const SelectOption = ({ sortingData, option, index }) => {
       onClick={() => {
         setSortingData(option, index, isDropDownOpen);
         setSessionStorage(option, index);
-        window.scrollTo(0, 0);
       }}
       onKeyPress={(e) => {
         setCheckMark(index);

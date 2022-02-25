@@ -4,12 +4,10 @@ import { RequestsProvider } from './context/requests.context';
 import { UserContextProvider } from './context/user.context';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-import { ScrollToTop } from './utils/ScrollToTop';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ScrollToTop />
       <UserContextProvider>
         <RequestsProvider>
           <App />

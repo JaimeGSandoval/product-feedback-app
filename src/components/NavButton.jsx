@@ -33,6 +33,7 @@ export const NavButton = ({
         activeButton === index && styles.activeButton
       }`}
       onClick={() => {
+        window.sessionStorage.setItem('scrollPosition', 0);
         setCategory(
           title === 'UI' || title === 'UX' ? title : title.toLowerCase()
         );

@@ -6,6 +6,7 @@ import styles from './_requestList.module.scss';
 
 export const RequestList = () => {
   const isNotMobile = window.matchMedia('(min-width: 768px)');
+  window.scrollTo(0, 0);
 
   const [inProgress, setInProgress] = useState(
     !isNotMobile.matches ? true : false

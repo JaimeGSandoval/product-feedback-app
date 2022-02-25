@@ -4,6 +4,7 @@ import { CommentsList } from './components/CommentsList';
 
 export const FeedbackDetailPage = () => {
   const { requestID } = useParams();
+  window.scrollTo(0, 0);
 
   return (
     <>
