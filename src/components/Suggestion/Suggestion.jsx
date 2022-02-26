@@ -19,6 +19,7 @@ export const Suggestion = ({ request, sortType, sort }) => {
   const handleLikeMouseLeave = (e) => removeLikesHoverBgColor(e, styles);
   const handleSuggestionMouseOver = () => addHoverColor(titleRef, styles);
   const handleSuggestionMouseLeave = () => removeHoverColor(titleRef, styles);
+  const storageSortVal = sessionStorage.getItem('sortType');
 
   return (
     <>
@@ -55,7 +56,7 @@ export const Suggestion = ({ request, sortType, sort }) => {
                   dispatch({
                     type: sort === 'upvote-sort' ? 'upvote-sort' : 'upvote',
                     requestID: request.requestID,
-                    sortType: sortType,
+                    sortType: storageSortVal || 'most upvotes',
                   });
                 }}
                 onMouseEnter={handleLikesMouseEnter}

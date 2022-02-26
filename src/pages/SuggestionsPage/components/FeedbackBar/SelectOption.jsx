@@ -16,10 +16,9 @@ export const SelectOption = ({ sortingData, option, index }) => {
   } = sortingData;
 
   const setSessionStorage = (optionVal, indexVal) => {
-    window.sessionStorage.setItem('sortType', optionVal);
-    window.sessionStorage.setItem('activeOptionText', optionVal);
-    window.sessionStorage.setItem('checkmark', indexVal);
-    window.sessionStorage.setItem('scrollPosition', 0);
+   sessionStorage.setItem('sortType', optionVal);
+   sessionStorage.setItem('checkmark', indexVal);
+   sessionStorage.setItem('scrollPosition', 0);
   };
 
   const setSortingData = (optionVal, indexVal, dropdownVal) => {

@@ -30,6 +30,7 @@ const ACTIONS = {
   UPVOTE_SORT: 'upvote-sort',
   ADD_COMMENT: 'add-comment',
   ADD_REPLY: 'add-reply',
+  SORT: 'sort',
 };
 
 export const requestReducer = (state, action) => {
@@ -52,6 +53,37 @@ export const requestReducer = (state, action) => {
 
     case ACTIONS.DELETE:
       return state.filter((request) => request.requestID !== action.requestID);
+
+    case ACTIONS.SORT:
+      if (action.sortType === 'most upvotes') {
+        return [...state].sort((a, b) =>
+          a.upvotes === b.upvotes ? 0 : b.upvotes - a.upvotes
+        );
+      }
+
+      if (action.sortType === 'least upvotes') {
+        return [...state].sort((a, b) =>
+          a.upvotes === b.upvotes ? 0 : a.upvotes - b.upvotes
+        );
+      }
+
+      if (action.sortType === 'most comments') {
+        return [...state].sort((a, b) =>
+          a.comments.length === b.comments.length
+            ? 0
+            : b.comments.length - a.comments.length
+        );
+      }
+
+      if (action.sortType === 'least comments') {
+        return [...state].sort((a, b) =>
+          a.comments.length === b.comments.length
+            ? 0
+            : a.comments.length - b.comments.length
+        );
+      }
+
+      return [...state];
 
     case ACTIONS.UPVOTE_SORT:
       if (action.sortType === 'most upvotes') {

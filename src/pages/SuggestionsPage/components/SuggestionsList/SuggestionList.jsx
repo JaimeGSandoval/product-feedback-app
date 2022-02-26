@@ -14,9 +14,7 @@ export const SuggestionList = () => {
   const { category } = categoryData;
   const { sortType } = sortContext;
   const sort = 'upvote-sort';
-
   const scrollPosition = JSON.parse(sessionStorage.getItem('scrollPosition'));
-
   const [requestsState, setRequestsState] = useState(
     retrievedRequests.filter((req) => req.status === 'suggestion')
   );
