@@ -7,7 +7,8 @@ import RoadMapData from '../RoadMap';
 import styles from './_mobileModal.module.scss';
 
 export const MobileModal = ({ isModalOpen, handleSetModal }) => {
-  const [active, setActive] = useState(0);
+  const storageIndexVal = JSON.parse(sessionStorage.getItem('activeIndex'));
+  const [active, setActive] = useState(storageIndexVal || 0);
   const requests = useContext(RequestsContext);
 
   if (!isModalOpen) return null;
@@ -61,7 +62,7 @@ export const MobileModal = ({ isModalOpen, handleSetModal }) => {
                     index={index}
                     handleClick={handleClick}
                     key={title}
-                    activeButton={active}
+                    active={active}
                     styles={styles}
                   />
                 );

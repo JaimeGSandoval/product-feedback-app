@@ -3,13 +3,7 @@ import { CategoryContext } from './context/category.context';
 import { SortContext } from '../pages/SuggestionsPage/components/sort.context';
 import { DispatchContext } from '../context/requests.context';
 
-export const NavButton = ({
-  handleClick,
-  activeButton,
-  index,
-  title,
-  styles,
-}) => {
+export const NavButton = ({ handleClick, active, index, title, styles }) => {
   const tabRef = useRef();
   const categoryData = useContext(CategoryContext);
   const sortData = useContext(SortContext);
@@ -35,13 +29,12 @@ export const NavButton = ({
   const setSessionStorage = (scrollPosition, categoryVal) => {
     sessionStorage.setItem('scrollPosition', scrollPosition);
     sessionStorage.setItem('category', categoryVal);
+    sessionStorage.setItem('activeIndex', index);
   };
 
   return (
     <button
-      className={`${styles.buttons} ${
-        activeButton === index && styles.activeButton
-      }`}
+      className={`${styles.buttons} ${active === index && styles.activeButton}`}
       onClick={() => {
         const categoryType =
           title === 'UI' || title === 'UX' ? title : title.toLowerCase();
