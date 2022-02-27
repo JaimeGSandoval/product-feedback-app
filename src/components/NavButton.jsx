@@ -1,16 +1,15 @@
 import { useEffect, useRef, useContext } from 'react';
 import { CategoryContext } from './context/category.context';
+import { SortContext } from '../pages/SuggestionsPage/components/sort.context';
+import { DispatchContext } from '../context/requests.context';
 
-export const NavButton = ({
-  handleClick,
-  activeButton,
-  index,
-  title,
-  styles,
-}) => {
+export const NavButton = ({ handleClick, active, index, title, styles }) => {
   const tabRef = useRef();
   const categoryData = useContext(CategoryContext);
+  const sortData = useContext(SortContext);
   const { setCategory } = categoryData;
+  const { sortType } = sortData;
+  const dispatch = useContext(DispatchContext);
 
   useEffect(() => {
     if (index === 0) {
@@ -27,16 +26,25 @@ export const NavButton = ({
     e.target.classList.remove(styles.hover);
   };
 
+  const setSessionStorage = (scrollPosition, categoryVal) => {
+    sessionStorage.setItem('scrollPosition', scrollPosition);
+    sessionStorage.setItem('category', categoryVal);
+    sessionStorage.setItem('activeIndex', index);
+  };
+
   return (
     <button
-      className={`${styles.buttons} ${
-        activeButton === index && styles.activeButton
-      }`}
+      className={`${styles.buttons} ${active === index && styles.activeButton}`}
       onClick={() => {
-        setCategory(
-          title === 'UI' || title === 'UX' ? title : title.toLowerCase()
-        );
+        const categoryType =
+          title === 'UI' || title === 'UX' ? title : title.toLowerCase();
+        setSessionStorage(0, categoryType);
+        setCategory(categoryType);
         handleClick(index);
+        dispatch({
+          type: 'sort',
+          sortType: sortType,
+        });
       }}
       onMouseEnter={addBtnHoverBgColor}
       onMouseLeave={removeBtnHoverBgColor}
