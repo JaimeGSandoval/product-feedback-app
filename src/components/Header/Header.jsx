@@ -11,6 +11,7 @@ export const Header = () => {
   const storageIndexVal = JSON.parse(sessionStorage.getItem('activeIndex'));
   const [active, setActive] = useState(storageIndexVal || 0);
   const requests = useContext(RequestsContext);
+  const BUTTON_TITLES = ['All', 'UI', 'UX', 'Enhancement', 'Bug', 'Feature'];
 
   const roadmapRequests = requests.filter(
     (request) => request.status !== 'suggestion'
@@ -31,8 +32,6 @@ export const Header = () => {
     { status: 'in-progress', tasks: tasksTotals['in-progress'] },
     { status: 'live', tasks: tasksTotals['live'] },
   ];
-
-  const BUTTON_TITLES = ['All', 'UI', 'UX', 'Enhancement', 'Bug', 'Feature'];
 
   const handleClick = (index) => {
     setActive(index);

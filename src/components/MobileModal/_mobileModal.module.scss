@@ -32,7 +32,6 @@
 .nav {
   @include mobileLandscapeXSm {
     width: 100%;
-    display: flex;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     margin-top: 3.3rem;
@@ -50,7 +49,6 @@
   flex-wrap: wrap;
 
   @include mobileLandscapeXSm {
-    width: 63%;
     width: 70%;
     margin-top: 14%;
   }

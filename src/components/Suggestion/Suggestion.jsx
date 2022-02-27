@@ -15,11 +15,24 @@ import styles from './_suggestion.module.scss';
 export const Suggestion = ({ request, sortType, sort }) => {
   const dispatch = useContext(DispatchContext);
   const titleRef = useRef();
+  const storageSortVal = sessionStorage.getItem('sortType');
   const handleLikesMouseEnter = (e) => addLikesHoverBgColor(e, styles);
   const handleLikeMouseLeave = (e) => removeLikesHoverBgColor(e, styles);
   const handleSuggestionMouseOver = () => addHoverColor(titleRef, styles);
   const handleSuggestionMouseLeave = () => removeHoverColor(titleRef, styles);
-  const storageSortVal = sessionStorage.getItem('sortType');
+
+  const handleSessionStorage = () => {
+    sessionStorage.setItem('scrollPosition', JSON.stringify(window.scrollY));
+  };
+
+  const handleDispatch = (e) => {
+    e.preventDefault();
+    dispatch({
+      type: sort === 'upvote-sort' ? 'upvote-sort' : 'upvote',
+      requestID: request.requestID,
+      sortType: storageSortVal || 'most upvotes',
+    });
+  };
 
   return (
     <>
@@ -27,12 +40,7 @@ export const Suggestion = ({ request, sortType, sort }) => {
         className={styles.container}
         onMouseOver={handleSuggestionMouseOver}
         onMouseLeave={handleSuggestionMouseLeave}
-        onClick={() =>
-          sessionStorage.setItem(
-            'scrollPosition',
-            JSON.stringify(window.scrollY)
-          )
-        }
+        onClick={handleSessionStorage}
       >
         <Link to={`/feedback-detail/${request.requestID}`}>
           <div className={styles.innerContainer}>
@@ -51,14 +59,7 @@ export const Suggestion = ({ request, sortType, sort }) => {
                 className={`${styles.likesTotal} ${
                   request.upvoted && styles.active
                 }`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  dispatch({
-                    type: sort === 'upvote-sort' ? 'upvote-sort' : 'upvote',
-                    requestID: request.requestID,
-                    sortType: storageSortVal || 'most upvotes',
-                  });
-                }}
+                onClick={handleDispatch}
                 onMouseEnter={handleLikesMouseEnter}
                 onMouseLeave={handleLikeMouseLeave}
                 tabIndex="0"
