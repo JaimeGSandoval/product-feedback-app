@@ -8,7 +8,8 @@ import tabletBgPng from '../../assets/images/tablet/bg_header_md.png';
 import styles from './_header.module.scss';
 
 export const Header = () => {
-  const [active, setActive] = useState(0);
+  const storageIndexVal = JSON.parse(sessionStorage.getItem('activeIndex'));
+  const [active, setActive] = useState(storageIndexVal || 0);
   const requests = useContext(RequestsContext);
 
   const roadmapRequests = requests.filter(
@@ -64,7 +65,7 @@ export const Header = () => {
                   index={index}
                   handleClick={handleClick}
                   key={title}
-                  activeButton={active}
+                  active={active}
                   styles={styles}
                 />
               );

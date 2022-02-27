@@ -8,12 +8,17 @@ import styles from './_feedbackBar.module.scss';
 import lightbulb from '../../../../assets/icons/lightbulb.svg';
 
 export const FeedbackBar = ({ requestsLength }) => {
-  const [activeOptionText, setActiveOptionText] = useState('most upvotes');
+  const sortTypeSessionStorage = window.sessionStorage.getItem('sortType');
+  const checkmarkSessionStorage = window.sessionStorage.getItem('checkmark');
+  const [activeOptionText, setActiveOptionText] = useState(
+    sortTypeSessionStorage || 'most upvotes'
+  );
+  const [checkMark, setCheckMark] = useState(
+    JSON.parse(checkmarkSessionStorage) || 0
+  );
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
-  const [checkMark, setCheckMark] = useState(0);
   const arrow = isDropDownOpen ? arrowUp : arrowDown;
   const containerRef = useRef(null);
-
   const SELECT_OPTIONS = [
     'most upvotes',
     'least upvotes',

@@ -19,6 +19,7 @@ export const Suggestion = ({ request, sortType, sort }) => {
   const handleLikeMouseLeave = (e) => removeLikesHoverBgColor(e, styles);
   const handleSuggestionMouseOver = () => addHoverColor(titleRef, styles);
   const handleSuggestionMouseLeave = () => removeHoverColor(titleRef, styles);
+  const storageSortVal = sessionStorage.getItem('sortType');
 
   return (
     <>
@@ -26,6 +27,12 @@ export const Suggestion = ({ request, sortType, sort }) => {
         className={styles.container}
         onMouseOver={handleSuggestionMouseOver}
         onMouseLeave={handleSuggestionMouseLeave}
+        onClick={() =>
+          sessionStorage.setItem(
+            'scrollPosition',
+            JSON.stringify(window.scrollY)
+          )
+        }
       >
         <Link to={`/feedback-detail/${request.requestID}`}>
           <div className={styles.innerContainer}>
@@ -49,7 +56,7 @@ export const Suggestion = ({ request, sortType, sort }) => {
                   dispatch({
                     type: sort === 'upvote-sort' ? 'upvote-sort' : 'upvote',
                     requestID: request.requestID,
-                    sortType: sortType,
+                    sortType: storageSortVal || 'most upvotes',
                   });
                 }}
                 onMouseEnter={handleLikesMouseEnter}
