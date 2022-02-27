@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { DispatchContext } from '../../../../context/requests.context';
 import { FeatureType } from '../FeatureType';
@@ -13,12 +13,16 @@ export const FeedbackForm = () => {
   const [detailError, setDetailError] = useState(false);
   const [formData, setFormData] = useState({
     title: '',
-    category: '',
+    category: 'bug',
     detail: '',
   });
   const dispatch = useContext(DispatchContext);
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
 
   const onInputChange = (e) => {
     setFormData((prevData) => ({

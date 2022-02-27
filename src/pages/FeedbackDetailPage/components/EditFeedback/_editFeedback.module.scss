@@ -18,6 +18,11 @@
 .goBackText {
   position: relative;
   left: 0.7rem;
+  border-bottom: 2px solid transparent;
+
+  &:hover {
+    border-bottom-color: $grey;
+  }
 }
 
 .arrowLeft {

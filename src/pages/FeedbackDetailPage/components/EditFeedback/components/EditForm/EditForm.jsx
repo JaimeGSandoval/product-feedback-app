@@ -57,7 +57,6 @@ export const EditForm = ({ productRequest, isEditing, setIsEditing }) => {
     }
 
     if (formData.description.length >= 75 || formData.title.length >= 35) {
-      console.log('error');
       return;
     }
 

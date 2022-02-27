@@ -41,14 +41,19 @@
   @include laptop {
     padding: 1.5rem 0;
   }
+
+  @include desktopXXL {
+    font-size: 1.2rem;
+  }
 }
 
 .goBackText {
   position: relative;
   left: 0.7rem;
+  border-bottom: 2px solid transparent;
 
-  @include laptop {
-    font-size: 1.2rem;
+  &:hover {
+    border-bottom-color: $grey;
   }
 }
 
