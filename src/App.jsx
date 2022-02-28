@@ -7,13 +7,6 @@ import { NotFoundPage } from './pages/NotFoundPage';
 import { keyboardDetectInit } from './utils/keyboardUserDetect';
 import './index.scss';
 
-// var docWidth = document.documentElement.offsetWidth;
-// [].forEach.call(document.querySelectorAll('*'), function (el) {
-//   if (el.offsetWidth > docWidth) {
-//     console.log(el);
-//   }
-// });
-
 function App() {
   return (
     <div className="App">
