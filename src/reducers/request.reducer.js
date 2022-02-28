@@ -1,26 +1,4 @@
-const upvoteControls = (stateVal, actionVal) => {
-  const updatedState = stateVal.map((request) => {
-    if (request.requestID === actionVal.requestID && !request.upvoted) {
-      return {
-        ...request,
-        upvoted: !request.upvoted,
-        upvotes: request.upvotes + 1,
-      };
-    }
-
-    if (request.requestID === actionVal.requestID && request.upvoted) {
-      return {
-        ...request,
-        upvoted: !request.upvoted,
-        upvotes: request.upvotes - 1,
-      };
-    }
-
-    return request;
-  });
-
-  return updatedState;
-};
+import { upvoteControls } from '../utils/upvoteControls';
 
 const ACTIONS = {
   ADD: 'add',
@@ -131,7 +109,6 @@ export const requestReducer = (state, action) => {
 
     case ACTIONS.ADD_REPLY:
       return state.map((request) => {
-        // find suggestion request to add the comment or reply to its comments array
         if (request.requestID === action.reply.requestID) {
           request.comments = [...request.comments, action.reply];
         }

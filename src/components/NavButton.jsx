@@ -10,6 +10,8 @@ export const NavButton = ({ handleClick, active, index, title, styles }) => {
   const { setCategory } = categoryData;
   const { sortType } = sortData;
   const dispatch = useContext(DispatchContext);
+  const categoryType =
+    title === 'UI' || title === 'UX' ? title : title.toLowerCase();
 
   useEffect(() => {
     if (index === 0) {
@@ -36,8 +38,6 @@ export const NavButton = ({ handleClick, active, index, title, styles }) => {
     <button
       className={`${styles.buttons} ${active === index && styles.activeButton}`}
       onClick={() => {
-        const categoryType =
-          title === 'UI' || title === 'UX' ? title : title.toLowerCase();
         setSessionStorage(0, categoryType);
         setCategory(categoryType);
         handleClick(index);
