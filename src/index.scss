@@ -8,22 +8,15 @@ html {
 }
 
 body {
-  // height: 100%;
   width: 100vw;
   max-width: 100%;
   background-color: $lightGrey;
-
-  // @include mobileLandscapeXLg {
-  //   overflow-y: hidden;
-  // }
 }
 
 #root {
   height: 100%;
   width: 100vw;
   max-width: 100%;
-  // max-width: 1200px;
-  // margin: auto;
 
   @include mobileLandscapeXXLg {
     overflow-x: hidden;

@@ -7,7 +7,6 @@ export const AddFeedBackBtn = ({ styles }) => {
       <Link to="/add-feedback" className={styles.feedBackBtn} tabIndex="0">
         <span className={styles.plusSign}>&#43;</span> add feedback
       </Link>
-      {/* <button className={styles.feedBackBtn} tabIndex="0"></button> */}
     </>
   );
 };

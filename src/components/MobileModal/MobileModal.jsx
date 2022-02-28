@@ -10,10 +10,9 @@ export const MobileModal = ({ isModalOpen, handleSetModal }) => {
   const storageIndexVal = JSON.parse(sessionStorage.getItem('activeIndex'));
   const [active, setActive] = useState(storageIndexVal || 0);
   const requests = useContext(RequestsContext);
+  const BUTTON_TITLES = ['All', 'UI', 'UX', 'Enhancement', 'Bug', 'Feature'];
 
   if (!isModalOpen) return null;
-
-  const BUTTON_TITLES = ['All', 'UI', 'UX', 'Enhancement', 'Bug', 'Feature'];
 
   const roadmapRequests = requests.filter(
     (request) => request.status !== 'suggestion'

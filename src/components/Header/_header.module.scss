@@ -24,8 +24,6 @@
 
   @include laptop {
     display: block;
-    position: static;
-    width: initial;
     flex: 0;
     padding: 0;
     gap: 1.4rem;

@@ -16,6 +16,21 @@ export const Dropdown = ({
     setCheckMark,
   } = formControls;
 
+  const handleDropdownClick = (optionVal, indexVal, dropdownVal) => {
+    setOption(optionVal);
+    setCheckMark(indexVal);
+    setIsDropDownOpen(!dropdownVal);
+    setFormData((prevData) => ({
+      ...prevData,
+      category: optionVal,
+    }));
+  };
+
+  const handleDropdownKeypress = (e, indexVal) => {
+    setCheckMark(indexVal);
+    handleKeyPress(e);
+  };
+
   return (
     <div className={styles.selectOptions}>
       {options.map((option, index) => {
@@ -23,18 +38,9 @@ export const Dropdown = ({
           <div
             className={styles.option}
             style={{ width: dropdownOptionWidth - 13 }}
-            onClick={() => {
-              setOption(option);
-              setCheckMark(index);
-              setIsDropDownOpen(!isDropDownOpen);
-              setFormData((prevData) => ({
-                ...prevData,
-                category: option,
-              }));
-            }}
+            onClick={() => handleDropdownClick(option, index, isDropDownOpen)}
             onKeyPress={(e) => {
-              setCheckMark(index);
-              handleKeyPress(e);
+              handleDropdownKeypress(e, index);
             }}
             tabIndex="0"
             key={option}

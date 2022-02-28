@@ -26,7 +26,7 @@ export const CategoryType = ({
       setCategoryOption(e.target.innerText);
       setFormData((prevData) => ({
         ...prevData,
-        category: e.target.innerText,
+        category: e.target.innerText.toLowerCase(),
       }));
       setIsDropDownOpen(!isDropDownOpen);
     }
@@ -70,8 +70,6 @@ export const CategoryType = ({
     checkMark,
     setCheckMark,
   };
-
-  console.log(formControls);
 
   return (
     <div className={styles.inputBox}>

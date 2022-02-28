@@ -181,7 +181,8 @@
 .feedBackBtn {
   text-transform: capitalize;
   background-color: $purple;
-  outline: none;
+  // outline: none;
+  outline-color: $white;
   border: none;
   padding: 0.5rem;
   border-radius: 10px;
