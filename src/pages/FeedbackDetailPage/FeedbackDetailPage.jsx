@@ -3,13 +3,16 @@ import { IDContextProvider } from './context/ID.context';
 import { CommentsList } from './components/CommentsList';
 
 export const FeedbackDetailPage = () => {
-  const { requestID } = useParams();
   window.scrollTo(0, 0);
+  const { requestID } = useParams();
+  const request = JSON.parse(localStorage.getItem('requests')).find(
+    (request) => request.requestID === requestID
+  );
 
   return (
     <>
       <IDContextProvider>
-        <CommentsList requestID={requestID} />
+        <CommentsList requestID={requestID} request={request} />
       </IDContextProvider>
     </>
   );
