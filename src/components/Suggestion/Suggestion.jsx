@@ -21,12 +21,13 @@ export const Suggestion = ({ request, sortType, sort }) => {
   const handleSuggestionMouseOver = () => addHoverColor(titleRef, styles);
   const handleSuggestionMouseLeave = () => removeHoverColor(titleRef, styles);
 
-  const handleSessionStorage = () => {
+  const handleClick = () => {
     sessionStorage.setItem('scrollPosition', JSON.stringify(window.scrollY));
   };
 
-  const handleDispatch = (e) => {
+  const handleLikesClick = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     dispatch({
       type: sort === 'upvote-sort' ? 'upvote-sort' : 'upvote',
       requestID: request.requestID,
@@ -40,7 +41,7 @@ export const Suggestion = ({ request, sortType, sort }) => {
         className={styles.container}
         onMouseOver={handleSuggestionMouseOver}
         onMouseLeave={handleSuggestionMouseLeave}
-        onClick={handleSessionStorage}
+        onClick={handleClick}
       >
         <Link to={`/feedback-detail/${request.requestID}`}>
           <div className={styles.innerContainer}>
@@ -59,7 +60,7 @@ export const Suggestion = ({ request, sortType, sort }) => {
                 className={`${styles.likesTotal} ${
                   request.upvoted && styles.active
                 }`}
-                onClick={handleDispatch}
+                onClick={handleLikesClick}
                 onMouseEnter={handleLikesMouseEnter}
                 onMouseLeave={handleLikeMouseLeave}
                 tabIndex="0"
@@ -71,6 +72,7 @@ export const Suggestion = ({ request, sortType, sort }) => {
                 />
                 {request.upvotes}
               </span>
+
               <div className={styles.commentBox}>
                 <img
                   className={`${styles.commentBubble} ${

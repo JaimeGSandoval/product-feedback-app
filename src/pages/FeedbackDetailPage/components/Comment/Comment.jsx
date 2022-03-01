@@ -20,7 +20,6 @@ export const Comment = ({
   const userImgName = firstName;
   const { user } = useContext(UserContext);
   const dispatch = useContext(DispatchContext);
-
   const idContext = useContext(IDContext);
   const { currentRequestID, setCommentIDContext } = idContext;
 
@@ -46,7 +45,7 @@ export const Comment = ({
     }
   };
 
-  const onCommentChange = (e) => {
+  const handleCommentChange = (e) => {
     setDetailInput(e.target.value);
     setCommentError(false);
     setCharactersLeft(250 - e.target.value.length);
@@ -61,11 +60,9 @@ export const Comment = ({
   );
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // temporary
-    if (!detailInput) {
-      return setCommentError(true);
-    }
+    e.preventDefault();
 
+    if (!detailInput) return setCommentError(true);
     if (detailInput.length >= 250) return;
 
     setCommentError(false);
@@ -149,7 +146,7 @@ export const Comment = ({
             className={`${styles.textArea} ${
               commentError && styles.errorOutline
             }`}
-            onChange={onCommentChange}
+            onChange={handleCommentChange}
             value={detailInput}
             rows="8"
             tabIndex="0"

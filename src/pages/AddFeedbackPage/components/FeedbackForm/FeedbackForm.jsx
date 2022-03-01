@@ -46,6 +46,7 @@ export const FeedbackForm = () => {
       formData.detail
     );
 
+    sessionStorage.setItem('scrollPosition', 0);
     setTitleError(false);
     setDetailError(false);
     dispatch({

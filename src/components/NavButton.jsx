@@ -3,7 +3,7 @@ import { CategoryContext } from './context/category.context';
 import { SortContext } from '../pages/SuggestionsPage/components/context/sort.context';
 import { DispatchContext } from '../context/requests.context';
 
-export const NavButton = ({ handleClick, active, index, title, styles }) => {
+export const NavButton = ({ setActive, active, index, title, styles }) => {
   const tabRef = useRef();
   const categoryData = useContext(CategoryContext);
   const sortData = useContext(SortContext);
@@ -19,12 +19,12 @@ export const NavButton = ({ handleClick, active, index, title, styles }) => {
     }
   }, [index]);
 
-  const addBtnHoverBgColor = (e) => {
+  const handleMouseEnter = (e) => {
     if (e.target.classList.contains(styles.activeButton)) return;
     e.target.classList.add(styles.hover);
   };
 
-  const removeBtnHoverBgColor = (e) => {
+  const handleMouseLeave = (e) => {
     e.target.classList.remove(styles.hover);
   };
 
@@ -34,20 +34,23 @@ export const NavButton = ({ handleClick, active, index, title, styles }) => {
     sessionStorage.setItem('activeIndex', index);
   };
 
+  const handleClick = (categoryVal, indexVal) => {
+    window.scrollTo(0, 0);
+    setSessionStorage(0, categoryVal);
+    setCategory(categoryVal);
+    setActive(indexVal);
+    dispatch({
+      type: 'sort',
+      sortType: sortType,
+    });
+  };
+
   return (
     <button
       className={`${styles.buttons} ${active === index && styles.activeButton}`}
-      onClick={() => {
-        setSessionStorage(0, categoryType);
-        setCategory(categoryType);
-        handleClick(index);
-        dispatch({
-          type: 'sort',
-          sortType: sortType,
-        });
-      }}
-      onMouseEnter={addBtnHoverBgColor}
-      onMouseLeave={removeBtnHoverBgColor}
+      onClick={() => handleClick(categoryType, index)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       ref={index === 0 ? tabRef : null}
       tabIndex="0"
     >

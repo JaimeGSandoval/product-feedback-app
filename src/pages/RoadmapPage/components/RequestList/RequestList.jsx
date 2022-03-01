@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { RequestsContext } from '../../../../context/requests.context';
 import { Request } from '../Request';
 import { RequestButton } from './RequestButton';
@@ -6,14 +6,25 @@ import styles from './_requestList.module.scss';
 
 export const RequestList = () => {
   const isNotMobile = window.matchMedia('(min-width: 768px)');
-  window.scrollTo(0, 0);
-
   const [inProgress, setInProgress] = useState(
     !isNotMobile.matches ? true : false
   );
   const [planned, setPlanned] = useState(false);
   const [live, setLive] = useState(false);
   const retrievedRequests = useContext(RequestsContext);
+  const scrollPosition = JSON.parse(sessionStorage.getItem('roadmapScroll'));
+
+  useEffect(() => {
+    return () => {
+      sessionStorage.setItem('roadmapScroll', 0);
+    };
+  }, []);
+
+  if (scrollPosition !== 0) {
+    window.scrollTo(0, scrollPosition);
+  } else {
+    window.scrollTo(0, 0);
+  }
 
   const PLANNED_REQUESTS = retrievedRequests.filter(
     (request) => request.status === 'planned'

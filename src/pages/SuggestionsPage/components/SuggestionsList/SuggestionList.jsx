@@ -20,8 +20,8 @@ export const SuggestionList = () => {
   );
 
   useEffect(() => {
-    window.scrollTo(0, parseInt(scrollPosition));
-  });
+    window.scrollTo(0, scrollPosition);
+  }, [scrollPosition]);
 
   useEffect(() => {
     if (category === 'all') {

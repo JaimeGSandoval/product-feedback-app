@@ -45,9 +45,9 @@ export const Request = ({ request, stateData, category }) => {
             <div className={styles.requestTypeBox}>
               <span className={`${styles.circle} ${setBackground()}`}></span>
               <span className={styles.requestTypeText}>
-                {planned || (category === 'planned' && 'Planned')}
-                {inProgress || (category === 'in-progress' && 'In Progress')}
-                {live || (category === 'live' && 'Live')}
+                {(planned || category === 'planned') && 'Planned'}
+                {(inProgress || category === 'in-progress') && 'In Progress'}
+                {(live || category === 'live') && 'Live'}
               </span>
             </div>
             <span className={styles.title} ref={titleRef} lang="en">
@@ -66,6 +66,10 @@ export const Request = ({ request, stateData, category }) => {
               } `}
               onClick={(e) => {
                 e.preventDefault();
+                sessionStorage.setItem(
+                  'roadmapScroll',
+                  JSON.stringify(window.scrollY)
+                );
                 dispatch({
                   type: 'upvote',
                   requestID: request.requestID,
