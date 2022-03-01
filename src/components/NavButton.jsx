@@ -1,6 +1,6 @@
 import { useEffect, useRef, useContext } from 'react';
 import { CategoryContext } from './context/category.context';
-import { SortContext } from '../pages/SuggestionsPage/components/sort.context';
+import { SortContext } from '../pages/SuggestionsPage/components/context/sort.context';
 import { DispatchContext } from '../context/requests.context';
 
 export const NavButton = ({ handleClick, active, index, title, styles }) => {

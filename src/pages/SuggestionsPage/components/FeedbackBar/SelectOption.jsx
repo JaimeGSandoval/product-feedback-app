@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { SortContext } from '../sort.context';
+import { SortContext } from '../context/sort.context';
 import checkMarkIcon from '../../../../assets/icons/check.svg';
 import styles from './_feedbackBar.module.scss';
 
@@ -16,9 +16,9 @@ export const SelectOption = ({ sortingData, option, index }) => {
   } = sortingData;
 
   const setSessionStorage = (optionVal, indexVal) => {
-   sessionStorage.setItem('sortType', optionVal);
-   sessionStorage.setItem('checkmark', indexVal);
-   sessionStorage.setItem('scrollPosition', 0);
+    sessionStorage.setItem('sortType', optionVal);
+    sessionStorage.setItem('checkmark', indexVal);
+    sessionStorage.setItem('scrollPosition', 0);
   };
 
   const setSortingData = (optionVal, indexVal, dropdownVal) => {

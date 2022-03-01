@@ -22,7 +22,7 @@ export const FeedbackForm = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [])
+  }, []);
 
   const onInputChange = (e) => {
     setFormData((prevData) => ({
@@ -34,7 +34,7 @@ export const FeedbackForm = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // temporary
+    e.preventDefault();
 
     if (!formData.title) {
       return setTitleError(!titleError);
@@ -54,6 +54,8 @@ export const FeedbackForm = () => {
       formData.category,
       formData.detail
     );
+
+    console.log(productRequest);
 
     setTitleError(false);
     setDetailError(false);
