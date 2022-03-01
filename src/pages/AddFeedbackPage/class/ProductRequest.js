@@ -10,7 +10,7 @@ export class ProductRequest {
     this.upvotes = 0;
     this.upvoted = false;
     this.status = 'suggestion';
-    this.author = currentUser;
+    this.author = currentUser.name;
     this.comments = [];
   }
 }
