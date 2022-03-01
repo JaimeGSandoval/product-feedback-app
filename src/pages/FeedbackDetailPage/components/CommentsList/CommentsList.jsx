@@ -2,6 +2,7 @@ import { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { RequestsContext } from '../../../../context/requests.context';
 import { IDContext } from '../../context/ID.context';
+import { currentUser } from '../../../../data/data.json';
 import { GoBackBtn } from '../../../../components/GoBackBtn';
 import { Suggestion } from '../../../../components/Suggestion/Suggestion';
 import { Comment } from '../Comment';
@@ -9,7 +10,7 @@ import { EditFeedback } from '../EditFeedback';
 import { CommentForm } from './CommentForm';
 import styles from './_commentsList.module.scss';
 
-export const CommentsList = ({ requestID }) => {
+export const CommentsList = ({ requestID, request }) => {
   const [isEditing, setIsEditing] = useState(false);
   const requestsContext = useContext(RequestsContext);
   const idContext = useContext(IDContext);
@@ -56,13 +57,15 @@ export const CommentsList = ({ requestID }) => {
           <>
             <div className={styles.buttonBox}>
               <GoBackBtn styles={styles} goBack={goBack} />
-              <button
-                className={styles.editButton}
-                onClick={handleEditClick}
-                tabIndex="0"
-              >
-                edit feedback
-              </button>
+              {currentUser.name === request.author && (
+                <button
+                  className={styles.editButton}
+                  onClick={handleEditClick}
+                  tabIndex="0"
+                >
+                  edit feedback
+                </button>
+              )}
             </div>
             <main>
               <section className={styles.outerContainer}>

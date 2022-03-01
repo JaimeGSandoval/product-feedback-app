@@ -14,6 +14,7 @@
       "upvoted": false,
       "status": "suggestion",
       "description": "Easier to search for solutions based on a specific stack.",
+      "author": "Elijah Moss",
       "comments": [
         {
           "commentID": "kady5wgfb",
@@ -49,6 +50,7 @@
       "upvoted": false,
       "status": "suggestion",
       "description": "It would help people with light sensitivities and who prefer dark mode.",
+      "author": "Thomas Hood",
       "comments": [
         {
           "commentID": "usbanm4v5",
@@ -108,6 +110,7 @@
       "upvoted": false,
       "status": "suggestion",
       "description": "Challenge-specific Q&A would make for easy reference.",
+      "author": "Jackson Barker",
       "comments": [
         {
           "commentID": "u6mur2osv",
@@ -131,6 +134,7 @@
       "upvoted": false,
       "status": "suggestion",
       "description": "Images and screencasts can enhance comments on solutions.",
+      "author": "Ryan Welles",
       "comments": [
         {
           "commentID": "r238i09j8",
@@ -166,6 +170,7 @@
       "upvoted": false,
       "status": "suggestion",
       "description": "Stay updated on comments and solutions other people post.",
+      "author": "Suzanne Chang",
       "comments": [
         {
           "commentID": "m9jflatpi",
@@ -213,6 +218,7 @@
       "upvoted": false,
       "status": "suggestion",
       "description": "Challenge preview images are missing when you apply a filter.",
+      "author": "Victoria Mejia",
       "comments": []
     },
     {
@@ -223,6 +229,7 @@
       "upvoted": false,
       "status": "planned",
       "description": "It would be great to see a more detailed breakdown of solutions.",
+      "author": "Roxanne Travis",
       "comments": [
         {
           "commentID": "ffs5032fn",
@@ -258,6 +265,7 @@
       "upvoted": false,
       "status": "planned",
       "description": "Sequenced projects for different goals to help people improve.",
+      "author": "Javier Pollard",
       "comments": [
         {
           "commentID": "16nyqphia",
@@ -281,6 +289,7 @@
       "upvoted": false,
       "status": "in-progress",
       "description": "Add ability to create professional looking portfolio from profile.",
+      "author": "Anne Valentine",
       "comments": [
         {
           "commentID": "yxogt87qb",
@@ -304,6 +313,7 @@
       "upvoted": false,
       "status": "in-progress",
       "description": "Be able to bookmark challenges to take later on.",
+      "author": "Elijah Moss",
       "comments": [
         {
           "commentID": "hi5x8343u",
@@ -327,6 +337,7 @@
       "upvoted": false,
       "status": "in-progress",
       "description": "Screenshots of solutions with animations don’t display correctly.",
+      "author": "George Partridge",
       "comments": []
     },
     {
@@ -337,6 +348,7 @@
       "upvoted": false,
       "status": "live",
       "description": "Small animations at specific points can add delight.",
+      "author": "James Skinner",
       "comments": [
         {
           "commentID": "2d2rn4ftl",
