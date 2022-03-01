@@ -24,7 +24,7 @@ export const FeedbackForm = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const onInputChange = (e) => {
+  const handleInputChange = (e) => {
     setFormData((prevData) => ({
       ...prevData,
       [e.target.name]: e.target.value,
@@ -36,18 +36,9 @@ export const FeedbackForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!formData.title) {
-      return setTitleError(!titleError);
-    }
-
-    if (!formData.detail) {
-      return setDetailError(!detailError);
-    }
-
-    if (formData.detail.length >= 75 || formData.title.length >= 35) {
-      console.log('error');
-      return;
-    }
+    if (!formData.title) return setTitleError(!titleError);
+    if (!formData.detail) return setDetailError(!detailError);
+    if (formData.detail.length >= 75 || formData.title.length >= 35) return;
 
     const productRequest = new ProductRequest(
       formData.title,
@@ -55,11 +46,12 @@ export const FeedbackForm = () => {
       formData.detail
     );
 
-    console.log(productRequest);
-
     setTitleError(false);
     setDetailError(false);
-    dispatch({ type: 'add', newRequest: productRequest });
+    dispatch({
+      type: 'add',
+      newRequest: productRequest,
+    });
     navigate('/', { replace: true });
 
     return null;
@@ -83,13 +75,13 @@ export const FeedbackForm = () => {
               className={styles.form}
             >
               <TitleInput
-                onInputChange={onInputChange}
+                handleInputChange={handleInputChange}
                 formData={formData}
                 titleError={titleError}
               />
               <FeatureType setFormData={setFormData} />
               <DetailInput
-                onInputChange={onInputChange}
+                handleInputChange={handleInputChange}
                 formData={formData}
                 detailError={detailError}
               />
