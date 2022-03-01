@@ -41,7 +41,7 @@ export const Comment = ({
   };
 
   const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' || e.key === 'Return') {
       handleReplyFormToggle(!activeForm);
     }
   };

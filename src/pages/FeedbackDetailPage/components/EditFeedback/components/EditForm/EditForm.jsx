@@ -46,7 +46,7 @@ export const EditForm = ({ productRequest, isEditing, setIsEditing }) => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // temporary
+    e.preventDefault();
 
     if (!formData.title) {
       return setTitleError(!titleError);
@@ -85,7 +85,7 @@ export const EditForm = ({ productRequest, isEditing, setIsEditing }) => {
           </div>
 
           <div className={styles.formContainer}>
-            <h1>editing 'add a dark theme option'</h1>
+            <h1>editing {`'${productRequest.title}'`}</h1>
 
             <form
               id="EditForm"
