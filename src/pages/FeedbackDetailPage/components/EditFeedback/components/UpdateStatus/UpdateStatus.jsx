@@ -21,7 +21,7 @@ export const UpdateStatus = ({
   const handleDropDown = () => setIsDropDownOpen(!isDropDownOpen);
 
   const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' || e.key === 'Return') {
       setStatusOption(e.target.innerText.toLowerCase());
       setFormData((prevData) => ({
         ...prevData,

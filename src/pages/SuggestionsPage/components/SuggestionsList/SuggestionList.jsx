@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from 'react';
 import { RequestsContext } from '../../../../context/requests.context';
 import { CategoryContext } from '../../../../components/context/category.context';
-import { SortContext } from '../sort.context';
+import { SortContext } from '../context/sort.context';
 import { Suggestion } from '../../../../components/Suggestion/Suggestion';
 import { EmptySuggestion } from '../EmptySuggestion';
 import { FeedbackBar } from '../FeedbackBar';

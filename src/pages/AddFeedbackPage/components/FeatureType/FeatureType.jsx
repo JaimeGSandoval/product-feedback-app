@@ -18,7 +18,7 @@ export const FeatureType = ({ setFormData }) => {
   const handleDropDown = () => setIsDropDownOpen(!isDropDownOpen);
 
   const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' || e.key === 'Return') {
       setActiveOptionText(e.target.innerText);
       setFormData((prevData) => ({
         ...prevData,

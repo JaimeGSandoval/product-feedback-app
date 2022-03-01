@@ -1,4 +1,4 @@
-import { SortContextProvider } from './components/sort.context';
+import { SortContextProvider } from './components/context/sort.context';
 import { CategoryProvider } from '../../components/context/category.context';
 import { SuggestionList } from './components/SuggestionsList/SuggestionList';
 import { MobileHeader } from '../../components/MobileHeader';

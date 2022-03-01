@@ -22,7 +22,7 @@ export const CategoryType = ({
   const handleDropDown = () => setIsDropDownOpen(!isDropDownOpen);
 
   const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' || e.key === 'Return') {
       setCategoryOption(e.target.innerText);
       setFormData((prevData) => ({
         ...prevData,
@@ -49,17 +49,6 @@ export const CategoryType = ({
       document.removeEventListener('mousedown', clickOutsideDropdown);
     };
   }, [isDropDownOpen, setIsDropDownOpen]);
-
-  // const formControls = {
-  //   isDropDownOpen,
-  //   setIsDropDownOpen,
-  //   setCategoryOption,
-  //   handleKeyPress,
-  //   setFormData,
-  //   CATEGORY_OPTIONS,
-  //   checkMark,
-  //   setCheckMark,
-  // };
 
   const formControls = {
     isDropDownOpen,
