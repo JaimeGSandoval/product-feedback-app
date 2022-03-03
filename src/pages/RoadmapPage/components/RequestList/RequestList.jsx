@@ -15,16 +15,16 @@ export const RequestList = () => {
   const scrollPosition = JSON.parse(sessionStorage.getItem('roadmapScroll'));
 
   useEffect(() => {
+    if (scrollPosition !== 0) {
+      window.scrollTo(0, scrollPosition);
+    } else {
+      window.scrollTo(0, 0);
+    }
+
     return () => {
       sessionStorage.setItem('roadmapScroll', 0);
     };
-  }, []);
-
-  if (scrollPosition !== 0) {
-    window.scrollTo(0, scrollPosition);
-  } else {
-    window.scrollTo(0, 0);
-  }
+  }, [scrollPosition]);
 
   const PLANNED_REQUESTS = retrievedRequests.filter(
     (request) => request.status === 'planned'

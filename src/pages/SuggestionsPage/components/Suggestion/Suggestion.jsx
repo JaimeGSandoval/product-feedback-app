@@ -1,15 +1,15 @@
 import { useContext, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { DispatchContext } from '../../context/requests.context';
+import { DispatchContext } from '../../../../context/requests.context';
 import {
   addLikesHoverBgColor,
   removeLikesHoverBgColor,
   addHoverColor,
   removeHoverColor,
-} from '../../utils/hover';
-import comment from '../../assets/icons/comments.svg';
-import arrowUp from '../../assets/icons/arrow-up.svg';
-import arrowUpWhite from '../../assets/icons/arrow-up-white.svg';
+} from '../../../../utils/hover';
+import comment from '../../../../assets/icons/comments.svg';
+import arrowUp from '../../../../assets/icons/arrow-up.svg';
+import arrowUpWhite from '../../../../assets/icons/arrow-up-white.svg';
 import styles from './_suggestion.module.scss';
 
 export const Suggestion = ({ request, sortType, sort }) => {
@@ -25,14 +25,23 @@ export const Suggestion = ({ request, sortType, sort }) => {
     sessionStorage.setItem('scrollPosition', JSON.stringify(window.scrollY));
   };
 
-  const handleLikesClick = (e) => {
+  const updateLikes = (e) => {
     e.preventDefault();
     e.stopPropagation();
+    sessionStorage.setItem('scrollPosition', window.scrollY);
     dispatch({
       type: sort === 'upvote-sort' ? 'upvote-sort' : 'upvote',
       requestID: request.requestID,
       sortType: storageSortVal || 'most upvotes',
     });
+  };
+
+  const handleLikesClick = (e) => {
+    updateLikes(e);
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter' || e.key === 'Return') updateLikes(e);
   };
 
   return (
@@ -63,6 +72,7 @@ export const Suggestion = ({ request, sortType, sort }) => {
                 onClick={handleLikesClick}
                 onMouseEnter={handleLikesMouseEnter}
                 onMouseLeave={handleLikeMouseLeave}
+                onKeyPress={handleKeyPress}
                 tabIndex="0"
               >
                 <img

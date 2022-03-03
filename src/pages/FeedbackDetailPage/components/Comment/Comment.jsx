@@ -23,7 +23,6 @@ export const Comment = ({
   const idContext = useContext(IDContext);
   const { currentRequestID, setCommentIDContext } = idContext;
 
-  // gathers the child comments for the current comment being passed through. If the childComment.parentID is equal to the comment.commentID, thie child comment belongs to that comment
   const childComments = allComments.filter(
     (childComment) => childComment.parentID === comment.commentID
   );
@@ -56,7 +55,7 @@ export const Comment = ({
     user,
     comment.commentID,
     comment.user.username,
-    currentRequestID // identifies what suggestion the reply or comment belongs to
+    currentRequestID
   );
 
   const handleSubmit = (e) => {
@@ -159,7 +158,7 @@ export const Comment = ({
             >
               {`${charactersLeft} characters left`}
             </span>
-            <button className={styles.submitButton} type="submit">
+            <button className={styles.submitButton} type="submit" tabIndex="0">
               post reply
             </button>
           </div>

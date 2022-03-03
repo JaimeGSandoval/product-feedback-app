@@ -21,6 +21,15 @@ export const Request = ({ request, stateData, category }) => {
   const handleSuggestionMouseOver = () => addHoverColor(titleRef, styles);
   const handleSuggestionMouseLeave = () => removeHoverColor(titleRef, styles);
 
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter' || e.key === 'Return') {
+      dispatch({
+        type: 'upvote',
+        requestID: request.requestID,
+      });
+    }
+  };
+
   const setBorder = () => {
     if (planned || category === 'planned') return styles.peachBorder;
     if (inProgress || category === 'in-progress') return styles.purpleBorder;
@@ -77,6 +86,7 @@ export const Request = ({ request, stateData, category }) => {
               }}
               onMouseEnter={handleLikesMouseEnter}
               onMouseLeave={handleLikeMouseLeave}
+              onKeyPress={handleKeyPress}
               tabIndex="0"
             >
               <img

@@ -1,5 +1,5 @@
-@import '../../sass/abstract/vars';
-@import '../../sass/abstract/media-queries';
+@import '../../../../sass/abstract/vars';
+@import '../../../../sass/abstract/media-queries';
 
 .container {
   background-color: $white;
@@ -77,6 +77,7 @@
   color: $darkNavy;
   padding: 0.7rem 1.3rem;
   border-radius: 0.5rem;
+  cursor: pointer;
 
   @include desktopXL {
     font-size: 1.2rem;
