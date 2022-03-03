@@ -26,6 +26,15 @@ export const FeedbackSuggestion = ({ request, sortType, sort }) => {
     });
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter' || e.key === 'Return') {
+      dispatch({
+        type: 'upvote',
+        requestID: request.requestID,
+      });
+    }
+  };
+
   return (
     <>
       <div className={styles.container}>
@@ -48,6 +57,7 @@ export const FeedbackSuggestion = ({ request, sortType, sort }) => {
               onClick={handleLikesClick}
               onMouseEnter={handleLikesMouseEnter}
               onMouseLeave={handleLikeMouseLeave}
+              onKeyPress={handleKeyPress}
               tabIndex="0"
             >
               <img
