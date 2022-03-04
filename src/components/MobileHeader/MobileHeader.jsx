@@ -56,7 +56,7 @@ export const MobileHeader = () => {
           </div>
         </div>
       </header>
-      <MobileModal isModalOpen={isModalOpen} handleSetModal={handleSetModal} />
+      <MobileModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
     </>
   );
 };

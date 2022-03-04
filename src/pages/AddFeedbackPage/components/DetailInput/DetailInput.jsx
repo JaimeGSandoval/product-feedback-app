@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { InputDescription } from '../../../../components/InputDescription';
 import styles from './_detailInput.module.scss';
 
-export const DetailInput = ({ onInputChange, formData, detailError }) => {
+export const DetailInput = ({ handleInputChange, formData, detailError }) => {
   const [detailCharactersLeft, setDetailCharactersLeft] = useState(75);
 
   useEffect(() => {
@@ -11,8 +11,8 @@ export const DetailInput = ({ onInputChange, formData, detailError }) => {
     }
   }, [detailCharactersLeft]);
 
-  const onChange = (e) => {
-    onInputChange(e);
+  const handleChange = (e) => {
+    handleInputChange(e);
     setDetailCharactersLeft(75 - e.target.value.length);
   };
 
@@ -31,7 +31,7 @@ export const DetailInput = ({ onInputChange, formData, detailError }) => {
       <textarea
         id="detailTextArea"
         className={`${styles.textArea} ${detailError && styles.errorOutline}`}
-        onChange={onChange}
+        onChange={handleChange}
         value={formData.detail}
         name="detail"
         rows="8"

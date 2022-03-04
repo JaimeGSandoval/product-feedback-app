@@ -10,7 +10,6 @@ export const FeatureType = ({ setFormData }) => {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const [activeOptionText, setActiveOptionText] = useState(SELECT_OPTIONS[0]);
   const [checkMark, setCheckMark] = useState(0);
-
   const arrow = isDropDownOpen ? arrowUp : arrowDown;
   const containerRef = useRef(null);
   const dropdownRef = useRef();

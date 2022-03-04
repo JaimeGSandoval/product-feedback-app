@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from 'react';
 import { RequestsContext } from '../../../../context/requests.context';
 import { CategoryContext } from '../../../../components/context/category.context';
 import { SortContext } from '../context/sort.context';
-import { Suggestion } from '../../../../components/Suggestion/Suggestion';
+import { Suggestion } from '../Suggestion';
 import { EmptySuggestion } from '../EmptySuggestion';
 import { FeedbackBar } from '../FeedbackBar';
 import styles from './_suggestionList.module.scss';
@@ -20,8 +20,12 @@ export const SuggestionList = () => {
   );
 
   useEffect(() => {
-    window.scrollTo(0, parseInt(scrollPosition));
-  });
+    window.scrollTo(0, scrollPosition);
+  }, [scrollPosition]);
+
+  // useEffect(() => {
+  //   window.scrollTo(0, scrollPosition);
+  // });
 
   useEffect(() => {
     if (category === 'all') {

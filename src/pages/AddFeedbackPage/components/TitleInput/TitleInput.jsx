@@ -1,7 +1,7 @@
 import { InputDescription } from '../../../../components/InputDescription';
 import styles from './_titleInput.module.scss';
 
-export const TitleInput = ({ onInputChange, formData, titleError }) => {
+export const TitleInput = ({ handleInputChange, formData, titleError }) => {
   return (
     <div className={styles.inputBox}>
       <InputDescription
@@ -22,7 +22,7 @@ export const TitleInput = ({ onInputChange, formData, titleError }) => {
         id="feedbackTitle"
         className={`${styles.inputText} ${titleError && styles.errorOutline}`}
         type="text"
-        onChange={onInputChange}
+        onChange={handleInputChange}
         name="title"
         value={formData.title}
       />

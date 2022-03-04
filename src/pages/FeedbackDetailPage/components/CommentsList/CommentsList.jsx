@@ -4,7 +4,7 @@ import { RequestsContext } from '../../../../context/requests.context';
 import { IDContext } from '../../context/ID.context';
 import { currentUser } from '../../../../data/data.json';
 import { GoBackBtn } from '../../../../components/GoBackBtn';
-import { Suggestion } from '../../../../components/Suggestion/Suggestion';
+import { FeedbackSuggestion } from '../FeedbackSuggestion/FeedbackSuggestion';
 import { Comment } from '../Comment';
 import { EditFeedback } from '../EditFeedback';
 import { CommentForm } from './CommentForm';
@@ -70,7 +70,7 @@ export const CommentsList = ({ requestID, request }) => {
             <main>
               <section className={styles.outerContainer}>
                 <div className={styles.innerContainer}>
-                  <Suggestion request={productRequest} sort={sort} />
+                  <FeedbackSuggestion request={productRequest} sort={sort} />
                 </div>
                 <section className={styles.commentsContainer}>
                   <div className={styles.commentsInnerContainer}>

@@ -6,7 +6,7 @@ import { NavButton } from '../NavButton';
 import RoadMapData from '../RoadMap';
 import styles from './_mobileModal.module.scss';
 
-export const MobileModal = ({ isModalOpen, handleSetModal }) => {
+export const MobileModal = ({ isModalOpen, setIsModalOpen }) => {
   const storageIndexVal = JSON.parse(sessionStorage.getItem('activeIndex'));
   const [active, setActive] = useState(storageIndexVal || 0);
   const requests = useContext(RequestsContext);
@@ -36,12 +36,8 @@ export const MobileModal = ({ isModalOpen, handleSetModal }) => {
 
   const handleModalClick = (e) => {
     if (e.target.matches('[data-modal]')) {
-      handleSetModal(!isModalOpen);
+      setIsModalOpen(!isModalOpen);
     }
-  };
-
-  const handleClick = (index) => {
-    setActive(index);
   };
 
   return createPortal(
@@ -59,7 +55,7 @@ export const MobileModal = ({ isModalOpen, handleSetModal }) => {
                   <NavButton
                     title={title}
                     index={index}
-                    handleClick={handleClick}
+                    setActive={setActive}
                     key={title}
                     active={active}
                     styles={styles}

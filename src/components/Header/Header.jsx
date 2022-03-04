@@ -33,10 +33,6 @@ export const Header = () => {
     { status: 'live', tasks: tasksTotals['live'] },
   ];
 
-  const handleClick = (index) => {
-    setActive(index);
-  };
-
   return (
     <header className={styles.header}>
       <div className={styles.imgBox}>
@@ -62,7 +58,7 @@ export const Header = () => {
                 <NavButton
                   title={title}
                   index={index}
-                  handleClick={handleClick}
+                  setActive={setActive}
                   key={title}
                   active={active}
                   styles={styles}
@@ -74,7 +70,15 @@ export const Header = () => {
       </nav>
 
       <div className={styles.roadMapContainer}>
-        <div className={styles.titleContainer}>
+        <div
+          className={styles.titleContainer}
+          onClick={() =>
+            sessionStorage.setItem(
+              'scrollPosition',
+              JSON.stringify(window.scrollY)
+            )
+          }
+        >
           <span className={styles.roadMapTitle}>roadmap</span>
           <Link to="/roadmap" className={styles.viewLink} tabIndex="0">
             view
