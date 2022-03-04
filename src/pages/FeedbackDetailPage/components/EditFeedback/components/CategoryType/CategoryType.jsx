@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
 import { InputDescription } from '../../../../../../components/InputDescription';
-// import { Dropdown } from './Dropdown';
 import { Dropdown } from '../../../../../../components/Dropdown';
 import arrowUp from '../../../../../../assets/icons/arrow-up.svg';
 import arrowDown from '../../../../../../assets/icons/arrow-down.svg';
@@ -14,7 +13,6 @@ export const CategoryType = ({
   const CATEGORY_OPTIONS = ['bug', 'UI', 'UX', 'enhancement', 'feature'];
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const [checkMark, setCheckMark] = useState(0);
-
   const arrow = isDropDownOpen ? arrowUp : arrowDown;
   const containerRef = useRef(null);
   const dropdownRef = useRef();

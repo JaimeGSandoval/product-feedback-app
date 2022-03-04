@@ -23,10 +23,6 @@ export const SuggestionList = () => {
     window.scrollTo(0, scrollPosition);
   }, [scrollPosition]);
 
-  // useEffect(() => {
-  //   window.scrollTo(0, scrollPosition);
-  // });
-
   useEffect(() => {
     if (category === 'all') {
       return setRequestsState(

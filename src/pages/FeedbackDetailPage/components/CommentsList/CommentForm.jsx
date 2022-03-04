@@ -9,7 +9,6 @@ export const CommentForm = ({ styles, requestID }) => {
   const [charactersLeft, setCharactersLeft] = useState(250);
   const { user } = useContext(UserContext);
   const dispatch = useContext(DispatchContext);
-
   const isNotMobile = window.matchMedia('(min-width: 768px)');
 
   useEffect(() => {

@@ -113,11 +113,11 @@
   hyphens: auto;
   font-size: 0.9rem;
 
-  @include tabletMd {
+  @include mobileXL {
     font-size: 1rem;
   }
 
-  @include laptop {
+  @include tabletMd {
     font-size: 1rem;
   }
 
