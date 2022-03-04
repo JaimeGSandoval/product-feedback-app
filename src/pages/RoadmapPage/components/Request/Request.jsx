@@ -21,6 +21,15 @@ export const Request = ({ request, stateData, category }) => {
   const handleSuggestionMouseOver = () => addHoverColor(titleRef, styles);
   const handleSuggestionMouseLeave = () => removeHoverColor(titleRef, styles);
 
+  const handleClick = (e) => {
+    e.preventDefault();
+    sessionStorage.setItem('roadmapScroll', JSON.stringify(window.scrollY));
+    dispatch({
+      type: 'upvote',
+      requestID: request.requestID,
+    });
+  };
+
   const handleKeyPress = (e) => {
     if (e.key === 'Enter' || e.key === 'Return') {
       dispatch({
@@ -73,17 +82,7 @@ export const Request = ({ request, stateData, category }) => {
               className={`${styles.likesTotal} ${
                 request.upvoted && styles.activeUpvote
               } `}
-              onClick={(e) => {
-                e.preventDefault();
-                sessionStorage.setItem(
-                  'roadmapScroll',
-                  JSON.stringify(window.scrollY)
-                );
-                dispatch({
-                  type: 'upvote',
-                  requestID: request.requestID,
-                });
-              }}
+              onClick={handleClick}
               onMouseEnter={handleLikesMouseEnter}
               onMouseLeave={handleLikeMouseLeave}
               onKeyPress={handleKeyPress}

@@ -129,6 +129,7 @@ export const EditForm = ({ productRequest, isEditing, setIsEditing }) => {
               <button
                 className={styles.cancelButton}
                 onClick={goBack}
+                onKeyPress={goBack}
                 tabIndex="0"
               >
                 cancel
@@ -136,6 +137,7 @@ export const EditForm = ({ productRequest, isEditing, setIsEditing }) => {
               <button
                 className={styles.deleteButton}
                 onClick={handleRequestDelete}
+                onKeyPress={handleRequestDelete}
                 tabIndex="0"
               >
                 delete

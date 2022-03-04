@@ -27,18 +27,23 @@ export const SelectOption = ({ sortingData, option, index }) => {
     setIsDropDownOpen(!dropdownVal);
   };
 
+  const handleClick = (optionVal, indexVal, dropdownVal) => {
+    window.scrollTo(0, 0);
+    setSortingData(optionVal, indexVal, dropdownVal);
+    setSessionStorage(optionVal, indexVal);
+  };
+
   return (
     <div
       className={styles.option}
       onClick={() => {
-        window.scrollTo(0, 0);
-        setSortingData(option, index, isDropDownOpen);
-        setSessionStorage(option, index);
+        handleClick(option, index, isDropDownOpen);
       }}
       onKeyPress={(e) => {
         window.scrollTo(0, 0);
-        setCheckMark(index);
         handleKeyPress(e);
+        setSortingData(option, index, isDropDownOpen);
+        setSessionStorage(option, index);
       }}
       tabIndex="0"
     >
