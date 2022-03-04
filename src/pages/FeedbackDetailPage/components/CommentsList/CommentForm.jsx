@@ -83,7 +83,7 @@ export const CommentForm = ({ styles, requestID }) => {
         >
           {`${charactersLeft} characters left`}
         </span>
-        <button className={styles.submitBtn} type="submit">
+        <button className={styles.submitBtn} type="submit" tabIndex="0">
           post comment
         </button>
       </div>

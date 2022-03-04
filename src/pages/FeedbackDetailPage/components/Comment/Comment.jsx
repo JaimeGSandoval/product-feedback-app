@@ -20,11 +20,9 @@ export const Comment = ({
   const userImgName = firstName;
   const { user } = useContext(UserContext);
   const dispatch = useContext(DispatchContext);
-
   const idContext = useContext(IDContext);
   const { currentRequestID, setCommentIDContext } = idContext;
 
-  // gathers the child comments for the current comment being passed through. If the childComment.parentID is equal to the comment.commentID, thie child comment belongs to that comment
   const childComments = allComments.filter(
     (childComment) => childComment.parentID === comment.commentID
   );
@@ -46,7 +44,7 @@ export const Comment = ({
     }
   };
 
-  const onCommentChange = (e) => {
+  const handleCommentChange = (e) => {
     setDetailInput(e.target.value);
     setCommentError(false);
     setCharactersLeft(250 - e.target.value.length);
@@ -57,15 +55,13 @@ export const Comment = ({
     user,
     comment.commentID,
     comment.user.username,
-    currentRequestID // identifies what suggestion the reply or comment belongs to
+    currentRequestID
   );
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // temporary
-    if (!detailInput) {
-      return setCommentError(true);
-    }
+    e.preventDefault();
 
+    if (!detailInput) return setCommentError(true);
     if (detailInput.length >= 250) return;
 
     setCommentError(false);
@@ -149,7 +145,7 @@ export const Comment = ({
             className={`${styles.textArea} ${
               commentError && styles.errorOutline
             }`}
-            onChange={onCommentChange}
+            onChange={handleCommentChange}
             value={detailInput}
             rows="8"
             tabIndex="0"
@@ -162,7 +158,7 @@ export const Comment = ({
             >
               {`${charactersLeft} characters left`}
             </span>
-            <button className={styles.submitButton} type="submit">
+            <button className={styles.submitButton} type="submit" tabIndex="0">
               post reply
             </button>
           </div>

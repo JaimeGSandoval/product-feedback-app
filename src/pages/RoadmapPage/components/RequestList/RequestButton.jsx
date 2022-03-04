@@ -13,13 +13,14 @@ export const RequestButton = ({ styles, buttonData, isNotMobile }) => {
       {!isNotMobile.matches && (
         <button
           className={`${styles.roadmapBtn} ${stateVal && borderStyle}`}
-          onClick={() =>
+          onClick={() => {
+            window.scrollTo(0, 0);
             handleListTypeClick(
               callbackOrder[0],
               callbackOrder[1],
               callbackOrder[2]
-            )
-          }
+            );
+          }}
           tabIndex="0"
         >
           {status} ({numOfRequests})
@@ -28,7 +29,7 @@ export const RequestButton = ({ styles, buttonData, isNotMobile }) => {
 
       {isNotMobile.matches && (
         <>
-          <div className={styles.roadmapCategoryTitle} tabIndex="0">
+          <div className={styles.roadmapCategoryTitle}>
             {status} ({numOfRequests})
             <span className={styles.categoryDescription}>
               {buttonData.description}
