@@ -124,11 +124,14 @@
   display: inline-block;
 }
 
+.sortTitle {
+  text-transform: capitalize;
+}
+
 .sortText,
 .sortTitle {
   color: $white;
   font-family: $roboto;
-  text-transform: capitalize;
   font-size: 0.9rem;
   position: relative;
   top: 1px;
