@@ -92,7 +92,7 @@ export const FeedbackBar = ({ requestsLength }) => {
             ref={containerRef}
           >
             <div className="sortTabContainer">
-              <span className={styles.sortText}>sort by : </span>
+              <span className={styles.sortText}>Sort by : </span>
               <span
                 className={styles.sortTitle}
                 onKeyPress={handleKeyPress}

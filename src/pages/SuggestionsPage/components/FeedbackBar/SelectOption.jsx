@@ -28,7 +28,7 @@ export const SelectOption = ({ sortingData, option, index }) => {
   };
 
   const handleClick = (optionVal, indexVal, dropdownVal) => {
-    window.scrollTo(0, 0);
+    sessionStorage.setItem('scrollPosition', 0);
     setSortingData(optionVal, indexVal, dropdownVal);
     setSessionStorage(optionVal, indexVal);
   };
@@ -40,7 +40,7 @@ export const SelectOption = ({ sortingData, option, index }) => {
         handleClick(option, index, isDropDownOpen);
       }}
       onKeyPress={(e) => {
-        window.scrollTo(0, 0);
+        sessionStorage.setItem('scrollPosition', 0);
         handleKeyPress(e);
         setSortingData(option, index, isDropDownOpen);
         setSessionStorage(option, index);
