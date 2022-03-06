@@ -26,7 +26,10 @@
   font-family: $robotoBold;
   color: $white;
   background-color: $darkNavy;
-  cursor: pointer;
+
+  @include laptop {
+    cursor: pointer;
+  }
 
   @include desktopXXL {
     font-size: 1.2rem;
@@ -38,12 +41,14 @@
   left: 0.7rem;
   border-bottom: 2px solid transparent;
 
-  &:hover {
-    border-bottom-color: $white;
-  }
-
   @include mobileLg {
     font-size: 1rem;
+  }
+
+  @include laptop {
+    &:hover {
+      border-bottom-color: $white;
+    }
   }
 }
 
@@ -84,10 +89,6 @@
   top: 5px;
   font-family: $roboto;
 
-  &:hover {
-    background-color: #bf5ce9;
-  }
-
   @include mobileXSm {
     padding: 0.8rem;
     font-size: 0.9rem;
@@ -99,6 +100,12 @@
 
   @include mobileLg {
     font-size: 1rem;
+  }
+
+  @include laptop {
+    &:hover {
+      background-color: #bf5ce9;
+    }
   }
 }
 

@@ -12,7 +12,10 @@
   font-size: 1rem;
   color: $grey;
   background-color: $lightGrey;
-  cursor: pointer;
+
+  @include laptop {
+    cursor: pointer;
+  }
 }
 
 .goBackText {
@@ -20,8 +23,10 @@
   left: 0.7rem;
   border-bottom: 2px solid transparent;
 
-  &:hover {
-    border-bottom-color: $grey;
+  @include laptop {
+    &:hover {
+      border-bottom-color: $grey;
+    }
   }
 }
 

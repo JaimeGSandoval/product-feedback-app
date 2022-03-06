@@ -1,7 +1,8 @@
 const isNotMobile = window.matchMedia('(min-width: 992px)');
 
-export const addLikesHoverBgColor = (e, styles) =>
-  e.target.classList.add(styles.hover);
+export const addLikesHoverBgColor = (e, styles) => {
+  if (isNotMobile.matches) e.target.classList.add(styles.hover);
+};
 
 export const removeLikesHoverBgColor = (e, styles) =>
   e.target.classList.remove(styles.hover);

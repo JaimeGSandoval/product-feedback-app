@@ -29,8 +29,8 @@ picture {
     display: block;
     height: 4.5rem;
     max-height: 4.5rem;
-    width: 100vw; // works, but doesn't take up full width of screen
-    max-width: 100%; // works, but doesn't take up full width of screen
+    width: 100vw;
+    max-width: 100%;
   }
 
   @include tabletMd {
