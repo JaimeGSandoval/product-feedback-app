@@ -41,7 +41,7 @@ Try the demo live at https://productfeedback.jaimesandoval.net/
 
 ## Preview
 
-![productfeedback-app](/src/assets/images/feedback_demo.gif)
+![productfeedback-app](/src/assets/images/demo/feedback_demo.gif)
 
 ## Getting Started
 
