@@ -100,6 +100,12 @@
   margin: 0;
   background-color: $lightGrey;
   outline-color: $blue;
+
+  @include laptop {
+    &:hover {
+      color: $purple;
+    }
+  }
 }
 
 .inputBox .selectOptions div:nth-of-type(2) {
