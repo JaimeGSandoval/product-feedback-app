@@ -3,19 +3,23 @@
 A website with full CRUD functionality that allows users to review an app or website, submit feature requests, or request a bug fix.
 
 ## Technologies Used
+
 - React.js
 - React Router v6
 - JavaScript ES6
 - Sass
 - CSS3
 - HTML5
+- AWS EC2
 - Local Storage
 - Session Storage
 
 ## Live Demo
+
 Try the demo live at https://productfeedback.jaimesandoval.net/
 
 ## Features
+
 - User can create a feedback request based on a product, application, or website
 - User can read feedback requests submitted by other users
 - User can update a feedback request they have submitted
@@ -29,27 +33,33 @@ Try the demo live at https://productfeedback.jaimesandoval.net/
 - User is notified when their form submission has not met the requirements
 
 ## Stretch Features
+
 - A new user can create an account and profile
 - User can upload a profile image
 - User login
 - User Authentication
 
 ## Preview
+
 ![productfeedback-app](/src/assets/images/feedback_demo.gif)
 
 ## Getting Started
+
 1. Clone the repository
+
 ```shell
 git clone https://github.com/JaimeGSandoval/product-feedback-app.git
 cd product-feedback-app
 ```
 
 2. Install all dependencies with npm
+
 ```
 npm install
 ```
 
 3. Start the Project
+
 ```
 npm start
 ```

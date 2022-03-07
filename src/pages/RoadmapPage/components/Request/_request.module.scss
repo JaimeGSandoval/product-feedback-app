@@ -5,7 +5,10 @@
   background-color: $white;
   border-radius: 10px;
   margin-top: 2rem;
-  cursor: pointer;
+
+  @include laptop {
+    cursor: pointer;
+  }
 }
 
 .innerContainer {
