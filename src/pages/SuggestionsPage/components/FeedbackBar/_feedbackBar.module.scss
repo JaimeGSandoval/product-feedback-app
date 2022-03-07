@@ -111,8 +111,10 @@
   display: flex;
   justify-content: space-between;
 
-  &:hover {
-    color: $purple;
+  @include laptop {
+    &:hover {
+      color: $purple;
+    }
   }
 
   @include desktopXL {
@@ -192,10 +194,6 @@
   color: $white;
   font-family: $roboto;
 
-  &:hover {
-    background-color: #c068e6;
-  }
-
   @include mobileXSm {
     padding: 0.8rem;
     font-size: 0.9rem;
@@ -211,6 +209,12 @@
 
   @include tabletMd {
     padding: 0.8rem 1.2rem;
+  }
+
+  @include laptop {
+    &:hover {
+      background-color: #c068e6;
+    }
   }
 
   @include desktopXL {

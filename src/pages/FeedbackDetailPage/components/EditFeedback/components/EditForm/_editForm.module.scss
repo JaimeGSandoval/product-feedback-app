@@ -161,11 +161,6 @@
   padding: 0.7rem 0;
   border: none;
   border-radius: 10px;
-  cursor: pointer;
-
-  &:hover {
-    opacity: 0.6;
-  }
 
   @include tabletMd {
     padding: 1rem 1.3rem;
@@ -174,6 +169,11 @@
   @include laptop {
     padding: 1rem;
     font-size: 0.8rem;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.6;
+    }
   }
 
   @include desktop {
