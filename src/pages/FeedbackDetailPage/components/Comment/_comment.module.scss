@@ -91,8 +91,10 @@
   cursor: pointer;
   border-bottom: 2px solid transparent;
 
-  &:hover {
-    border-bottom-color: $blue;
+  @include laptop {
+    &:hover {
+      border-bottom-color: $blue;
+    }
   }
 
   @include mobileLg {
@@ -160,16 +162,18 @@
   border-radius: 10px;
   cursor: pointer;
 
-  &:hover {
-    opacity: 0.7;
-  }
-
   @include mobileLg {
     font-size: 0.9rem;
   }
 
   @include tabletMd {
     margin-bottom: auto;
+  }
+
+  @include laptop {
+    &:hover {
+      opacity: 0.7;
+    }
   }
 }
 

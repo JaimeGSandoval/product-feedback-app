@@ -130,10 +130,6 @@
   border: none;
   padding: 0.5rem 0.8rem;
 
-  &:hover {
-    cursor: pointer;
-  }
-
   &:nth-of-type(1),
   &:nth-of-type(2),
   &:nth-of-type(3) {
@@ -163,6 +159,10 @@
       width: 37%;
       padding: 0.5rem 0;
       max-width: 77px;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 
@@ -232,13 +232,15 @@
   top: 2px;
   border-bottom: 2px solid transparent;
 
-  &:hover {
-    border-bottom-color: $blue;
-  }
-
   @include mobileLg {
     font-size: 1rem;
     top: 1px;
+  }
+
+  @include laptop {
+    &:hover {
+      border-bottom-color: $blue;
+    }
   }
 
   @include desktopXL {
