@@ -1,6 +1,6 @@
 # Product Feedback Go
 
-A website with full CRUD functionality that allows users to review an app or website, submit feature requests, or request a bug fix.
+A single page application with CRUD functionality that allows users to review an app or website, submit feature requests, or request a bug fix.
 
 ## Technologies Used
 
@@ -16,7 +16,7 @@ A website with full CRUD functionality that allows users to review an app or web
 
 ## Live Demo
 
-Try the demo live at https://productfeedback.jaimesandoval.net/
+Try the live demo at https://productfeedback.jaimesandoval.net/
 
 ## Features
 
