@@ -16,7 +16,7 @@ A single page application with CRUD functionality that allows users to review an
 
 ## Live Demo
 
-Try the live demo at https://productfeedback.jaimesandoval.net/
+Try the live demo at https://productfeedbackgo.jaimesandoval.net/
 
 ## Features
 
