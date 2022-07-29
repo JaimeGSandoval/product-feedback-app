@@ -1,4 +1,4 @@
-@import '../../../../sass/abstract/media-queries';
+@import "../../../../sass/abstract/media-queries";
 
 .container {
   width: 88%;
@@ -12,12 +12,12 @@
     top: 8rem;
   }
 
-  @include mobileLg {
+  @include mobileMd {
     top: 9rem;
   }
 
   @include mobileLandscapeXSm {
-    top: 0;
+    top: 7rem;
   }
 
   @include tabletMd {
