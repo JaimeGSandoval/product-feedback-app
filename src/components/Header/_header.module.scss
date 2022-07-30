@@ -1,5 +1,5 @@
-@import '../../sass/abstract/vars';
-@import '../../sass/abstract/media-queries';
+@import "../../sass/abstract/vars";
+@import "../../sass/abstract/media-queries";
 
 .header {
   display: none;
@@ -53,6 +53,12 @@
 
 .imgBox {
   position: relative;
+  background-color: #373f68;
+  border-radius: 0.9rem;
+
+  @include laptop {
+    height: 11rem;
+  }
 }
 
 .imgBox img {
