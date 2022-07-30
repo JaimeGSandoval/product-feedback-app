@@ -76,6 +76,10 @@
     padding-top: 0.5rem;
   }
 
+  @include tabletMd {
+    padding-top: 1rem;
+  }
+
   @include laptop {
     padding: 1rem 0;
   }

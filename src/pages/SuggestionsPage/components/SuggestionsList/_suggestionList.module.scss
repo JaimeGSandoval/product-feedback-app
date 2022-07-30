@@ -21,7 +21,8 @@
   }
 
   @include tabletMd {
-    top: 19rem;
+    // top: 19rem;
+    top: 18rem;
     padding-bottom: 3.5rem;
     margin-top: 0;
   }
@@ -29,6 +30,7 @@
   @include laptop {
     margin: 2rem 0;
     width: 100%;
+    top: 5rem;
   }
 
   @include desktopXL {
@@ -40,6 +42,6 @@
   flex: 2;
 
   @include laptop {
-    margin-top: 4rem;
+    margin-top: 0;
   }
 }
