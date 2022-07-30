@@ -1,5 +1,5 @@
-@import '../../../../sass/abstract/vars';
-@import '../../../../sass/abstract/media-queries';
+@import "../../../../sass/abstract/vars";
+@import "../../../../sass/abstract/media-queries";
 
 .container {
   width: 100%;
@@ -33,18 +33,14 @@
   }
 
   @include mobileLandscapeXSm {
-    margin-top: 0.7rem;
-    position: static;
-  }
-
-  @include mobileLandscapeSm {
-    margin-top: 0.5rem;
+    top: 3.5rem;
   }
 
   @include mobileLandscapeXXLg {
     margin-top: 0;
     width: 100vw;
     max-width: 100%;
+    top: 4rem;
   }
 
   @include tabletMd {
@@ -74,7 +70,15 @@
   margin: auto;
   justify-content: space-between;
   align-items: center;
-  padding: 0.7rem 0;
+  padding: 1rem 0 1rem;
+
+  @include mobileLg {
+    padding-top: 0.5rem;
+  }
+
+  @include tabletMd {
+    padding-top: 1rem;
+  }
 
   @include laptop {
     padding: 1rem 0;
