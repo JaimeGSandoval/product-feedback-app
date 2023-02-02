@@ -1,6 +1,6 @@
 # Product Feedback Go
 
-A single page application with CRUD functionality that allows users to review an app or website, submit feature requests, or request a bug fix.
+A single page application with that allows users to review an app, website, or product, submit feature requests, or request a bug fix.
 
 ## Technologies Used
 
@@ -16,7 +16,7 @@ A single page application with CRUD functionality that allows users to review an
 
 ## Live Demo
 
-Try the live demo at https://productfeedbackgo.jaimesandoval.net/
+Try the live demo at https://productfeedbackgo.jamessandoval.dev/
 
 ## Features
 
