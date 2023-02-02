@@ -48,7 +48,7 @@ Try the live demo at https://productfeedbackgo.jamessandoval.dev/
 1. Clone the repository
 
 ```shell
-git clone https://github.com/JaimeGSandoval/product-feedback-app.git product-feedbck-app
+git clone https://github.com/JaimeGSandoval/product-feedback-app.git product-feedback-app
 cd product-feedback-app
 ```
 
