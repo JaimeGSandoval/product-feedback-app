@@ -5,7 +5,7 @@ A single page application with that allows users to review an app, website, or p
 ## Live Demo
 Try the live demo at https://productfeedbackgo.jamessandoval.dev/
 
-![productfeedback-app](/client/public/product-feedback-og.png)
+![productfeedback-app](/public/product-feedback-og.png)
 
 
 
