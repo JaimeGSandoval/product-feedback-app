@@ -2,6 +2,7 @@
 
 A single page application with that allows users to review an app, website, or product, submit feature requests, or request a bug fix.
 
+## Live Demo
 Try the live demo at https://productfeedbackgo.jamessandoval.dev/
 
 ![productfeedback-app](/src/assets/images/demo/feedback_demo.gif)
@@ -20,7 +21,7 @@ Try the live demo at https://productfeedbackgo.jamessandoval.dev/
 - Local Storage
 - Session Storage
 
-## Live Demo
+
 
 
 
