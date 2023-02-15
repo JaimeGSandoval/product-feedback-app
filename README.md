@@ -2,6 +2,10 @@
 
 A single page application with that allows users to review an app, website, or product, submit feature requests, or request a bug fix.
 
+![productfeedback-app](/src/assets/images/demo/feedback_demo.gif)
+
+Try the live demo at https://productfeedbackgo.jamessandoval.dev/
+
 ## Technologies Used
 
 - React.js
@@ -16,7 +20,7 @@ A single page application with that allows users to review an app, website, or p
 
 ## Live Demo
 
-Try the live demo at https://productfeedbackgo.jamessandoval.dev/
+
 
 ## Features
 
@@ -38,10 +42,6 @@ Try the live demo at https://productfeedbackgo.jamessandoval.dev/
 - User can upload a profile image
 - User login
 - User Authentication
-
-## Preview
-
-![productfeedback-app](/src/assets/images/demo/feedback_demo.gif)
 
 ## Getting Started
 
